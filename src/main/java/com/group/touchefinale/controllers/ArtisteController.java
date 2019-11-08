@@ -28,7 +28,7 @@ public class ArtisteController {
 	private ArtisteRepository artisteRepository;
 	
 	@Autowired
-	private BiographieRepository biographieRepository;
+	/* private BiographieRepository biographieRepository; */
 	
 	Artiste artistex;
 	
