@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Liste des differents lieux</title>
+<style type="text/css">
+	
+	@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.xx{
+
+	margin-top: 75px;
+}
+
+.aa{
+	
+	font-size: 50px;
+	text-align: center;
+}
+
+.bb{	
+	
+	margin-top:30px;
+	font-size:20px;
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/artiste">Artiste</a></li>
+		      <li><a href="/biographie">Biographie</a></li>
+		      <li><a href="/evenement">Evenement</a></li>
+		       <li class="active"><a href="#">Lieu</a></li>
+		      <li><a href="/photo">Photo</a></li>
+		       <li><a href="/salle">Salle</a></li>
+		      <li><a href="/video">Video</a></li>
+		    </ul>
+		  </div>
+		</nav>
+	<div class="container">
+	<div class="col-sm-6">
+		<h3>LISTE DES DIFFERENTS LIEUX</h3>
+			<a href="/formulaire_lieu"> 
+				<input type="text" value="Nouveau formulaire" class="btn btn-primary" />
+			</a> 
+			<a href="/"> 
+				<input type="text" value="Revenir à l'accueil" class="btn btn-primary" />
+			</a>
+		</div>
+		<div class="col-sm-6">
+			<form th:action="@{liste_lieu}" method="get">
+				<div class="form-group">
+					<label>Mot Clé:</label>
+					<input type="text" name="motcleRP" th:value="${motcle}" placeholder="chercher par pays"/>
+					<button type="submit" class="btn btn-default">Chercher</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>...</th><th>...</th>
+					
+					<th>ID</th><th>continent</th>
+					
+					<th>Region</th><th>Pays</th>
+					
+					<th>Ville</th><th>Nom de la salle</th>
+					
+					
+			</thead>
+			<tbody>
+				<tr th:each="lde:${listDesLieux}">
+					
+					<td>
+						<a onclick="return confirm('etes-vous sure?')" th:href="@{supprimerlieu(id=${lde.idlieu})}">Supprimer</a>	
+					</td>
+					
+					<td>
+						<a th:href="@{editerlieu(id=${lde.idlieu})}">Editer</a>	
+					</td>
+					
+					<td th:text="${lde.idlieu}"></td>
+					<td th:text="${lde.continentlieu}"></td>
+					
+					<td th:text="${lde.regionlieu}"></td>
+					<td th:text="${lde.payslieu}"></td>
+					
+					<td th:text="${lde.villelieu}"></td>
+					
+					<td th:each="vil:${lde.salles}">
+						<span th:text="${vil.nomsalle}"></span>
+					</td>
+	
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li th:each="p:${pages}" th:class="${p==pageCourante}?active:''">
+				<a th:text="${p}" 
+				th:href="@{liste_lieu(pageRP=${p}, motcleRP=${motcle})}"></a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

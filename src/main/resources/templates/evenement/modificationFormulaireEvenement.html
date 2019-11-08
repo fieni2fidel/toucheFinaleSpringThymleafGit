@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Modification formulaire evenement</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+
+	<style type="text/css">
+		
+
+body{
+	/*background-color: grey;*/
+}
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 70px;
+}
+
+.formulaire{
+	background-color: white;
+
+}
+
+.form{
+	margin-top: 25px;
+}
+
+#title, #idboutonValider{
+	text-align: center;
+}
+
+	</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/liste_artistes">Artiste</a></li>
+		      <li><a href="/liste_biographie">Biographie</a></li>
+		      <li class="active"><a href="#">Evenement</a></li>
+		       <li><a href="/liste_lieu">Lieu</a></li>
+		      <li><a href="/liste_photo">Photo</a></li>
+		       <li><a href="/liste_salle">Salle</a></li>
+		      <li><a href="/liste_videos">Video</a></li>
+		    </ul>
+		  </div>
+		</nav>
+			<div class="container arriereplan">
+				<div>
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<h4 id="title">MODIFICATION FORMULAIRE EVENEMENT</h4>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+
+				<div class="col-md-12 form">
+							<form action="/validation_modification_formulaire_evenement" class="form-group" id="idformbio" th:object="${evenement}" method="post">
+								
+								<div class="col-md-2"></div>
+								<div class="col-md-4">
+   									 <div class="form-group">
+     									 <label for="titre">ID :</label>
+      									 <input class="form-control" type="number" th:field="*{idevenement}" required/>
+   									 </div>
+   									
+   									 <div class="form-group">
+     									 <label for="titre">Type d'evenement :</label>
+      									 <input class="form-control" type="text" th:field="*{nomevenement}" placeholder="exemple : concert, festival ..."  required/>
+   									 </div>
+   									 
+   									  <div class="form-group">
+									      <label for="resume">Infos :</label>
+									      <textarea class="form-control" rows="5" th:field="*{infoevenement}" maxlength="250" placeholder="exemple : avec singuila/hiro/mhd" ></textarea>
+									  </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="titre">Tarif :</label>
+      									 <input class="form-control" type="text" th:field="*{tarifevenement}" placeholder="exemple : 10.000 CFA - 15.000 CFA"  />
+   									 </div>
+   								</div>
+   								<div class="col-md-4">
+   									 <div class="form-group">
+     									 <label for="titre">Date :</label>
+      									 <input class="form-control" type="date" th:field="*{datedebutevenement}"  required/>
+   									 </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="titre">Heure :</label>
+      									 <input class="form-control" type="text" th:field="*{heureevenement}" pattern="[0-9]{1,2}[h][0-9]{0,2}" placeholder="exemple : 09h00 ou 9h00 ou 9h"  required/>
+   									 </div>
+   									 
+   									<div class="form-group">
+   										<div class="row">
+   									 		<div class="col-md-4">
+	   									 		<label for="titre">id Artiste :</label>
+      									 		<input class="form-control" type="number" th:field="*{artiste.idartiste}" required/>
+   									 		</div>
+   									 		<div class="col-md-8">
+	   									 		<label for="titre">nom artiste :</label>
+	      									 	<input class="form-control" type="text" th:field="*{artiste.nomcompletartiste}" />
+   									 		</div>
+   									 	</div>
+   									 	<div class="row">
+     										<div class="col-md-4">
+   									 			<a href="/liste_artistes" target="_blank" class="btn btn-danger">Liste Artiste</a>
+   									 		</div>
+      										<div class="col-md-8">
+   									 		
+   									 		</div>
+     									</div>									 
+   									</div>
+
+
+   									 
+   									<div class="form-group">
+
+   									 	<div class="row">
+   									 		<div class="col-md-4">
+	   									 		<label for="titre">id Salle :</label>
+	      									 	<input class="form-control" type="number" th:field="*{salle.idsalle}" />
+   									 		</div>
+   									 		<div class="col-md-8">
+	   									 		<label for="titre">nom Salle :</label>
+	      									 	<input class="form-control" type="text" th:field="*{salle.nomsalle}" />
+   									 		</div>
+   									 	</div>
+     									<div class="row">
+     										<div class="col-md-4">
+   									 			<a href="/liste_salle" onclick="window.open(this.href); return false;" class="btn btn-danger">Liste Salle</a>
+   									 		</div>
+      										<div class="col-md-8">
+   									 		
+   									 		</div>
+     									</div>
+     									
+      									 
+   									 </div>
+   									 <div class="form-group">
+   									 	<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+   									 </div>
+   									</div>
+   								<div class="col-md-2"></div>
+							</form>
+				</div>		
+					<!-- 		*********************************************************************** -->
+				
+			</div>									
+</body>
+</html>

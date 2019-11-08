@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>page message confirmation salle</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+
+	<style type="text/css">
+		body{		
+				background-size: cover;
+				background-position: center center;
+				background-attachment: fixed;
+			}
+
+		#aa{	
+			margin-top: 70px;	
+		}
+
+		.boutonBleu{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.cadreBouttonBleu{
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/artiste">Artiste</a></li>
+		      <li><a href="/biographie">Biographie</a></li>
+		      <li><a href="/evenement">Evenement</a></li>
+		       <li><a href="/lieu">Lieu</a></li>
+		      <li><a href="/photo">Photo</a></li>
+		       <li class="active"><a href="#">Salle</a></li>
+		      <li><a href="/video">Video</a></li>
+		    </ul>
+		  </div>
+	</nav>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">					
+					</div>
+					<div class="col-sm-6">
+						<div id="aa">
+							<h3>Votre formulaire a bien été ajouté</h3>
+						</div>
+					</div>
+					<div class="col-sm-3">
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<div class="row">
+					<div class="col-sm-3">					
+					</div>
+					<div class="col-sm-6 cadreBouttonBleu">
+						<div class="col-sm-6 boutonBleu">	
+							<a href="/formulaire_salle"><input type="text" id="idboutonValider" value="nouveau formulaire" class="btn btn-primary" /></a>				
+						</div>
+						<div class="col-sm-6 boutonBleu">	
+							<a href="/liste_salle"><input type="text" id="idboutonValider" value="voir la liste" class="btn btn-primary" /></a>				
+						</div>
+						
+					</div>
+					
+					<div class="col-sm-3">					
+					</div>
+				</div>
+				
+			</div>									
+</body>
+</html>

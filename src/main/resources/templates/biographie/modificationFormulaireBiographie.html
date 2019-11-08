@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+
+	<style type="text/css">
+
+body{
+	/*background-color: grey;*/
+}
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 20px;
+}
+
+.formulaire{
+	background-color: white;
+	margin-top: 20px;
+}
+
+#title{
+	text-align: center;
+}
+
+	</style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/artiste">Artiste</a></li>
+      <li class="active"><a href="#">Biographie</a></li>
+      <li><a href="/evenement">Evenement</a></li>
+       <li><a href="/lieu">Lieu</a></li>
+      <li><a href="/photo">Photo</a></li>
+       <li><a href="/salle">Salle</a></li>
+      <li><a href="/video">Video</a></li>
+    </ul>
+  </div>
+</nav>
+			<div class="container arriereplan">
+				<!-- <div class="col-sm-3">
+					
+				</div> -->
+				<div class="col-sm-12 formulaire">
+					<div id="aa">
+
+<!-- 		*********************************************************************** -->
+
+							<form action="/validation_modification_formulaire_biographie" class="form-group" id="idformbio" th:object="${biographie}" method="post">
+								<h4 id="title">MODIFICATION FORMULAIRE BIOGRAPHIE</h4>
+
+   									
+   									<div class="col-sm-6">
+   										<div>
+   											<div class="col-sm-4">
+	   											<div class="form-group">
+				   									<label for="idart">ID de l'artiste :</label>
+				      									 <input class="form-control" type="number" th:field="*{artiste.idartiste}" />
+				   								</div>
+				   							</div>
+				   							<div class="col-sm-8">
+				   								<div class="form-group">
+				   									<label for="idart">nom de l'artiste :</label>
+				      									 <input class="form-control" type="text" th:field="*{artiste.nomcompletartiste}" />
+				      									 <a href="/liste_artistes" onclick="window.open(this.href); return false;" class="btn btn-danger">Liste artistes</a>
+				   								</div>
+				   							</div>			
+				   						</div>
+
+				   						<div>
+   											<div class="col-sm-4">
+			   									<div class="form-group">
+				   									<label for="idsal">ID de la salle :</label>
+				      									 <input class="form-control" type="number" th:field="*{salle.idsalle}" />
+			   									</div>
+			   								</div>
+			   								<div class="col-sm-8">
+			   									<div class="form-group">
+				   									<label for="idsal">Nom de la salle :</label>
+				      									 <input class="form-control" type="text" th:field="*{salle.nomsalle}" />
+				      									 <a href="/liste_salle" onclick="window.open(this.href); return false;" class="btn btn-danger">Liste Salles</a>
+			   									</div>
+			   									
+			   								</div>
+			   							</div>
+		   									
+
+		   								
+   										
+   									</div>
+   									
+   									
+   									<div class="col-sm-6">
+   										<div>
+   											<div class="col-sm-4"> 
+			   									<div class="form-group">
+			     									 <label for="idbio">ID :</label>
+			      									 <input class="form-control" type="number" th:field="*{idbiographie}" required/>
+			   									</div>
+			   								</div>
+			   								<div class="col-sm-8"> 
+			   									<div class="form-group">
+			     									<!--  <label for="idbio">ID :</label>
+			      									 <input class="form-control" type="number" th:field="*{idbiographie}" required/> -->
+			   									</div>
+			   								</div>
+			   							</div>
+			   								<div class="col-sm-12">
+			   									 <div class="form-group">
+			     									 <label for="titre">Titre :</label>
+			      									 <input class="form-control" type="text" th:field="*{nombiographie}" placeholder="Titre de la biographie"  required/>
+			   									 </div>
+			   								</div>
+			   								<div class="col-sm-12">
+			   									  <div class="form-group">
+												      <label for="resume">Resume :</label>
+												      <textarea class="form-control" rows="10" th:field="*{descriptionbiographie}" placeholder="Resume de la biographie"></textarea>
+												  </div>
+											</div>
+											<div class="col-sm-6">
+												<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+											</div>
+									</div>
+
+							</form>
+							
+					<!-- 		*********************************************************************** -->
+				
+						</div>
+
+
+				</div>
+
+			</div>									
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Liste des videos</title>
+<style type="text/css">
+	
+	@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.xx{
+
+	margin-top: 75px;
+}
+
+.aa{
+	
+	font-size: 50px;
+	text-align: center;
+}
+
+.bb{	
+	
+	margin-top:30px;
+	font-size:20px;
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/liste_artistes">Artiste</a></li>
+		      <li><a href="/liste_biographie">Biographie</a></li>
+		      <li><a href="/liste_evenement">Evenement</a></li>
+		       <li><a href="/liste_lieu">Lieu</a></li>
+		      <li><a href="/liste_photo">Photo</a></li>
+		       <li><a href="/liste_salle">Salle</a></li>
+		      <li class="active"><a href="#">Video</a></li>
+		    </ul>
+		  </div>
+	</nav>
+	<div class="container">
+		<div class="col-sm-6">
+			<h3>LISTE DES VIDEOS
+				<span class="glyphicon glyphicon-film"></span>
+			</h3>
+				<a href="/formulaire_video"> 
+					<input type="text" value="Nouveau formulaire" class="btn btn-primary" />
+				</a> 
+				<a href="/"> 
+					<input type="text" value="Revenir à l'accueil" class="btn btn-primary" />
+				</a>
+		</div>
+		<div class="col-sm-6">
+			
+			<form th:action="@{liste_videos}" method="get">
+				<div class="form-group">
+					<label>Mot Clé:</label>
+					<input type="text" name="motcleRP" th:value="${motcle}" placeholder="Search"/>
+					<button type="submit" class="btn btn-default">Chercher</button>
+				</div>
+			</form>
+	
+		</div>
+	</div>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>...</th><th>...</th>
+					<th>ID</th><th>nom de la video</th>
+					<!-- <th>url de la video</th> -->
+					<th>voir la video</th>
+					<th>Nom de l'artiste</th>
+			</thead>
+			<tbody>
+				<tr th:each="ldv:${listeDesVideos}">
+					<td>
+						<a onclick="return confirm('etes-vous sure?')" th:href="@{supprimervideo(id=${ldv.idvideo})}">Supprimer</a>	
+					</td>
+					<td>
+						<a th:href="@{editervideo(id=${ldv.idvideo})}">Editer</a>	
+					</td>
+					
+					<td th:text="${ldv.idvideo}"></td>
+					<td th:text="${ldv.nomvideo}"></td>
+					<!-- <td th:text="${ldv.urlvideo}"></td> -->
+					
+					<td>
+						<iframe width="350" height="215" th:src="@{https://www.youtube.com/embed/{url} (url=${ldv.urlvideo})}" 
+						frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+						picture-in-picture" allowfullscreen></iframe>
+					</td>
+					
+					<td th:text="${ldv.artiste.nomcompletartiste}"></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li th:each="p:${pages}" th:class="${p==pageCourante}?active:''">
+				<a th:text="${p}" 
+				th:href="@{liste_videos(pageRP=${p}, motcleRP=${motcle})}"></a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

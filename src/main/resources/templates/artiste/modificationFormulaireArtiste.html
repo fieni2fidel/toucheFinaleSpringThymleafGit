@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+	
+
+	<!-- <style type="text/css"> -->
+	<style type="text/css">
+				.paragrapheform{
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			.champform{
+				margin: 2px;
+				padding: 5px;
+			}
+			
+			.arriereplan{
+				/*background-color: grey;*/
+				margin-top: 40px;
+			}
+			
+			.formulaire{
+				background-color: white;
+			
+			}
+			
+			.title{
+				text-align: center;
+			}
+			
+			.AA{
+				margin: 0p;
+				padding: 0px;
+			}
+			
+			.BB{
+				margin: 0px;
+				padding: 0px;
+				float: right;
+			}
+	</style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Artiste</a></li>
+      <li><a href="/biographie">Biographie</a></li>
+      <li><a href="/evenement">Evenement</a></li>
+       <li><a href="/lieu">Lieu</a></li>
+      <li><a href="/photo">Photo</a></li>
+       <li><a href="/salle">Salle</a></li>
+      <li><a href="/video">Video</a></li>
+    </ul>
+  </div>
+</nav>
+			<div class="container arriereplan">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8">
+					<h4 class="title">
+						<span class="glyphicon glyphicon-music"></span> 
+						MODIFICATION FORMULAIRE ARTISTE CHANTEUR 
+						<span class="glyphicon glyphicon-music"></span></h4>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+
+			<div class="container arriereplan">
+				<div class="col-sm-12">
+					<form action="/mise_a_jour_artiste" class="form-group" id="idform" th:object="${artiste}" method="post">
+							<div class="col-sm-12">
+								<div class="col-sm-6">
+									 <div class="form-group">
+     									 <label for="id">Id :</label>
+      									 <input class="form-control" type="number" th:field="*{idartiste}" placeholder="id de l'artiste" required/>
+   									 </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="nom">Nom :</label>
+      									 <input class="form-control" type="text" th:field="*{nomcompletartiste}" placeholder="nom de l'artiste ou du groupe" maxlength="100" required/>
+   									 </div>
+
+   									 <div class="form-group">
+     									 <label for="origine">Origine :</label>
+      									 <input type="text" class="form-control" placeholder="nationalite" th:field="*{origineartiste}">
+   									 </div>
+
+   									  <div class="form-group">
+     									 <label for="date">Date de naissance :</label>
+      									 <input type="date" class="form-control" th:field="*{datenaissanceartiste}">
+   									 </div>	
+								</div>
+
+								<div class="col-sm-6">
+   									
+									<div class="form-group">
+   									 	<label for="id">ID-biographie : </label>
+   									 	<a href="/liste_biographie" target="_blank" class="AA"> 
+											<input type="text" value="voir la liste" class="btn btn-primary BB" />
+										</a>
+      									<input type="text" class="form-control" th:field="*{biographies}"
+      									placeholder="id de la biographie">
+   									</div>
+   									 
+   									<div class="form-group">
+   									 	<label for="id">ID-photo : </label>
+   									 	<a href="/liste_photo" target="_blank" class="AA"> 
+											<input type="text" value="voir la liste" class="btn btn-primary BB" />
+										</a>
+      									<input type="text" class="form-control" th:field="*{photos}"
+      									placeholder="id de la photo">
+   									</div>
+   									 
+   									<div class="form-group">
+   									 	<label for="id">ID-video : </label>
+   									 	<a href="/liste_videos" target="_blank" class="AA"> 
+											<input type="text" value="voir la liste" class="btn btn-primary BB" />
+										</a>
+      									<input type="text" class="form-control" th:field="*{videos}"
+      									placeholder="id de la video">
+   									</div>
+   									 
+   									<div class="form-group">
+   									 	<label for="id">ID-evenement : </label>
+   									 	<a href="/liste_evenement" target="_blank" class="AA"> 
+											<input type="text" value="voir la liste" class="btn btn-primary BB" />
+										</a>
+      									<input type="text" class="form-control" th:field="*{evenements}"
+      									placeholder="id de l'evenement">
+   									</div>
+									
+								</div>
+								 <input type="submit" id="idboutonValider" value="valider" class="btn btn-success" />
+							</div>
+									
+					</form>
+				</div>
+			</div>									
+</body>
+</html>

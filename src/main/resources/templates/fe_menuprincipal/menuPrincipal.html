@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Menu Principal</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" th:href="menuprincipaldecoration.css"/>
+	<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+body{
+	background-color: #2E2E2E;
+}
+
+.xx{
+	margin-bottom: 10px;
+}
+
+
+.thumbnail{
+	padding: 0px;
+	margin: 0px;
+}
+.btnDanger{
+	/*position: absolute;*/
+	
+	margin: 0px;
+
+
+}
+.titreCadre{
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+.grandCadre, .largeCadreAlaffiche{
+	margin-top: 100px;
+}
+
+.alaffiche{
+	color:white;
+	padding: 0px;
+	margin: 0px;
+}
+
+.box:hover {
+	transform: translateY(3px);
+}
+
+.imgBox:hover{
+	opacity: 0.5;
+	transition: 0.5s;
+	transform: translateY(3px);
+}
+
+.box{
+	overflow: hidden;
+}
+
+.textRecommandation{
+	color: white;
+}
+
+.cadre{
+	/*border:grey solid 1px;*/
+}
+
+.menuFixe{
+	margin-top: 1.5px;
+	padding: 0px;
+}
+
+h3, h6{
+	color: white;
+}
+
+h5{
+	padding: 0px;
+}
+
+.pticadre{
+	background-color: #131111;
+}
+
+.trimestre{
+	padding: 0px;	
+}
+
+.agenda{
+	padding: 0px;
+	color: white;
+	margin-top: 2px;
+	
+}
+
+.titreAlaffiche{
+	color:  #7C6A19;
+}
+
+.prochainEvenement{
+	padding: 0px;
+	/*background-color:;*/
+	color:  #7C6A19;
+	margin-top: 2px;
+}
+
+.divTADLA{
+	padding: 0px;
+	margin: 0px;
+}
+
+.TitreAgenda, .TitreEvenement{
+	color: white;
+	padding: 0px;
+}
+
+.dateEtLieuAgenda{
+	color: grey;
+	padding: 0px;
+	margin: 0px;
+}
+
+.dateEtLieuPE{
+	/*color: grey;*/
+	padding: 0px;
+	margin: 0px;
+}
+
+.TitreProchainEvenement{
+	padding: 3px;
+	margin: 0px;
+}
+
+.imgProchainEvenement{
+	padding: 0px;
+	margin: 0px;
+}
+
+.timePE{
+	color: grey;
+	padding: 0px;
+	margin-top: 8px;
+}
+.timePEAL{
+	padding: 0px;
+	margin: 0px;
+	color: #E20102;
+	/*background-color: #E20102;*/
+}
+
+.idh1{
+	/*position: center;*/
+	/*text-align: center;*/
+	text-align: center;
+	margin: 25% 25% 25% 25%;
+	/*margin-top: 21.5%;*/
+	/*margin-left: 25%;*/
+	position: absolute;
+	z-index: 2;
+	background-color: black;
+	color: white;
+	font-size: 50px;
+	/*-webkit-filter: sepia(100%);  Safari 6.0 - 9.0 
+  	filter: sepia(100%);
+*/  font-family: 'Roboto', sans-serif;
+  	opacity: 0.8;
+  	border-radius: 5px;
+  	padding: 0px;
+  	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+  	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+  	box-shadow:10px 10px 5px 0px rgba(0,0,0,0.5);;
+}
+.idh2{
+	
+	-webkit-filter: sepia(100%);  Safari 6.0 - 9.0 
+  	filter: sepia(100%);
+  	
+}
+
+h1{
+	padding: 0px;
+	margin: 0px;
+}
+
+img {
+ /* -webkit-filter: sepia(100%);  Safari 6.0 - 9.0 
+  filter: sepia(100%);*/
+  padding: 0px;
+  margin: 0px;
+}
+
+.row{
+	padding: 0px;
+	margin: 0px;
+}
+#phydel00{
+	
+
+}
+
+#phydel01,#phydel02{
+		
+		margin: 0px;
+		padding: 0 0;
+		
+}
+	
+#phydel011,#phydel012,#phydel013,#phydel014,#phydel015,#phydel016{
+	
+	padding: 0px;
+}
+#phydel0111,#phydel0112,#phydel0113,#phydel0114,#phydel0115,#phydel0116{
+	margin: 0 0;
+	
+}
+
+
+	
+	</style>
+</head>
+<body>
+		
+			<div class="menuFixe col-md-12 col-sm-6">
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+				  <div class="container-fluid">
+					    <div class="navbar-header">
+					    	
+					      	<a class="navbar-brand" href="#">TOOCHE FINALE</a>
+					      	<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+					      		<span class="icon-bar"></span>
+					      		<span class="icon-bar"></span>
+					      		<span class="icon-bar"></span>
+					      	</button>
+					    </div>
+					    <div class="collapse navbar-collapse navHeaderCollapse">
+						    <ul class="nav navbar-nav">
+						      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+						      <li><a href="afriquemusique.html">AFRIQUE</a></li>
+						      <li><a href="#">EUROPE</a></li>
+						      <li><a href="#">AMERIQUE</a></li>
+						      <li><a href="#">ARTISTE</a></li>
+						    </ul>
+						</div>
+				  </div>
+				</nav>
+
+				
+				
+		</div>
+		<div class="container largeCadreAlaffiche">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="alaffiche">A L'AFFICHE</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+			
+		</div>
+
+
+		<!-- ------------------------------------------------------------ -->
+
+
+
+		<div class="container largeCadreAlaffiche">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="alaffiche">PRES DE CHEZ VOUS</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-success">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN  | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-success">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN  | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-success">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-3">
+					<div class="box">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<h5>MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN  | <span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<a href="#" class="btn btn-success">Plus d'infos</a>
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+			
+		</div>
+
+
+
+
+		<!-- ----------------------------------------------------------- -->
+
+		<div class="container grandCadre">
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA AFRIQUE</div>
+					<div class="col-md-12 trimestre">
+						<h5>Janvier | Fevrier | Mars</h5>
+						<hr>
+					</div>
+					
+					
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							KEROZEN DJ en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							KEROZEN DJ en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							KEROZEN DJ en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							KEROZEN DJ en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ----------------------------------------------------- -->
+				<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							KEROZEN DJ en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ------------------------------------------------------ -->
+				</div>
+				<!-- ----------- CADRE DU MILIEU ----------- -->
+				<div class="col-md-6 cadre">
+					<div class="col-md-12">
+						<div class="thumbnail">
+							<img src="imagesIndex/Kerozen-DJ.jpg">
+						</div>
+					</div>
+					<div class="col-md-12 btnDanger">
+						<div class="col-md-4">
+							<input type="button" name="buttonAfrique" value="AFRIQUE" class="btn btn-danger "></div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4"></div>
+						
+					</div>
+					<div class="col-md-12 titreCadre">
+						<h3>KEROZEN DJ en concert - Cote d'Ivoire</h3>
+					</div>
+					<!-- --------------------- -->
+					<div class="col-md-12">
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							</div>
+							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+						</div>
+						<!-- --------------------- -->
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							</div>
+							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+						</div>
+						<!-- --------------------- -->
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							</div>
+							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+						</div>
+					</div>
+				</div>
+				<!-- --------------- CADRE SIDE BAR DROITE ---------------- -->
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
+					<hr>
+					</div>
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ------------------------------------------------------ -->
+				</div>
+				<!-- -----------------FIN SIDE BAR DROITE-------------------------- -->
+				</div>
+		</div>   
+
+
+
+		<div class="container grandCadre">
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA EUROPE</div>
+					<div class="col-md-12 trimestre">
+						<h5>Janvier | Fevrier | Mars</h5>
+						<hr>
+					</div>
+					
+					
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							DADJU en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							DADJU en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							DADJU en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							DADJU en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ----------------------------------------------------- -->
+				<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							DADJU en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ------------------------------------------------------ -->
+				</div>
+
+				<!-- --------------------------- -->
+				<div class="col-md-6 cadre">
+					<div class="col-md-12">
+						<div class="thumbnail">
+							<img src="imagesIndex/Dadju-Avril 2019.jpg">
+						</div>
+					</div>
+					<div class="col-md-12 btnDanger">
+						<div class="col-md-4">
+							<input type="button" name="buttonEurope" value="EUROPE" class="btn btn-primary "></div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4"></div>
+						
+					</div>
+					<div class="col-md-12 titreCadre">
+						<h3>DADJU en concert - Cote d'Ivoire</h3>
+					</div>
+					<div class="col-md-12">
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							</div>
+							<h6> DADJU en concert - Cote d'Ivoire</h6>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							</div>
+							<h6> DADJU en concert - Cote d'Ivoire</h6>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							</div>
+							<h6> DADJU en concert - Cote d'Ivoire</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
+					<hr>
+					</div>
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ------------------------------------------------------ -->
+				</div>
+		</div> 
+
+
+
+		<div class="container grandCadre">
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA AMERIQUE | ASIE | RESTE DU MONDE</div>
+					<div class="col-md-12 trimestre">
+						<h5>Janvier | Fevrier | Mars</h5>
+						<hr>
+					</div>
+					
+					
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							AYA NAKAMURA en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							AYA NAKAMURA en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							AYA NAKAMURA en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							AYA NAKAMURA en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ----------------------------------------------------- -->
+				<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreAgenda">
+							AYA NAKAMURA en concert
+						</div>
+						<div class="col-md-12 dateEtLieuAgenda">
+							<h5>20/03/2019 | Congo-Brazzaville</h5>
+							<hr>
+						</div>
+						
+					</div>
+
+				<!-- ------------------------------------------------------ -->
+				</div>
+				<div class="col-md-6 cadre">
+					<div class="col-md-12">
+						<div class="thumbnail">
+							<img src="imagesIndex/ayaNakamura.jpg">
+						</div>
+					</div>
+					<div class="col-md-12 btnDanger">
+						<div class="col-md-4">
+							<input type="button" name="buttonAfrique" value="AMERIQUE | ASIE | RESTE DU MONDE" class="btn btn-success "></div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4"></div>
+						
+					</div>
+					<div class="col-md-12 titreCadre">
+						<h3>Aya Nakamura en concert - Cote d'Ivoire</h3>
+					</div>
+					<div class="col-md-12">
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/ayaNakamura.jpg">	
+							</div>
+							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/ayaNakamura.jpg">	
+							</div>
+							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+						</div>
+						<div class="col-md-4">
+							<div class="thumbnail">
+								<img src="imagesIndex/ayaNakamura.jpg">	
+							</div>
+							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 pticadre">
+					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
+					<hr>
+					</div>
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					
+					<!-- --------------------------------------------- -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
+							<hr>
+						</div>
+						
+					</div>
+
+					<!-- ------------------------------------------------------ -->
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ----------------------------------------------------------- -->
+
+					<div class="col-md-12 divTADLA">
+						<div class="col-md-12 TitreEvenement">
+							<div class="col-md-8 TitreProchainEvenement">
+							SALIF KEITA EN CONCERT
+							</div>
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-12 dateEtLieuPE">
+							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
+							<hr>
+						</div>
+						
+					</div>
+					<!-- ------------------------------------------------------ -->
+				</div>
+		</div> 
+
+
+
+
+<!-- 
+
+		 -->
+	
+	
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+
+	<style type="text/css">
+		/*body{
+
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+#aa{
+	background-color: #333;
+	padding: 30px;
+	margin-top: 30px;
+	border-radius: 10px;
+	opacity: 0.98;
+}
+
+#aa label, p, h2{
+	color: #fff;
+}*/
+
+body{
+	/*background-color: grey;*/
+}
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 70px;
+}
+
+.formulaire{
+	background-color: white;
+
+}
+
+	</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/artiste">Artiste</a></li>
+		      <li><a href="/biographie">Biographie</a></li>
+		      <li><a href="/evenement">Evenement</a></li>
+		       <li><a href="/lieu">Lieu</a></li>
+		      <li class="active"><a href="#">Photo</a></li>
+		       <li><a href="/salle">Salle</a></li>
+		      <li><a href="/video">Video</a></li>
+		    </ul>
+		  </div>
+	</nav>
+			<div class="container arriereplan">
+				<div class="col-sm-4">
+					
+				</div>
+				<div class="col-sm-4 formulaire">
+					<div id="aa">
+
+
+							<form action="/salle_suite_validation_formulaire_photo" class="form-group" id="idphotox" th:object="${photo}" method="post" enctype="multipart/form-data">
+								<h4 id="title">FORMULAIRE IMAGE SUITE SALLE</h4>
+								
+								 <div class="form-group">
+     									 <label for="titre">Id artiste:</label>
+      									 <input class="form-control"  type="number" name="artiste" th:value=1 />
+   									 </div>
+									
+									<div class="form-group">
+     									 <label for="nom">Id :</label>
+      									 <input class="form-control" type="number" placeholder="Id de la photo" 
+      									 name="idphoto" th:field="*{idphoto}"/>
+   									 </div>
+   									 
+   									 
+   									 <div class="form-group">
+     									 <label for="nom">Nom :</label>
+      									 <input class="form-control" type="text" placeholder="Nom de la photo" 
+      									  th:field="*{nomphoto}"/>
+   									 </div>
+   									 
+
+   									  <div class="form-group">
+									      <label for="comment">url votre image :</label>
+									      <input type="text" th:field="*{urlphoto}"/>
+									  </div>
+									  
+									   <div class="form-group">
+     									<label for="nombio">Salle :</label>
+										<select th:field="*{salle.idsalle}">
+										  <option th:each="sal:${listeSalles}" th:text="${sal.nomsalle}" th:value="${sal.idsalle}"></option>
+										</select>
+									  </div>
+
+   									  
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+									</div>
+
+								</div>
+							</form>
+
+						</div>
+
+
+				</div>
+				<div class="col-sm-4">
+					
+				</div>
+			</div>									
+</body>
+</html>

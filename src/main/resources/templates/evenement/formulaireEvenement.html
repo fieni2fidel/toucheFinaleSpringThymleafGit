@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Formulaire evenement</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+	<style type="text/css">
+
+
+body{
+	/*background-color: grey;*/
+}
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 70px;
+}
+
+.formulaire{
+	background-color: white;
+
+}
+
+	</style>
+
+</head>
+<body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/liste_artistes">Artiste</a></li>
+		      <li><a href="/liste_biographie">Biographie</a></li>
+		      <li class="active"><a href="#">Evenement</a></li>
+		       <li><a href="/liste_lieu">Lieu</a></li>
+		      <li><a href="/liste_photo">Photo</a></li>
+		       <li><a href="/liste_salle">Salle</a></li>
+		      <li><a href="/liste_videos">Video</a></li>
+		    </ul>
+		  </div>
+		</nav>
+		
+			<div class="container arriereplan">
+				<div class="col-sm-4">
+					
+				</div>
+				<div class="col-sm-4 formulaire">
+					<div id="aa">
+					
+				<!-- 	********************************************************************************* -->
+					
+					<form action="/validation_formulaire_evenement" class="form-group" id="idformbio" th:object="${evenement}" method="post">
+								<h4 id="title">FORMULAIRE EVENEMENT</h4>
+
+   									 <div class="form-group">
+     									 <label for="titre">Type d'evenement :</label>
+      									 <input class="form-control" type="text" th:field="*{nomevenement}" placeholder="exemple : concert, festival ..."  required/>
+   									 </div>
+   									 
+   									  <div class="form-group">
+									      <label for="resume">Infos :</label>
+									      <textarea class="form-control" rows="5" th:field="*{infoevenement}" maxlength="250" placeholder="exemple : avec singuila/hiro/mhd" ></textarea>
+									  </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="titre">Tarif :</label>
+      									 <input class="form-control" type="text" th:field="*{tarifevenement}" placeholder="exemple : 10.000 CFA - 15.000 CFA"  />
+   									 </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="titre">Date :</label>
+      									 <input class="form-control" type="date" th:field="*{datedebutevenement}"  required/>
+   									 </div>
+   									 
+   									 <div class="form-group">
+     									 <label for="titre">Heure :</label>
+      									 <input class="form-control" type="text" th:field="*{heureevenement}" pattern="[0-9]{1,2}[h][0-9]{0,2}" placeholder="exemple : 09h00 ou 9h00 ou 9h"  required/>
+   									 </div>
+
+   									  <div class="form-group">
+     									<label for="nombio">Artiste :</label>
+										<select name="idartiste" th:field="*{artiste.idartiste}">
+										  <option th:each="art:${listeArtistes}" th:text="${art.nomcompletartiste}" th:value="${art.idartiste}"></option>
+										</select>
+									  </div>
+									  
+									  <div class="form-group">
+     									<label for="nomsal">Salle :</label>
+										<select name="idsalle" th:field="*{salle.idsalle}">
+										  <option th:each="sal:${listeSalles}" th:text="${sal.nomsalle}" th:value="${sal.idsalle}"></option>
+										</select>
+									  </div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+									</div>
+
+									<!-- <div class="checkbox col-sm-6">
+									      <label><input type="checkbox" name="remember"> Remember me</label>
+									 </div> -->
+								</div>
+							</form>
+					
+					<!-- 		*********************************************************************** -->
+
+							<!-- <div class="row">
+									<div class="col-sm-6">
+										<a href=""> Mot de passe oublié </a>
+									</div>
+
+									<div class="checkbox col-sm-6">
+									     <a href=""> Retour vers Tooche Finale </a>
+									 </div>
+								</div> -->
+						</div>
+
+
+				</div>
+				<div class="col-sm-4">
+					
+				</div>
+			</div>									
+</body>
+</html>

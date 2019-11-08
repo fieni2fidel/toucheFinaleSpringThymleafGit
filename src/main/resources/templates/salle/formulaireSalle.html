@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Formulaire salle</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+
+<style type="text/css">
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 70px;
+}
+
+.formulaire{
+	background-color: white;
+
+}
+
+</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/artiste">Artiste</a></li>
+		      <li><a href="/biographie">Biographie</a></li>
+		      <li><a href="/evenement">Evenement</a></li>
+		       <li><a href="/lieu">Lieu</a></li>
+		      <li><a href="/photo">Photo</a></li>
+		       <li class="active"><a href="#">Salle</a></li>
+		      <li><a href="/video">Video</a></li>
+		    </ul>
+		  </div>
+	</nav>
+			<div class="container arriereplan">
+				<div class="col-sm-4">
+					
+				</div>
+				<div class="col-sm-4 formulaire">
+					<div id="aa">
+					
+				<!-- 	********************************************************************************* -->
+					
+					<form action="/validation_formulaire_salle" class="form-group" id="idformbio" th:object="${salle}" method="post">
+								<h4 id="title">FORMULAIRE SALLE</h4>
+
+   									 <div class="form-group">
+     									 <label for="titre">Nom :</label>
+      									 <input class="form-control" type="text" th:field="*{nomsalle}" placeholder="Nom de la salle"  required/>
+   									 </div>
+
+   									  <div class="form-group">
+     									 <label for="titre">Nombre de place :</label>
+      									 <input class="form-control" type="number" th:field="*{nombredeplacesalle}" placeholder="Nombre de place de la salle"  required/>
+   									 </div>
+
+   									   <div class="form-group">
+     									<label for="nombio">Lieu :</label>
+										<select name="idlieu" th:field="*{lieu.idlieu}">
+										  <option th:each="lx:${ListeDesLieuxParVille}" th:text="${lx.villelieu}" th:value="${lx.idlieu}"></option>
+										</select>
+									  </div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+									</div>
+
+								</div>
+							</form>
+					
+					<!-- 		*********************************************************************** -->
+
+					</div>
+						
+				</div>
+				<div class="col-sm-4">
+					
+				</div>
+			</div>									
+</body>
+</html>

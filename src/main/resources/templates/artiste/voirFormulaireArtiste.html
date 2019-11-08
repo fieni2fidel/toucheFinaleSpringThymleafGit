@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Voir Details Artiste</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Artiste</a></li>
+      <li><a href="/biographie">Biographie</a></li>
+      <li><a href="/evenement">Evenement</a></li>
+       <li><a href="/lieu">Lieu</a></li>
+      <li><a href="/photo">Photo</a></li>
+       <li><a href="/salle">Salle</a></li>
+      <li><a href="/video">Video</a></li>
+    </ul>
+  </div>
+</nav>
+	<form action="" class="form-group" id="idform" th:object="${artiste}" method="post">
+		<div class="container">
+			<div class="col-sm-12">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4">
+					<div>
+						<div class="form-group" th:each="lpb:${artiste}">
+				             <h2 th:text="${lpb.nomcompletartiste}"></h2><br>
+				             <label for="titre">Nationalité: </label>
+				             	 <h4 th:text="${lpb.origineartiste}"></h4><br>
+				             <label for="titre">Date de naissance: </label>
+				             	 <h4 th:text="${lpb.datenaissanceartiste}"></h4><br> 
+						</div>
+					
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+			
+			<div class="col-sm-12">
+				<div>
+					<div class="col-sm-4">
+						<div class="row">
+							<div class="col-sm-12">
+								<div th:each="lph:${artiste.photos}">
+									<div class="thumbnail">
+     									<img th:src="@{getphotoimage(id=${lph.idphoto})}" />	
+   									</div>
+   									
+								</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-sm-4">
+						<div class="row">
+							<div class="col-sm-12">
+								<div th:each="ldv:${artiste.videos}">
+										<iframe width="350" height="215" th:src="@{https://www.youtube.com/embed/{url} (url=${ldv.urlvideo})}" 
+										frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+										picture-in-picture" allowfullscreen>
+									</iframe>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+	
+					<div class="col-sm-4">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group" th:each="lpb:${artiste.biographies}">
+				                        <!-- <label for="resume"> </label> -->
+				                        <textarea class="form-control" rows="10" th:text="${lpb.descriptionbiographie}" maxlength="450" placeholder="biographie de l'artiste" ></textarea>
+				                  </div>
+				                     
+				
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-3" th:each="lpb:${artiste.evenements}">
+						<div class="col-sm-12">
+							<div class="form-group">
+				                        <h5 th:text="${lpb.nomevenement}"></h5>
+				                        <h5 th:text="${lpb.datedebutevenement}"></h5>
+				                        <h5 th:text="${lpb.heureevenement}"></h5>
+				                        <h5 th:text="${lpb.tarifevenement}"></h5>
+				                        <h5 th:text="${lpb.salle.nomsalle}"></h5>  
+				                  </div>
+						</div>
+						
+					</div>
+				</div>	
+			</div>
+		</div>
+	</form>
+</body>
+</html>

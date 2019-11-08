@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<title>Liste des evenements</title>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+.xx {
+	margin-top: 75px;
+}
+
+.aa {
+	font-size: 50px;
+	text-align: center;
+}
+
+.bb {
+	margin-top: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.btchercher{
+	
+}
+
+.datefin{
+	margin-top: 5px;
+}
+
+</style>
+</head>
+<body>
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="/liste_artistes">Artiste</a></li>
+		      <li><a href="/liste_biographie">Biographie</a></li>
+		      <li class="active"><a href="#">Evenement</a></li>
+		       <li><a href="/liste_lieu">Lieu</a></li>
+		      <li><a href="/liste_photo">Photo</a></li>
+		       <li><a href="/liste_salle">Salle</a></li>
+		      <li><a href="/liste_videos">Video</a></li>
+		    </ul>
+		  </div>
+		</nav>
+		
+	<div class="container">
+		<div class="col-sm-6">
+			<h3>LISTE DES EVENEMENTS</h3>
+				<a href="/formulaire_evenement"> <input type="text"
+					value="Nouveau formulaire" class="btn btn-primary" />
+				</a> <a href="/"> <input type="text" value="Revenir à l'accueil"
+					class="btn btn-primary" />
+				</a>
+		</div>
+		<div class="col-sm-6">
+				<form th:action="@{liste_evenement}" method="get">
+					<div class="form-group">
+						<div class="col-sm-3">Date debut:</div>
+						<div class="col-sm-9"><input type="date" name="motcleRP1" th:value="${motcle1}"/></div>
+						<br/>
+						<div class="col-sm-3 datefin">Date fin:</div>
+						<div class="col-sm-9"><input type="date" name="motcleRP2" th:value="${motcle2}"/>
+								<button type="submit" class="btn btn-default btchercher">Chercher</button>
+						</div>
+					</div>
+				</form>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>...</th><th>...</th><th>...</th>
+					
+					<th>ID</th><th>Nom ev.</th>
+					<th>Nom artiste</th><th>photo artiste</th><th>Info ev.</th>
+					<th>Date ev.</th><th>heure ev.</th>
+					<th>Tarif ev.</th><th>Nom salle</th>
+					<th>Ville</th><th>Pays</th>
+			</thead>
+			<tbody>
+				<tr th:each="ldb:${listeDesEvenements}">
+					<td><a onclick="return confirm('etes-vous sure?')"
+						th:href="@{supprimerevenement(id=${ldb.idevenement})}">Supprimer</a>
+					</td>
+					<td><a th:href="@{editerevenement(id=${ldb.idevenement})}">Editer</a>
+					</td>
+					<td><a th:href="@{voirevenement(id=${ldb.idevenement})}">Voir</a>
+					</td>
+					<td th:text="${ldb.idevenement}"></td>
+					<td th:text="${ldb.nomevenement}"></td>
+					
+					<td th:text="${ldb.artiste.nomcompletartiste}"></td>
+					<td th:each="tof:${ldb.artiste.photos}">
+						<img th:src="@{getphotoimage(id=${tof.idphoto})}" width="200" height="100"/>
+					</td>
+						
+					<td th:text="${ldb.infoevenement}"></td>
+					
+					<td th:text="${ldb.datedebutevenement}"></td>
+					<td th:text="${ldb.heureevenement}"></td>
+					
+					<td th:text="${ldb.tarifevenement}"></td>
+					<td th:text="${ldb.salle.nomsalle}"></td>
+					
+					<td th:text="${ldb.salle.lieu.villelieu}"></td>
+					<td th:text="${ldb.salle.lieu.payslieu}"></td>
+
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<ul class="nav nav-pills">
+			<li th:each="p:${pages}" th:class="${p==pageCourante}?active:''">
+				<a th:text="${p}" 
+				th:href="@{liste_evenement(pageRP=${p}, motcleRP1=${motcle1}, motcleRP2=${motcle2})}"></a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

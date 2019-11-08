@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>formulaire biographie</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
+
+
+	<style type="text/css">
+		/*body{
+
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+#aa{
+	background-color: #333;
+	padding: 30px;
+	margin-top: 30px;
+	border-radius: 10px;
+	opacity: 0.98;
+}
+
+#aa label, p, h2{
+	color: #fff;
+}*/
+
+body{
+	/*background-color: grey;*/
+}
+
+.paragrapheform{
+	padding: 0px;
+	margin: 0px;
+}
+
+.champform{
+	margin: 2px;
+	padding: 5px;
+}
+
+.arriereplan{
+	/*background-color: grey;*/
+	margin-top: 70px;
+}
+
+.formulaire{
+	background-color: white;
+
+}
+
+	</style>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/artiste">Artiste</a></li>
+      <li class="active"><a href="#">Biographie</a></li>
+      <li><a href="/evenement">Evenement</a></li>
+       <li><a href="/lieu">Lieu</a></li>
+      <li><a href="/photo">Photo</a></li>
+       <li><a href="/salle">Salle</a></li>
+      <li><a href="/video">Video</a></li>
+    </ul>
+  </div>
+</nav>
+			<div class="container arriereplan">
+				<div class="col-sm-4">
+					
+				</div>
+				<div class="col-sm-4 formulaire">
+					<div id="aa">
+					
+				<!-- 	********************************************************************************* -->
+					
+					<form action="/validation_formulaire_biographie" class="form-group" id="idformbio" th:object="${biographie}" method="post">
+								<h4 id="title">FORMULAIRE BIOGRAPHIE</h4>
+
+   									 <div class="form-group">
+     									 <label for="titre">Titre :</label>
+      									 <input class="form-control" type="text" th:field="*{nombiographie}" placeholder="Titre de la biographie"  required/>
+   									 </div>
+
+   									  <div class="form-group">
+									      <label for="resume">Resume :</label>
+									      <textarea class="form-control" rows="10" th:field="*{descriptionbiographie}" maxlength="1000" placeholder="Resume de la biographie, 1000 mots maximum"></textarea>
+									  </div>
+
+   									  <div class="form-group">
+     									<label for="nomartiste">Associer à : </label>
+										 
+										 <select name="nomalier">
+										  <option type="text" value="artiste">Artiste</option>
+										  <option type="text" value="biographie">Salle</option>
+										</select>
+									 </div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
+									</div>
+
+									<!-- <div class="checkbox col-sm-6">
+									      <label><input type="checkbox" name="remember"> Remember me</label>
+									 </div> -->
+								</div>
+							</form>
+					
+					<!-- 		*********************************************************************** -->
+
+							<!-- <div class="row">
+									<div class="col-sm-6">
+										<a href=""> Mot de passe oublié </a>
+									</div>
+
+									<div class="checkbox col-sm-6">
+									     <a href=""> Retour vers Tooche Finale </a>
+									 </div>
+								</div> -->
+						</div>
+
+
+				</div>
+				<div class="col-sm-4">
+					
+				</div>
+			</div>									
+</body>
+</html>
