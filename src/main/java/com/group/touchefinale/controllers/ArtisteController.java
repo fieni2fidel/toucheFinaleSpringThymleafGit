@@ -26,11 +26,7 @@ public class ArtisteController {
 	
 	@Autowired
 	private ArtisteRepository artisteRepository;
-	
-	@Autowired
-	/* private BiographieRepository biographieRepository; */
-	
-	Artiste artistex;
+
 	
 	@Value("${x}")
 	private String imageDir;

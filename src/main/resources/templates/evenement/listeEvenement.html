@@ -9,7 +9,11 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../datepicker/js/bootstrap-datepicker.min.js"></script>
+<link href="../datepicker/css/bootstrap-datepicker.css" />
 <title>Liste des evenements</title>
+
+
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Roboto:500');
 
@@ -73,10 +77,44 @@
 				<form th:action="@{liste_evenement}" method="get">
 					<div class="form-group">
 						<div class="col-sm-3">Date debut:</div>
-						<div class="col-sm-9"><input type="date" name="motcleRP1" th:value="${motcle1}"/></div>
+						<div class="col-sm-9">
+				            <div class='input-group date phydel' id='datetimepicker10'>
+				                <input type='text' class="form-control"/>
+				                <span class="input-group-addon">
+				                    <span class="glyphicon glyphicon-calendar">
+				                    </span>
+				                </span>
+				            </div>
+				        	
+							<!-- <input type="date" name="motcleRP1" th:value="${motcle1}" /> -->
+							
+						</div>
 						<br/>
 						<div class="col-sm-3 datefin">Date fin:</div>
 						<div class="col-sm-9"><input type="date" name="motcleRP2" th:value="${motcle2}"/>
+<!-- 						-----------------------
+						<div class="container">
+						    <div class="col-sm-6" style="height:130px;">
+						        <div class="form-group">
+						            <div class='input-group date' id='datetimepicker10'>
+						                <input type='text' class="form-control" />
+						                <span class="input-group-addon">
+						                    <span class="glyphicon glyphicon-calendar">
+						                    </span>
+						                </span>
+						            </div>
+						        </div>
+						    </div>
+						    <script type="text/javascript">
+						        $(function () {
+						            $('#datetimepicker10').datetimepicker({
+						                viewMode: 'years',
+						                format: 'MM/YYYY'
+						            });
+						        });
+						    </script>
+						</div>
+							----------------------- -->
 								<button type="submit" class="btn btn-default btchercher">Chercher</button>
 						</div>
 					</div>
@@ -137,5 +175,12 @@
 			</li>
 		</ul>
 	</div>
+	<script type="text/javascript">
+	$(function() {
+        $('.phydel').datepicker({
+            format: "dd/mm/yyyy"
+        });
+    });
+</script>
 </body>
 </html>
