@@ -70,38 +70,23 @@
    									   <div class="form-group">
      									 <label for="urlvideo">Url :</label>
       									 <input class="form-control" type="text" th:field="*{urlvideo}"  placeholder="url de la video"  required/>
-      									<!--  <iframe width="560" height="315" th:src="https://www.youtube.com/embed/${video.urlvideo}" 
-											frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-											picture-in-picture" allowfullscreen></iframe> -->
    									 </div>
 
 								<div class="row">
 									<div class="col-sm-6">
 										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />
 									</div>
-
-									<!-- <div class="checkbox col-sm-6">
-									      <label><input type="checkbox" name="remember"> Remember me</label>
-									 </div> -->
 								</div>
 							</form>
 							
-								<!-- <div class="row">
-									<div class="col-sm-6">
-										<a href=""> Mot de passe oublié </a>
-									</div>
-
-									<div class="checkbox col-sm-6">
-									     <a href=""> Retour vers Tooche Finale </a>
-									 </div>
-								</div> -->
 						</div>
-
-
 				</div>
 				<div class="col-sm-4">
 					
 				</div>
-			</div>									
+			</div>	
+			<!-- -------------------------------------------- -->
+	<div th:replace="fragment/footer :: footerFrontAndBack">
+	</div>								
 </body>
 </html>
