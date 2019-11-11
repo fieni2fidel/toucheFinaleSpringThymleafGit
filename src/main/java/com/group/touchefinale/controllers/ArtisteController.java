@@ -30,7 +30,7 @@ public class ArtisteController {
 	@Autowired
 	/* private BiographieRepository biographieRepository; */
 	
-	Artiste artistex;
+	
 	
 	@Value("${x}")
 	private String imageDir;
@@ -141,7 +141,7 @@ public class ArtisteController {
 		}
 		  System.out.println("********  "+nomArtiste);
 		  model.addAttribute("nomArtiste", nomArtiste);
-		return "fe_artiste/"+motcleArtiste;
+		return "front_end/fe_artiste/"+motcleArtiste;
 	}
 	
 }

@@ -41,22 +41,8 @@ body{
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/artiste">Artiste</a></li>
-      <li class="active"><a href="#">Biographie</a></li>
-      <li><a href="/evenement">Evenement</a></li>
-       <li><a href="/lieu">Lieu</a></li>
-      <li><a href="/photo">Photo</a></li>
-       <li><a href="/salle">Salle</a></li>
-      <li><a href="/video">Video</a></li>
-    </ul>
-  </div>
-</nav>
+<div th:replace="fragment/navbar :: navbarBackend">
+</div>
 			<div class="container arriereplan">
 				<div class="col-sm-4">
 					
