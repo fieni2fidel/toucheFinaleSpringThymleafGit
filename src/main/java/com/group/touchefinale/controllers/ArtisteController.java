@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.BiographieRepository;
+import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
@@ -28,12 +30,16 @@ public class ArtisteController {
 	private ArtisteRepository artisteRepository;
 	
 	@Autowired
+	private EvenementRepository evenementRepository;
+	
+	@Autowired
 	/* private BiographieRepository biographieRepository; */
 	
 	
 	
 	@Value("${x}")
 	private String imageDir;
+
 
 	/*------------------------------------------------------------------------------------*/
 	@RequestMapping(value="/formulaire_artiste", method=RequestMethod.GET)
@@ -132,14 +138,29 @@ public class ArtisteController {
 	
 	@RequestMapping(value = "/artiste/{motcleArtiste}")
 	public String artiste(Model model, Long id, @PathVariable("motcleArtiste") String motcleArtiste) {
-	
+		
 		  List<Artiste>nomArtiste=artisteRepository.findByNomcompletartisteLike("%"+motcleArtiste+"%"); 
-		  	
+		  List<Evenement> event=evenementRepository.findAllByOrderByDatedebutevenementDesc();
+		  				
 		 for (Artiste x : nomArtiste) {
-			Artiste artistefrontend=artisteRepository.getOne(x.getIdartiste());
-			model.addAttribute("artistefrontend", artistefrontend);
+			
+					Artiste artistefrontend=artisteRepository.getOne(x.getIdartiste());
+			/*
+			 * x.setEvenements(event); x.getEvenements(); for (Evenement y :
+			 * x.getEvenements()) { y.getDatedebutevenement(); model.addAttribute("Date",
+			 * y); model.addAttribute("Heureevenement", y.getHeureevenement());
+			 * model.addAttribute("Infoevenement", y.getInfoevenement());
+			 * model.addAttribute("Tarifevenement", y.getTarifevenement());
+			 * model.addAttribute("Pays", y.getSalle().getLieu().getPayslieu());
+			 * model.addAttribute("Ville", y.getSalle().getLieu().getVillelieu()); }
+			 */
+					model.addAttribute("artistefrontend",artistefrontend);
+					model.addAttribute("listevent", x.getEvenements());
+					System.out.println("********  "+x.getEvenements());
 		}
 		  System.out.println("********  "+nomArtiste);
+		 
+		
 		  model.addAttribute("nomArtiste", nomArtiste);
 		return "front_end/fe_artiste/"+motcleArtiste;
 	}

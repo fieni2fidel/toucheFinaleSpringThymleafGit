@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+			<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="navbarFrontEnd">
+					  <div class="container-fluid">
+					     <div class="navbar-header">
+						      	<a class="navbar-brand" th:href="@{/}">TOOCHE FINALE</a>
+						      	<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+						      		<span class="icon-bar"></span>
+						      		<span class="icon-bar"></span>
+						      		<span class="icon-bar"></span>
+						      	</button>
+						    </div>
+						    <div class="collapse navbar-collapse navHeaderCollapse">
+							    <ul class="nav navbar-nav">
+							      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+							      <li><a href="afriquemusique.html">AFRIQUE</a></li>
+							      <li><a href="#">EUROPE</a></li>
+							      <li><a href="#">AMERIQUE</a></li>
+							      <li class="active"><a href="menuArtiste.html">ARTISTE</a></li>
+							      
+								<!--      
+							      <li th:classappend="${module == 'listeArtisteChanteurs' ? 'active' : ''}">
+				              		<a href="#" th:href="@{/liste_artistes}">Artiste</a>
+				          			</li> -->
+				          			
+							    </ul>
+							</div>
+					  </div>
+			</nav>
+	</body>
+</html>

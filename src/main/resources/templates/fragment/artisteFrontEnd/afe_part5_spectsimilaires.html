@@ -7,10 +7,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script> -->
-
-
-	<link rel="stylesheet" type="text/css" th:href="maitreGimsCss.css">
+	
+	<link rel="stylesheet" type="text/css" th:href="artistedecoration.css">
 </head>
 <body>
 
@@ -42,32 +40,33 @@
 <div class="container menuFixe">
 		<div class="row">
 			<div class="col-sm-12">
+			<!-- part I photo nationalite naissance -->
 				<div class="col-sm-5">
 					<div class="col-sm-12">
 	
 						<div class="box">
-								<div class="col-sm-12" th:object="${artistefrontend}" th:each="bb:${artistefrontend.photos}">
-									<div>
+								<div class="col-sm-12">
+									<div  th:object="${artistefrontend}" th:each="bb:${artistefrontend.photos}">
 											<div class="thumbnail">
-		     									<img th:src="@{getphotoimage(id=${bb.idphoto})}" />	
+		     									<img th:src="@{getphotoimage(id=${bb.idphoto})}"/>	
 		   									</div>
 									</div>
 								</div>
 							<div class="col-sm-12 textRecommandation" th:object="${artistefrontend}" th:each="lpb:${artistefrontend}">
 									<div class="col-sm-6">
 										<h6><span class="titreAlaffiche">NATIONALITE : </span></h6>
-										<h6 th:text="${lpb.origineartiste}"></h6>	
+										<h6 class="titreAlaffichex" th:text="${lpb.origineartiste}"></h6>	
 									</div>
 									<div class="col-sm-6">
 										<h6><span class="titreAlaffiche">NE(E) LE : </span></h6>
-										<h6 th:text="${lpb.datenaissanceartiste}"></h6>
+										<h6 th:text="${#dates.format(lpb.datenaissanceartiste,'dd-MMM-yyyy')}"></h6>
 									</div>
 									
 							</div>
 						</div>
 					</div>
-
 				</div>
+			<!-- part II Biographie -->
 				<div class="col-sm-7">
 					<div class="box">
 							
@@ -85,60 +84,56 @@
 			</div>
 		</div>				
 	
-
-	<!-- -------------------------- -->
-	
 <!-- ----------------------------- -->
+<!-- part III video youtube -->
 	<div class="playlistArtiste">
-		<div class="col-sm-2">	
-		  				
-		</div>
-	
-		<div class="col-sm-8" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.videos}">
-			<iframe width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
+		
+		<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.videos}">
+			<iframe class="embed-responsive-item" width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
 				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
 				picture-in-picture" allowfullscreen>
 			</iframe>
-		</div>
-		<div class="col-sm-2">
-		  				
-		</div>
+		</div>		
 	</div>
 <!-- -------------------------- -->
 	<div class=" col-sm-12">
-		<div class="col-sm-2">
-				
+		<!-- part IV nada -->
+			<div class="col-sm-2">	
 			</div>
+		<!-- part V dates de spectacles -->
 			<div class="col-sm-8 infoSpectaclesArtisteX">
 				
 				<div th:object="${artistefrontend}" th:each="lpb:${artistefrontend.evenements}">
 						<div class="row" >
 							<div class="col-sm-4">
-								<div><h3 class="dateSpectacleArtiste" th:text="${lpb.datedebutevenement}"></h3></div>
-								<div><h1 class="jourSpectacleArtiste">07</h1></div>	
-								<div><h3 class="moisSpectacleArtiste">Juin 2019</h3></div>
-								<div><h4 class="heureSpectacleArtiste" th:text="${lpb.heureevenement} "> heures</h4></div>
+								<div><h3 class="dateSpectacleArtiste" th:text="${#calendars.dayOfWeekName(lpb.datedebutevenement)}">Vendredi</h3></div>
+								<div><h1 class="jourSpectacleArtiste" th:text="${#dates.format(lpb.datedebutevenement, 'dd')}">07</h1></div>	
+								<div><h3 class="moisSpectacleArtiste" th:text="${#dates.format(lpb.datedebutevenement, 'MMM-yyyy')}">Juin 2019</h3></div>
+								<div><h4 class="heureSpectacleArtiste" th:text="${lpb.heureevenement} "> 20 heures</h4></div>
 							</div>
 							<div class="col-sm-8">
 								<div>
-									<h4 class="nomSpectacleArtiste" th:text="${lpb.infoevenement}"></h4>
-									<h4 class="typeSpectacleArtiste" th:text="${lpb.nomevenement}"></h4>
-									<h4 class="salleSpectacleArtiste" th:text="${lpb.salle.nomsalle}">Palais des sports de Treichville</h4>
-									<h4 class="villeSpectacleArtiste" th:text="${lpb.salle.lieu.payslieu}">Abidjan - Côte d'Ivoire</h4>
-									<h4 class="tarifSpectacleArtiste"><p class="paragrapheTarifSpectacleArtiste">Ordinaire: 25.000 frs CFA </p><p class="paragrapheTarifSpectacleArtiste">VIP: 50.000 frs CFA</p></h4>
+									<h4 class="nomSpectacleArtiste" th:text="${lpb.infoevenement}">Avec Naza/keblack/niho</h4>
+									<h4 class="typeSpectacleArtiste" th:text="${lpb.nomevenement}">Concert</h4>
+									
+									<h4 class="salleSpectacleArtiste" th:text="${lpb.salle.nomsalle}">Palais de la culture</h4>
+									
+										<h4 class="villeSpectacleArtiste" th:text="${lpb.salle.lieu.villelieu}">Abidjan</h4>
+										<h4 class="villeSpectacleArtiste" th:text="${lpb.salle.lieu.payslieu}">Cote d'ivoire</h4>
+										
+										<h4 class="tarifSpectacleArtiste"><p class="paragrapheTarifSpectacleArtiste" 
+										th:text="${lpb.tarifevenement}">vip : 10000 frs CFA</p></h4>
+										
 									<a href="#" class="btn btn-success">Plus d'infos</a>
 								</div>
 							</div>
 						</div>
 						<hr>
 					</div>
-				
 
 				<!-- ------------ -->
-
-				<!-- ------------ -->
-
 			</div>
+		<!-- part VI spectacles ou artistes similaires -->
 			<div class="col-sm-2">
 				<div class="row">
 					<div class="col-sm-12">

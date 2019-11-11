@@ -36,7 +36,7 @@ public class MenuPrincipalController {
 	public String menu_principal_frontend() {
 		
 		
-		return "fe_menuprincipal/menuPrincipal";
+		return "front_end/fe_menuprincipal/menuPrincipal";
 		}
 	
 	/*------------------------------------------------------------------------------------*/

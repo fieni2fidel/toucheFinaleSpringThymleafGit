@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,38 +68,6 @@ public class EvenementController {
 		return "evenement/pageMessageConfirmationEvenement";
 	}
 
-	/*------------------------------------------------------------------------------------*/
-
-	/*
-	 * @RequestMapping(value="/suite_validation_formulaire_evenement",
-	 * method=RequestMethod.POST) public String
-	 * suite_validation_formulaire_evenement(@ModelAttribute("artistesuite") Artiste
-	 * artistesuite, HttpServletRequest request) {
-	 * 
-	 * String nombio=request.getParameter("nombiographie"); String
-	 * descbio=request.getParameter("descriptionbiographie"); String
-	 * idbio=request.getParameter("idbiographie"); Long intidbio=(long)
-	 * Integer.parseInt(idbio);
-	 * 
-	 * String idart=request.getParameter("idartiste");
-	 * 
-	 * Long intidart=Long.parseLong(idart);
-	 * 
-	 * Biographie biobio=biographieRepository.save(new Biographie(intidbio, nombio,
-	 * descbio, new Artiste(intidart)));
-	 * 
-	 * 
-	 * Biographie xbio=biographieRepository.getOne(biobio.getIdbiographie());
-	 * 
-	 * artistesuite=artisteRepository.getOne(intidart);
-	 * artistesuite.getBiographies().add(xbio);
-	 * 
-	 * artisteRepository.save(artistesuite);
-	 * 
-	 * return "biographie/pageMessageConfirmationBiographie"; }
-	 */
-
-	/*------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/liste_evenement")
 	public String liste_evenement(Model model,
@@ -115,7 +84,7 @@ public class EvenementController {
 		c.add(Calendar.DATE, 1);
 		motcle2 = c.getTime();
 		
-		Page<Evenement>listeDesEvenements=evenementRepository.chercherDateEvenement(motcle1, motcle2,new PageRequest(page, 10));
+		Page<Evenement>listeDesEvenements=evenementRepository.chercherDateEvenement(motcle1, motcle2,new PageRequest(page, 10,Sort.by(Sort.Direction.DESC, "datedebutevenement")));
 		int pagesCount=listeDesEvenements.getTotalPages();
 		int[]pages=new int[pagesCount];
 		

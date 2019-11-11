@@ -103,7 +103,7 @@
 						
 					<td th:text="${ldb.infoevenement}"></td>
 					
-					<td th:text="${ldb.datedebutevenement}"></td>
+					<td th:text="${#dates.format(ldb.datedebutevenement, 'dd-MMM-yyyy')}"></td>
 					<td th:text="${ldb.heureevenement}"></td>
 					
 					<td th:text="${ldb.tarifevenement}"></td>

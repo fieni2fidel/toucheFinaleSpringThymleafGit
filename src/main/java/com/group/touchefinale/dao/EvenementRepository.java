@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,6 +16,7 @@ import com.group.touchefinale.entities.Evenement;
 public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	
 	List<Evenement>findAllByOrderByIdevenementDesc();
+	List<Evenement>findAllByOrderByDatedebutevenementDesc();
 	
 	@Query("select e from Evenement e where e.datedebutevenement >= :x and e.datedebutevenement <= :y")
 	Page<Evenement>chercherDateEvenement(@Param("x")
