@@ -27,7 +27,4 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 										 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 										 Date d2, Pageable pageable);
 
-	//Page<Evenement> chercherDateEvenement(Date motcle1, Date motcle2, PageRequest pageRequest);
-	
-	
 }

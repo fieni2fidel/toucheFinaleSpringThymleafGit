@@ -22,11 +22,9 @@ import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Photo;
 import com.group.touchefinale.entities.Video;
 
-
 @Controller
 public class PageArtisteController {
-	
-	
+
 	@Autowired
 	private PhotoRepository photoRepository;
 	
@@ -38,15 +36,7 @@ public class PageArtisteController {
 	
 	@Autowired
 	private ArtisteRepository artisteRepository;
-	
 
-	
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	
-	
 	/*afficher formulaire ETAPE I*/
 	@RequestMapping(value="/formulaire_page_artiste_etape_1", method=RequestMethod.GET)
 	public String formulaire_page_artiste_etape_1(Model model) {
@@ -73,19 +63,11 @@ public class PageArtisteController {
 		artiste=artisteRepository.getOne(artiste.getIdartiste());
 		model1.addAttribute("model1artiste", artiste);
 		System.out.println("les donnees de artiste 1 : "+artiste+" "+artiste.getIdartiste());
-		
-		
 		 
 		return "redirect:/formulaire_page_artiste_etape_2";
 	}
 	
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	/* ------------------------------------------------------------------- */
-	
-	
-	
+
 	/* affichage formulaire II*/
 	@RequestMapping(value="/formulaire_page_artiste_etape_2")
 	public String validation_II_formulaire_page_artiste(Model model2 ) {
@@ -96,17 +78,8 @@ public class PageArtisteController {
 		
 		 model2.addAttribute("biographie", new Biographie());
 		
-		//artiste2= artisteRepository.getOne(artiste2.getIdartiste());
-		/*
-		 * model2.addAttribute("listeBiographies", artiste2.getBiographies());
-		 * model2.addAttribute("listeBiographies", artiste2.getBiographies());
-		 */
-
 		return "PageArtiste/pageArtisteFormulaireEtapeII";
 	}
 
 }
-		
-	
-	
 

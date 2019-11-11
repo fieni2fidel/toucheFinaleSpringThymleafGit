@@ -58,11 +58,7 @@ public class SalleController {
 	/*verifier et valider le formulaire avec condition --- si on doit l'associer a un artiste ou non*/
 	@RequestMapping(value="/validation_formulaire_salle", method=RequestMethod.POST)
 	public String validation_formulaire_salle(Salle salle, Model model) {
-	
-
 	 salleRepository.save(salle);
-		 
-
 		return "salle/pageMessageConfirmationSalle";
 	}
 
@@ -71,7 +67,6 @@ public class SalleController {
 	/*verifier et valider le formulaire*/
 	@RequestMapping(value="/validation_modification_formulaire_salle", method=RequestMethod.POST)
 	public String validation_modification_formulaire_salle(Salle salle, Model model) {
-	
 	
 	salleRepository.save(salle);
 
@@ -96,23 +91,17 @@ public class SalleController {
 	
 	String idlieu=request.getParameter("idlieu");
 	Long longlieu=Long.parseLong(idlieu);
-	
-	
-	
+
 	Salle salsal=salleRepository.save(new Salle(longidsalle, nomsalle, longnbreplxsalle, new Lieu(longlieu)));
 	
 	Salle xsalle=salleRepository.getOne(salsal.getIdsalle());
-
 	
 	lieusuite=lieuRepository.getOne(longlieu);
 	lieusuite.getSalles().add(xsalle);
-
 	
 	System.out.println("**************** ******** "+lieusuite);
 	
-	lieuRepository.save(lieusuite);
-	
-	
+	lieuRepository.save(lieusuite);	
 		/* return "redirect:liste_biographie"; */
 		 return "salle/pageMessageConfirmationSalle"; 
 	}
@@ -133,11 +122,9 @@ public class SalleController {
 		
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);
-		model.addAttribute("motcle", motcle);
-		
+		model.addAttribute("motcle", motcle);		
 		model.addAttribute("listeDesSalles", listeDesSalles);
-		
-		
+
 		return "salle/listeSalle";
 	}
 
@@ -156,7 +143,6 @@ public class SalleController {
 		Salle salle=salleRepository.getOne(id);
 		model.addAttribute("salle", salle);
 		
-		
 		System.out.println("***** ******* **** "+salle.getIdsalle());
 	
 	return "salle/modificationFormulaireSalle";
@@ -172,10 +158,6 @@ public class SalleController {
 		
 		return "redirect:liste_salle";
 	}
-	
-	
-	/*------------------------------------------------------------------------------------*/
-	
 	
 }
 

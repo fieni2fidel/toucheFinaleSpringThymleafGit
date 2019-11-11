@@ -92,8 +92,6 @@ public class PhotoController {
 		photoRepository.save(photo);
 		
 		model.addAttribute("photo", photo);
-
-
 		
 		if ((name.equals("artiste"))) {
 			
@@ -117,11 +115,7 @@ public class PhotoController {
 	   }
 	}
 	  
-	  //--------------------------------------------------------------------------------
-	  
-	  
-	  
-	  
+
 	  /*verifier et valider le formulaire  avec le nom de l'artiste*/
 		@RequestMapping(value="/artiste_suite_validation_formulaire_photo", method=RequestMethod.POST)
 		public String artiste_suite_validation_formulaire_photo(Photo photo) {
@@ -134,13 +128,6 @@ public class PhotoController {
 		}
 		
 		
-		/*------------------------------------------------------------------------------------*/
-	  
-	  
-		 //--------------------------------------------------------------------------------
-		  
-		  
-		  
 		  
 		  /*verifier et valider le formulaire  avec le nom de la salle*/
 			@RequestMapping(value="/salle_suite_validation_formulaire_photo", method=RequestMethod.POST)
@@ -153,15 +140,7 @@ public class PhotoController {
 				return "photo/pageMessageConfirmationphoto";
 			}
 			
-			
-			/*------------------------------------------------------------------------------------*/
-		  
-		  
-		  
-	  
-	  
-	//--------------------------------------------------------------------------------
-	  
+
 	  @RequestMapping(value = {"/artiste/getphotoimage","/getphotoimage"}, produces = MediaType.IMAGE_JPEG_VALUE)
 		@ResponseBody
 		public byte[] getphotoimage(@RequestParam("id") Long idphoto) throws Exception{
@@ -211,11 +190,7 @@ public class PhotoController {
 				  return "photo/modificationFormulairePhoto";
 				 
 	   }
-	
-		//--------------------------------------------------------------------------------
-	  
-	 
-		
+
 		  @RequestMapping(value="/update_photo", method=RequestMethod.POST) 
 		  public String update_photo(Photo photo, MultipartFile photoimagemodif) throws IllegalStateException, IOException{
 			  
@@ -250,13 +225,7 @@ public class PhotoController {
 				  System.out.println("image de mise a jour : ********** "+imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());  
 				
 				  photoRepository.save(photo);
-			/*
-			 * photo.setUrlphoto(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().
-			 * substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());
-			 * photoimage.transferTo(new
-			 * File(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.
-			 * getUrlphoto().lastIndexOf('.')+1).trim()));
-			 */
+
 				  photo.setUrlphoto(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());
 				  String filephotoimagex=imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim();
 				  
@@ -279,15 +248,7 @@ public class PhotoController {
 		  return "redirect:liste_photo";
 		  
 		  }
-		  
-	/*
-	 * -----------------------------------------------------------
-	 * ----------------------------------------------------------
-	 */
-		  
-		  
-		
-			/*------------------------------------------------------------------------------------*/
+
 }
 		
 	

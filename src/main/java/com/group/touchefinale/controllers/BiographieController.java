@@ -44,9 +44,6 @@ public class BiographieController {
 		return "biographie/formulaireBiographie";
 		}
 	
-	/*------------------------------------------------------------------------------------*/
-
-	
 	/*verifier et valider le formulaire avec condition --- si on doit l'associer a un artiste ou non*/
 	@RequestMapping(value="/validation_formulaire_biographie", method=RequestMethod.POST)
 	public String validation_formulaire_biographie(Biographie biographie, HttpServletRequest request,Model model) {
@@ -63,9 +60,7 @@ public class BiographieController {
 		model.addAttribute("artiste", new Artiste());
 		
 		biographieRepository.save(biographie);
-		
-			
-		
+
 		return "biographie/formulaireBiographieSuiteArtiste";
 	}else {
 		
@@ -80,15 +75,9 @@ public class BiographieController {
 
 }
 
-	/*--------------------------------------------------------------------------------*/
-	
-	/*------------------------------------------------------------------------------------*/
-
-	
 	/*verifier et valider le formulaire  avec le nom de l'artiste*/
 	@RequestMapping(value="/artiste_suite_validation_formulaire_biographie", method=RequestMethod.POST)
 	public String artiste_suite_validation_formulaire_biographie(Biographie biographie) {
-
 	
 	biographieRepository.save(biographie);
 	
@@ -96,13 +85,7 @@ public class BiographieController {
 		 return "biographie/pageMessageConfirmationBiographie"; 
 	}
 	
-	
-	
-/*------------------------------------------------------------------------------------*/
 
-
-	
-	
 	/*verifier et valider le formulaire*/
 	@RequestMapping(value="/salle_suite_validation_formulaire_biographie", method=RequestMethod.POST)
 	public String salle_suite_validation_formulaire_biographie(Biographie biographie) {
@@ -114,14 +97,6 @@ public class BiographieController {
 	}
 	
 
-	/*------------------------------------------------------------------------------------*/
-	
-	
-/*------------------------------------------------------------------------------------*/
-
-
-	
-	
 	/*verifier et valider le formulaire*/
 	@RequestMapping(value="/validation_modification_formulaire_biographie", method=RequestMethod.POST)
 	public String validation_modification_formulaire_biographie(Biographie biographie) {
@@ -133,8 +108,6 @@ public class BiographieController {
 	}
 	
 
-	/*------------------------------------------------------------------------------------*/
-	
 	@RequestMapping(value="/liste_biographie")
 	public String liste_artistes(Model model,
 			@RequestParam(name="pageRP", defaultValue = "0")int page,
@@ -159,7 +132,6 @@ public class BiographieController {
 		public String supprimerbiographie(Long id) {
 		biographieRepository.deleteById(id);
 		
-		
 		return "redirect:liste_biographie";
 	}
 	
@@ -168,7 +140,6 @@ public class BiographieController {
 	
 		Biographie biographie=biographieRepository.getOne(id);
 		model.addAttribute("biographie", biographie);
-		
 		
 		System.out.println("***** ******* **** "+biographie.getIdbiographie());
 	
@@ -185,10 +156,6 @@ public class BiographieController {
 		
 		return "redirect:liste_biographie";
 	}
-	
-	
-	/*------------------------------------------------------------------------------------*/
-	
 	
 }
 

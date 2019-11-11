@@ -39,12 +39,9 @@ public class EvenementController {
 
 		List<Artiste> listeArtistes = artisteRepository.findAllByOrderByNomcompletartiste();
 		model.addAttribute("listeArtistes", listeArtistes);
-
 		List<Salle> listeSalles = salleRepository.findAllByOrderByNomsalle();
 		model.addAttribute("listeSalles", listeSalles);
-
 		model.addAttribute("evenement", new Evenement());
-
 		return "evenement/formulaireEvenement";
 	}
 
@@ -52,9 +49,7 @@ public class EvenementController {
 
 	@RequestMapping(value = "/validation_formulaire_evenement", method = RequestMethod.POST)
 	public String validation_formulaire_evenement(Evenement evenement) {
-
 		evenementRepository.save(evenement);
-
 		return "evenement/pageMessageConfirmationEvenement";
 	}
 
@@ -64,7 +59,6 @@ public class EvenementController {
 	public String validation_modification_formulaire_evenement(Evenement evenement) {
 
 		evenementRepository.save(evenement);
-
 		return "evenement/pageMessageConfirmationEvenement";
 	}
 
@@ -95,26 +89,20 @@ public class EvenementController {
 		model.addAttribute("motcle1", motcle1);
 		model.addAttribute("motcle2", motcle2);
 		model.addAttribute("listeDesEvenements", listeDesEvenements);
-
-	
 		return "evenement/listeEvenement";
 	}
 
 	@RequestMapping(value = "/supprimerevenement")
 	public String supprimerevenement(Long id) {
 		evenementRepository.deleteById(id);
-
 		return "redirect:liste_evenement";
 	}
 
 	@RequestMapping(value = "/editerevenement")
 	public String editerevenement(Long id, Model model) {
-
 		Evenement evenement = evenementRepository.getOne(id);
 		model.addAttribute("evenement", evenement);
-
 		System.out.println("***** ******* **** " + evenement.getIdevenement());
-
 		return "evenement/modificationFormulaireEvenement";
 
 	}
@@ -123,9 +111,7 @@ public class EvenementController {
 
 	@RequestMapping(value = "/mise_a_jour_evenement", method = RequestMethod.POST)
 	public String mise_a_jour_evenement(Evenement evenement) {
-
 		evenementRepository.save(evenement);
-
 		return "redirect:liste_evenement";
 	}
 
@@ -135,14 +121,9 @@ public class EvenementController {
 	public String voirevenement(@RequestParam(value = "id") Long id, Model model) {
 
 		Evenement evenement = evenementRepository.getOne(id);
-
 		model.addAttribute("evenement", evenement);
-
 		System.out.println("***** ******* **** " + evenement.getIdevenement());
-
 		System.out.println("***** model event******* **** " + evenement);
-
-
 		return "evenement/voirFormulaireEvenement";
 
 	}

@@ -77,50 +77,6 @@ public class VideoController {
 	  
 	  return "video/pageMessageConfirmationvideo"; }
 	 
-
-	/*------------------------------------------------------------------------------------*/
-
-	// ------------------------------------------------------------------
-
-	/* verifier et valider le formulaire avec le nom de l'artiste */
-	/*
-	 * @RequestMapping(value = "/suite_validation_formulaire_video", method =
-	 * RequestMethod.POST) public String suite_validation_formulaire_video(Artiste
-	 * artistesuite, HttpServletRequest request) {
-	 * 
-	 * String nomvideo = request.getParameter("nomvideo"); String urlvideo =
-	 * request.getParameter("urlvideo"); String idvideo =
-	 * request.getParameter("idvideo"); Long intidvideo = (long)
-	 * Integer.parseInt(idvideo);
-	 * 
-	 * String idart = request.getParameter("idartiste");
-	 * 
-	 * Long intidart = Long.parseLong(idart);
-	 * 
-	 * Video biobio = videoRepository.save(new Video(intidvideo, nomvideo, urlvideo,
-	 * new Artiste(intidart)));
-	 * 
-	 * Video xbio = videoRepository.getOne(biobio.getIdvideo());
-	 * 
-	 * Collection<Video>colvideo=new ArrayList<Video>(); colvideo.add(xbio);
-	 * 
-	 * 
-	 * System.out.println("**************** ******** " + nomvideo + urlvideo +
-	 * "  ********  " + idart); System.out.println("**************** ******** " +
-	 * nomvideo + urlvideo + "  ********  " + intidart);
-	 * 
-	 * System.out.println("**************** ******** " + xbio.getIdvideo());
-	 * 
-	 * artistesuite = artisteRepository.getOne(intidart);
-	 * artistesuite.getVideos().add(xbio);
-	 * 
-	 * System.out.println("**************** ******** " + artistesuite);
-	 * artisteRepository.save(artistesuite);
-	 * 
-	 * return "video/pageMessageConfirmationVideo"; }
-	 */
-	/*------------------------------------------------------------------------------------*/
-
 	@RequestMapping(value = "/liste_videos")
 	public String liste_videos(Model model,
 			@RequestParam(name="pageRP", defaultValue = "0")int page,

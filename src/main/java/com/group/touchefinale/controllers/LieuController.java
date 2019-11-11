@@ -33,21 +33,14 @@ public class LieuController {
 	
 	@Autowired
 	private LieuRepository lieuRepository;
-	
-	
+		
 	@RequestMapping(value="/formulaire_lieu", method=RequestMethod.GET)
 	public String formulaire_lieu(Model model) {
 		model.addAttribute("lieu", new Lieu());
 		
-		/*
-		 * List<Artiste>listeArtistes=artisteRepository.findAll();
-		 * model.addAttribute("listeArtistes", listeArtistes);
-		 */
 		
 		return "lieu/formulaireLieu";
 		}
-	
-	/*------------------------------------------------------------------------------------*/
 	
 	
 	/*verifier et valider le formulaire*/
@@ -58,10 +51,7 @@ public class LieuController {
 
 		return "lieu/pageMessageConfirmationLieu";
 	}
-	
-	
-	/*------------------------------------------------------------------------------------*/
-	
+
 	@RequestMapping(value="/liste_lieu")
 	public String liste_lieu(Model model,
 			@RequestParam(name="pageRP", defaultValue = "0")int page,
@@ -81,14 +71,11 @@ public class LieuController {
 		
 		return "lieu/listeLieu";
 	}
-	
 
-	
 	
 	@RequestMapping(value = "/supprimerlieu")
 		public String supprimerlieu(Long id) {
-		lieuRepository.deleteById(id);
-		
+		lieuRepository.deleteById(id);	
 		
 		return "redirect:liste_lieu";
 	}
@@ -112,8 +99,7 @@ public class LieuController {
 		
 		return "redirect:liste_lieu";
 	}
-	
-	
+
 	/*------------------------------------------------------------------------------------*/
 	
 	

@@ -15,14 +15,10 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 
 	List<Artiste> findAllByOrderByNomcompletartiste();
 	
-	//Page<Artiste> findAllByOrderByNomcompletartiste();
-	
 	public List<Artiste>findAllByOrderByIdartisteDesc();
 	
-	
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
-	public Page<Artiste>chercherEtudiants(@Param("x")String mc, Pageable pageable);
-	
+	public Page<Artiste>chercherEtudiants(@Param("x")String mc, Pageable pageable);	
 	
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
 	public List<Artiste>chercherArtisteFrontEnd(@Param("x")String mc);

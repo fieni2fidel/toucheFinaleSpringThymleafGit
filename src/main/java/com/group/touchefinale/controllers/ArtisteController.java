@@ -32,11 +32,6 @@ public class ArtisteController {
 	@Autowired
 	private EvenementRepository evenementRepository;
 	
-	@Autowired
-	/* private BiographieRepository biographieRepository; */
-	
-	
-	
 	@Value("${x}")
 	private String imageDir;
 
@@ -112,8 +107,7 @@ public class ArtisteController {
 	artisteRepository.save(artiste);
 		
 		return "redirect:liste_artistes";
-	}
-	
+	}	
 	
 	/*------------------------------------------------------------------------------------*/
 	
@@ -121,18 +115,13 @@ public class ArtisteController {
 	public String voirartiste(@RequestParam(value = "id") Long id, Model model) {
 
 		Artiste artiste=artisteRepository.getOne(id);
-
 		model.addAttribute("artiste", artiste);
-
 		System.out.println("***** ******* **** " + artiste.getIdartiste());
-
 		System.out.println("***** model event******* **** " + artiste);
-
 
 		return "artiste/voirFormulaireArtiste";
 		
 	}
-	
 	
 	/*------------------------------------------------------------------------------------*/
 	
@@ -159,8 +148,7 @@ public class ArtisteController {
 					System.out.println("********  "+x.getEvenements());
 		}
 		  System.out.println("********  "+nomArtiste);
-		 
-		
+
 		  model.addAttribute("nomArtiste", nomArtiste);
 		return "front_end/fe_artiste/"+motcleArtiste;
 	}
