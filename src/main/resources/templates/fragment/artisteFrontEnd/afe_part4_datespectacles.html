@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>artiste presentation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+		<!-- part V dates de spectacles -->
+
+				
+				<div th:object="${artistefrontend}" th:each="lpb:${artistefrontend.evenements}" th:fragment="afe_part4_datespectacles">
+						<div class="row" >
+							<div class="col-sm-4">
+								<div><h3 class="dateSpectacleArtiste" th:text="${#calendars.dayOfWeekName(lpb.datedebutevenement)}">Vendredi</h3></div>
+								<div><h1 class="jourSpectacleArtiste" th:text="${#dates.format(lpb.datedebutevenement, 'dd')}">07</h1></div>	
+								<div><h3 class="moisSpectacleArtiste" th:text="${#dates.format(lpb.datedebutevenement, 'MMM-yyyy')}">Juin 2019</h3></div>
+								<div><h4 class="heureSpectacleArtiste" th:text="${lpb.heureevenement} "> 20 heures</h4></div>
+							</div>
+							<div class="col-sm-8">
+								<div>
+									<h4 class="nomSpectacleArtiste" th:text="${lpb.infoevenement}">Avec Naza/keblack/niho</h4>
+									<h4 class="typeSpectacleArtiste" th:text="${lpb.nomevenement}">Concert</h4>
+									
+									<h4 class="salleSpectacleArtiste" th:text="${lpb.salle.nomsalle}">Palais de la culture</h4>
+									
+										<h4 class="villeSpectacleArtiste" th:text="${lpb.salle.lieu.villelieu}">Abidjan</h4>
+										<h4 class="villeSpectacleArtiste" th:text="${lpb.salle.lieu.payslieu}">Cote d'ivoire</h4>
+										
+										<h4 class="tarifSpectacleArtiste" th:text="${lpb.tarifevenement}">vip : 10000 frs CFA</h4>
+										
+									<a href="#" class="btn btn-success">Plus d'infos</a>
+								</div>
+							</div>
+						</div>
+						<hr>
+					</div>
+
+</body>
+</html>

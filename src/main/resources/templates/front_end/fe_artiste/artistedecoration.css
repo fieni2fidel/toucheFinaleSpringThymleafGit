@@ -67,8 +67,12 @@ body{
 	/*border:grey solid 1px;*/
 }
 
+.spectaclesimilaires{
+	margin-top: 25px;
+}
+
 .menuFixe{
-	margin-top: 50px;
+	margin-top: 80px;
 	padding: 0px;
 }
 
