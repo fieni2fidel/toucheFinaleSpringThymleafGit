@@ -1,0 +1,34 @@
+<div th:fragment="navbarBackend">
+	<nav class="navbar navbar-inverse">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="/">Touche Finale - Backend</a>
+			    </div>
+			    <ul class="nav navbar-nav">
+
+			      <li th:classappend="${module == 'listeArtisteChanteurs' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_artistes}">Artiste</a>
+		          </li>
+			      <li  th:classappend="${module == 'listeBiographie' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_biographie}">Biographie</a>
+		          </li>
+			      <li th:classappend="${module == 'listeEvenement' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_evenement}">Evenement</a>
+		          </li>
+		           <li th:classappend="${module == 'listeLieu' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_lieu}">Lieu</a>
+		          </li>
+		           <li th:classappend="${module == 'listePhoto' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_photo}">Photo</a>
+		          </li>
+		           <li th:classappend="${module == 'listeSalle' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_salle}">Salle</a>
+		          </li>
+		           <li th:classappend="${module == 'listeVideo' ? 'active' : ''}">
+		              <a href="#" th:href="@{/liste_videos}">Video</a>
+		          </li>
+			   
+			    </ul>
+			  </div>
+	</nav>
+</div>
