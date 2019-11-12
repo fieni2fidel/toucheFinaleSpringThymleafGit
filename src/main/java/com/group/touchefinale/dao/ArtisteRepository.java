@@ -29,6 +29,11 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 
 	@Query("select e from Artiste e where e.datenaissanceartiste > :x and e.datenaissanceartiste < :y")
 	public List<Artiste>chercherArtiste(@Param("x")Date d1, @Param("y")Date d2);
-
 	
+	@Query(value = "Select idartiste from artiste order by evenements desc", nativeQuery = true)
+	public List<Artiste>trierEvenementParId(Long id);
+	/*
+	 * SELECT colonne1, colonne2, colonne3 FROM table ORDER BY colonne1 DESC,
+	 * colonne2 ASC
+	 */
 }

@@ -144,8 +144,11 @@ public class ArtisteController {
 			 * model.addAttribute("Ville", y.getSalle().getLieu().getVillelieu()); }
 			 */
 					model.addAttribute("artistefrontend",artistefrontend);
-					model.addAttribute("listevent", x.getEvenements());
-					System.out.println("********  "+x.getEvenements());
+					
+			/*
+			 * model.addAttribute("listevent", x.getEvenements());
+			 * System.out.println("********  "+x.getEvenements());
+			 */
 		}
 		  System.out.println("********  "+nomArtiste);
 
