@@ -1,5 +1,7 @@
 package com.group.touchefinale.controllers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -83,11 +85,11 @@ public class EvenementController {
 		int[]pages=new int[pagesCount];
 		
 		for(int i=0;i<pagesCount;i++) pages[i]=i;
-		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);
-		model.addAttribute("motcle1", motcle1);
-		model.addAttribute("motcle2", motcle2);
+		model.addAttribute("motcle1", df.format(motcle1));
+		model.addAttribute("motcle2", df.format(motcle2));
 		model.addAttribute("listeDesEvenements", listeDesEvenements);
 		return "evenement/listeEvenement";
 	}
