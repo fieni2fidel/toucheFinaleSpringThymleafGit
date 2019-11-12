@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>artiste presentation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" th:href="artistedecoration.css">
+</head>
+<body>
+
+	<div class="menuFixe col-md-12 col-sm-6" th:replace="fragment/navbarFrontEnd :: navbarFrontEnd">
+	</div>
+
+<div class="container menuFixe">
+		<div class="row">
+			<div class="col-sm-12">
+			
+			<!-- part I photo nationalite naissance -->
+				<div class="col-sm-5">
+					<div th:replace="fragment/artisteFrontEnd/afe_part1_photo_nat_naiss :: afe_part1_photo_nat_naiss">
+					</div>
+				</div>
+				
+				
+			<!-- part II Biographie -->
+				<div class="col-sm-7">
+					<div th:replace="fragment/artisteFrontEnd/afe_part2_biographie :: afe_part2_biographie">
+					</div>
+				</div>
+			</div>
+		</div>				
+	
+<!-- ----------------------------- -->
+<!-- part III video youtube -->
+	<div th:replace="fragment/artisteFrontEnd/afe_part3_videoyoutube :: afe_part3_videoyoutube">
+	</div>
+<!-- -------------------------- -->
+	<div class=" col-sm-12 spectaclesimilaires">
+		<!-- part IV nada -->
+			<div class="col-sm-2">	
+			</div>
+			
+		<!-- part IV dates de spectacles -->
+			<div class="col-sm-8 infoSpectaclesArtisteX">
+				<div th:replace="fragment/artisteFrontEnd/afe_part4_datespectacles :: afe_part4_datespectacles">
+				</div>
+			</div>
+			
+		<!-- part V spectacles ou artistes similaires -->
+			<div class="col-sm-2">
+				<div class="row">
+					<div class="col-sm-12">
+						<h3 class="artisteSimilaire">SIMILAIRE</h3>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">DOBET GNAHORE EN CONCERT A ABIDJAN</h6>
+							</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+							<img src="imagesIndex/Kerozen-DJ.jpg">
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">KEROZEN EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">SALIF KEITA EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">MAITRE GIMS EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+							<img src="imagesIndex/Kerozen-DJ.jpg">
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">KEROZEN EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">SALIF KEITA EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">MAITRE GIMS EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+									<img src="imagesIndex/SalifKeita.jpg">	
+								</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">DOBET GNAHORE EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+							<img src="imagesIndex/ayaNakamura.jpg">
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">AYA NAKAMURA EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">DADJU EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+							<img src="imagesIndex/ayaNakamura.jpg">
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">AYA NAKAMURA EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">DADJU EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+							<img src="imagesIndex/ayaNakamura.jpg">
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">AYA NAKAMURA EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="#"> 
+							<div class="thumbnail imgBox">
+								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+						</div>
+						</a>
+							<div class="textRecommandation">
+								<h6 class="titreTextRecommandation">DADJU EN CONCERT A ABIDJAN</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+
+</div>
+<div th:replace="fragment/footer :: footerFrontAndBack">
+</div>
+</body>
+</html>
