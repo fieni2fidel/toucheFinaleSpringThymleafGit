@@ -33,7 +33,8 @@ public class MenuPrincipalController {
 	/*------------------------------------------------------------------------------------*/
 	@RequestMapping(value="/")
 	public String menu_principal_frontend() {
-
+		
+		
 		return "front_end/fe_menuprincipal/menuPrincipal";
 		}
 	
