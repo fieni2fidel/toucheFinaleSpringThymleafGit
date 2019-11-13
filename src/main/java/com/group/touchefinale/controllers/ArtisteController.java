@@ -1,5 +1,6 @@
 package com.group.touchefinale.controllers;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.group.touchefinale.dao.ArtisteRepository;
+import com.group.touchefinale.dao.BiographieRepository;
 import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.PhotoRepository;
+import com.group.touchefinale.dao.VideoRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Evenement;
+import com.group.touchefinale.entities.Photo;
 
 @Controller
 public class ArtisteController {
@@ -31,6 +35,12 @@ public class ArtisteController {
 	
 	@Autowired
 	private EvenementRepository evenementRepository;
+	
+	@Autowired
+	private BiographieRepository biographieRepository;
+	
+	@Autowired
+	private VideoRepository videoRepository;
 
 	@Value("${x}")
 	private String imageDir;
@@ -62,14 +72,24 @@ public class ArtisteController {
 
 		Page<Artiste> listDesArtistes = artisteRepository.chercherEtudiants("%" + motcle + "%",
 				new PageRequest(page, 10));
+		
 		int pagesCount = listDesArtistes.getTotalPages();
 		int[] pages = new int[pagesCount];
 
 		for (int i = 0; i < pagesCount; i++)
 			pages[i] = i;
+		
 		for (Artiste artiste: listDesArtistes) {
 			artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
+			artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
+			artiste.setVideos(videoRepository.findAllByArtiste(artiste));
+			artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
 		}
+		
+		for (int i = 0; i < pages.length; i++) {
+			
+		}
+		
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);
 		model.addAttribute("motcle", motcle);

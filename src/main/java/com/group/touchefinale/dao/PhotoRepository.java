@@ -9,7 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.group.touchefinale.entities.Artiste;
+import com.group.touchefinale.entities.Lieu;
 import com.group.touchefinale.entities.Photo;
+import com.group.touchefinale.entities.Salle;
 
 
 public interface PhotoRepository extends JpaRepository<Photo, Long>{
@@ -18,5 +20,6 @@ public interface PhotoRepository extends JpaRepository<Photo, Long>{
 	public Page<Photo>chercherPhotos(@Param("x")String mc, Pageable pageable);
 	
 	List<Photo> findAllByArtiste(Artiste artiste);
+	List<Photo> findAllBySalle(Salle salle);
 
 }

@@ -12,6 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Evenement;
+import com.group.touchefinale.entities.Lieu;
+import com.group.touchefinale.entities.Photo;
+import com.group.touchefinale.entities.Salle;
 
 
 public interface EvenementRepository extends JpaRepository<Evenement, Long>{
@@ -27,5 +30,8 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 										 @Param("y")
 										 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 										 Date d2, Pageable pageable);
+	
+	List<Evenement> findAllByArtiste(Artiste artiste);
+	List<Evenement> findAllBySalle(Salle salle);
 
 }
