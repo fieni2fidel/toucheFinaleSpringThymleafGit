@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -31,10 +33,12 @@ public class Evenement implements Serializable, Comparable<Evenement> {
 	private String heureevenement;
 
 	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn
 	private Artiste artiste;
 
 	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn
 	private Salle salle;
 

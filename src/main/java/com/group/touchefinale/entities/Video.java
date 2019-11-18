@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 @Entity
 public class Video implements Serializable{
 
@@ -21,6 +24,7 @@ public class Video implements Serializable{
 	private String urlvideo;
 
 	@ManyToOne
+	@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn
 	private Artiste artiste;
 

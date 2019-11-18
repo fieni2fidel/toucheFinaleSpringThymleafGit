@@ -79,16 +79,13 @@ public class ArtisteController {
 		for (int i = 0; i < pagesCount; i++)
 			pages[i] = i;
 		
-		for (Artiste artiste: listDesArtistes) {
-			artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
-			artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
-			artiste.setVideos(videoRepository.findAllByArtiste(artiste));
-			artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
-		}
-		
-		for (int i = 0; i < pages.length; i++) {
-			
-		}
+		  for (Artiste artiste: listDesArtistes) {
+		  artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
+		  artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
+		  artiste.setVideos(videoRepository.findAllByArtiste(artiste));
+		  artiste.setEvenements(evenementRepository.findAllByArtiste(artiste)); 
+		  }
+		 
 		
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);
@@ -113,6 +110,13 @@ public class ArtisteController {
 	public String editerartiste(Long id, Model model) {
 
 		Artiste artiste = artisteRepository.getOne(id);
+		/*
+		 * artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
+		 * artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
+		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
+		 * artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
+		 */
+		
 		model.addAttribute("artiste", artiste);
 
 		return "artiste/modificationFormulaireArtiste";
@@ -123,7 +127,7 @@ public class ArtisteController {
 	/* mise a jour de lartiste */
 	@RequestMapping(value = "/mise_a_jour_artiste", method = RequestMethod.POST)
 	public String mise_a_jour_artiste(Artiste artiste) {
-
+		
 		artisteRepository.save(artiste);
 
 		return "redirect:liste_artistes";

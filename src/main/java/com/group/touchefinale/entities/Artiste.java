@@ -34,16 +34,16 @@ public class Artiste implements Serializable{
 	
 	private String origineartiste;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany
 	private Collection<Video>videos;
 	
-    @OneToMany (cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany
 	private Collection<Photo>photos;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany
 	private Collection<Biographie>biographies;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany
 	private Collection<Evenement>evenements;
 
 	public Artiste() {

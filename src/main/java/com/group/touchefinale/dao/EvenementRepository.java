@@ -32,6 +32,7 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 										 Date d2, Pageable pageable);
 	
 	List<Evenement> findAllByArtiste(Artiste artiste);
+	
 	List<Evenement> findAllBySalle(Salle salle);
 
 }

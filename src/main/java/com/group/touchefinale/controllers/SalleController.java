@@ -115,7 +115,9 @@ public class SalleController {
 			@RequestParam(name="motcleRP", defaultValue = "")String motcle) {
 		
 		Page<Salle>listeDesSalles=salleRepository.chercherNomSalle("%"+motcle+"%",new PageRequest(page, 10));
+		
 		int pagesCount=listeDesSalles.getTotalPages();
+		
 		int[]pages=new int[pagesCount];
 		
 		for(int i=0;i<pagesCount;i++) pages[i]=i;
@@ -160,5 +162,3 @@ public class SalleController {
 	}
 	
 }
-
-
