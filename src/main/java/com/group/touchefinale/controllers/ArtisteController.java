@@ -1,6 +1,5 @@
 package com.group.touchefinale.controllers;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,7 +21,6 @@ import com.group.touchefinale.dao.PhotoRepository;
 import com.group.touchefinale.dao.VideoRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Evenement;
-import com.group.touchefinale.entities.Photo;
 
 @Controller
 public class ArtisteController {
@@ -114,8 +112,8 @@ public class ArtisteController {
 		 * artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
 		 * artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
 		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
-		 * artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
 		 */
+		 artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
 		
 		model.addAttribute("artiste", artiste);
 

@@ -20,6 +20,6 @@ public interface SalleRepository extends JpaRepository<Salle, Long>{
 	@Query("select e from Salle e where e.nomsalle like :x")
 	public Page<Salle>chercherNomSalle(@Param("x")String mc, Pageable pageable);
 	
-	List<Salle> findAllBySalle(Lieu lieu);
+	//List<Salle> findAllBySalle(Lieu lieu);
 	
 }

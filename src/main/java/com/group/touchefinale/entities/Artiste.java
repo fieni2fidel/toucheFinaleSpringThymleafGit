@@ -43,7 +43,7 @@ public class Artiste implements Serializable{
 	@OneToMany
 	private Collection<Biographie>biographies;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private Collection<Evenement>evenements;
 
 	public Artiste() {
