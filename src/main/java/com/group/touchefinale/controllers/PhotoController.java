@@ -3,13 +3,9 @@ package com.group.touchefinale.controllers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +25,8 @@ import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.PhotoRepository;
 import com.group.touchefinale.dao.SalleRepository;
 import com.group.touchefinale.entities.Artiste;
-import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Photo;
 import com.group.touchefinale.entities.Salle;
-
 
 @Controller
 public class PhotoController {
@@ -75,6 +69,7 @@ public class PhotoController {
 		  System.out.println("**************** ******** "+name);
 		  
 		if (!(photoimage.isEmpty())) {
+			//Thumbnails
 			photo.setUrlphoto(photoimage.getOriginalFilename());
 			//photoimage.transferTo(new File(photoDir+photo.getIdphoto()+"xl."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim()));
 		}

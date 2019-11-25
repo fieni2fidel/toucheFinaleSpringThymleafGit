@@ -34,6 +34,14 @@ body{
 	/*background-color: grey;*/
 }
 
+input:focus {
+  background-color: #fbfafa;
+}
+
+.tactac{
+	cursor: pointer;
+	}
+
 .paragrapheform{
 	padding: 0px;
 	margin: 0px;
@@ -74,7 +82,7 @@ body{
 
    									 <div class="form-group">
      									 <label for="email">Nom :</label>
-      									 <input class="form-control" type="text" th:field="*{nomcompletartiste}" placeholder="nom de l'artiste ou du groupe" maxlength="100" required/>
+      									 <input class="form-control tactac" type="text" th:field="*{nomcompletartiste}" placeholder="nom de l'artiste ou du groupe" maxlength="100" required/>
    									 </div>
 
    									 <div class="form-group">
