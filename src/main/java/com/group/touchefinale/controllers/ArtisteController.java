@@ -108,16 +108,10 @@ public class ArtisteController {
 	public String editerartiste(Long id, Model model) {
 
 		Artiste artiste = artisteRepository.getOne(id);
-		/*
-		 * artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
-		 * artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
-		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
-		 */
+		
 		 artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
-		 artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
-		 
+		 artiste.setBiographies(biographieRepository.findAllByArtiste(artiste)); 
 		 artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
-		 
 		 artiste.setVideos(videoRepository.findAllByArtiste(artiste));
 		//artiste.setBiographies(artisteRepository.findBiographieByIdArtist(id));
 		model.addAttribute("artiste", artiste);
@@ -143,9 +137,6 @@ public class ArtisteController {
 
 		Artiste artiste = artisteRepository.getOne(id);
 		model.addAttribute("artiste", artiste);
-		System.out.println("***** ******* **** " + artiste.getIdartiste());
-		System.out.println("***** model event******* **** " + artiste);
-
 		return "artiste/voirFormulaireArtiste";
 
 	}
@@ -162,8 +153,6 @@ public class ArtisteController {
 			Collections.sort((List<Evenement>) artistefrontend.getEvenements());
 			model.addAttribute("artistefrontend", artistefrontend);
 		}
-		System.out.println("********  " + nomArtiste);
-
 		model.addAttribute("nomArtiste", nomArtiste);
 		return "front_end/fe_artiste/" + motcleArtiste;
 	}
