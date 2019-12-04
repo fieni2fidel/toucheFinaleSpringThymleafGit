@@ -3,6 +3,8 @@ package com.group.touchefinale.dao;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NamedQuery;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.group.touchefinale.entities.Artiste;
+import com.group.touchefinale.entities.Biographie;
 
 public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 
@@ -32,6 +35,9 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	
 	@Query(value = "Select idartiste from artiste order by evenements desc", nativeQuery = true)
 	public List<Artiste>trierEvenementParId(Long id);
+	
+	@Query(value = "Select b From Biographie b where artiste.idartiste = :idartiste ")
+	public List<Biographie>findBiographieByIdArtist(Long idartiste);
 	/*
 	 * SELECT colonne1, colonne2, colonne3 FROM table ORDER BY colonne1 DESC,
 	 * colonne2 ASC

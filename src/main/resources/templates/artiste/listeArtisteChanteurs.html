@@ -68,11 +68,11 @@
 					
 					<th>ID</th><th>nom complet</th>
 					
-					<th>Image</th>
+					<th>origine (nationalité)</th>
 					
 					<!-- <th>date de naissance</th> -->
 					
-					<th>origine (nationalité)</th>
+					<th>Image</th>
 					
 					<!-- <th>Biographie</th><th>Video</th> -->
 					
@@ -93,13 +93,12 @@
 					<td th:text="${lde.idartiste}"></td>
 					<td th:text="${lde.nomcompletartiste}"></td>
 					
+					<td th:text="${lde.origineartiste}"></td>
+					
 					<td th:each="tof:${lde.photos}">
 						<img th:src="@{getphotoimage(id=${tof.idphoto})}" width="200" height="100"/>
 					</td>
-	
-					<td th:text="${lde.origineartiste}"></td>
-					
-		
+
 				</tr>
 			</tbody>
 		</table>

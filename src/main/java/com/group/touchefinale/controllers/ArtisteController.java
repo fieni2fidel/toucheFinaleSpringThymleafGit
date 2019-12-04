@@ -114,7 +114,12 @@ public class ArtisteController {
 		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
 		 */
 		 artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
-		
+		 artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
+		 
+		 artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
+		 
+		 artiste.setVideos(videoRepository.findAllByArtiste(artiste));
+		//artiste.setBiographies(artisteRepository.findBiographieByIdArtist(id));
 		model.addAttribute("artiste", artiste);
 
 		return "artiste/modificationFormulaireArtiste";

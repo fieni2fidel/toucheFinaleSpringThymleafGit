@@ -1,6 +1,7 @@
 package com.group.touchefinale.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -14,10 +15,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PostLoad;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.group.touchefinale.dao.ArtisteRepository;
 
 import ch.qos.logback.core.joran.spi.NoAutoStart;
 import net.bytebuddy.implementation.bind.annotation.Default;
@@ -36,18 +41,26 @@ public class Artiste implements Serializable{
 	
 	private String origineartiste;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	private Collection<Video>videos;
 	
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
 	private Collection<Photo>photos;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.LAZY)
 	private Collection<Biographie>biographies;
 	
 	@OneToMany(fetch = FetchType.EAGER)
 	private Collection<Evenement>evenements;
 
+//	@PostLoad
+//	public void findBiographiesByArtiste() {
+//		biographies = artRepo.findBiographieByIdArtist(idartiste);
+////		biographies = new ArrayList<Biographie>();
+////		Biographie b = new Biographie("nombiographie", "descriptionbiographie");
+////		b.setIdbiographie(idartiste);
+////		biographies.add(b);
+//	}
 	public Artiste() {
 		super();
 		// TODO Auto-generated constructor stub
