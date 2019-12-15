@@ -15,7 +15,7 @@
 	
 						<div class="box">
 								<div class="col-sm-12">
-									<div  th:object="${artistefrontend}" th:each="bb:${artistefrontend.photos}">
+									<div  th:object="${artistefrontend}" th:each="bb : ${artistefrontend.photos}">
 											<div class="thumbnail">
 		     									<img th:src="@{getphotoimage(id=${bb.idphoto})}"/>	
 		   									</div>

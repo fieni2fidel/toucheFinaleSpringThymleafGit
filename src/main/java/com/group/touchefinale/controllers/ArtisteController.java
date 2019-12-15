@@ -145,7 +145,7 @@ public class ArtisteController {
 
 	@RequestMapping(value = "/artiste/{motcleArtiste}")
 	public String artiste(Model model, Long id, @PathVariable("motcleArtiste") String motcleArtiste) {
-
+		boolean ax=false;
 		List<Artiste> nomArtiste = artisteRepository.findByNomcompletartisteLike("%" + motcleArtiste + "%");
 		Artiste artistefrontend = new Artiste();
 		for (Artiste x : nomArtiste) {
@@ -153,8 +153,14 @@ public class ArtisteController {
 			Collections.sort((List<Evenement>) artistefrontend.getEvenements());
 			model.addAttribute("artistefrontend", artistefrontend);
 		}
+		//System.out.println("desc artiste: "+ artistefrontend.getBiographies().size());
 		model.addAttribute("nomArtiste", nomArtiste);
-		return "front_end/fe_artiste/" + motcleArtiste;
+		model.addAttribute("motcleArtiste", motcleArtiste);
+		if (ax==false) {
+			return "front_end/fe_artiste/meiway";
+		} 
+		
+		return "redirect:/artiste/{motcleArtiste}";
 	}
 
 }
