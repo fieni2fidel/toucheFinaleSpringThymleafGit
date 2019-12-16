@@ -25,7 +25,8 @@ public class Lieu implements Serializable{
 	
 	private String villelieu;
 
-	@OneToMany
+	//@OneToMany
+	@OneToMany(mappedBy="lieu")
 	private Collection<Salle> salles;
 	
 

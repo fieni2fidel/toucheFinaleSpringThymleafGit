@@ -33,6 +33,9 @@ public class LieuController {
 	
 	@Autowired
 	private LieuRepository lieuRepository;
+	
+	@Autowired
+	private SalleRepository salleRepository;
 		
 	@RequestMapping(value="/formulaire_lieu", method=RequestMethod.GET)
 	public String formulaire_lieu(Model model) {
@@ -62,6 +65,10 @@ public class LieuController {
 		int[]pages=new int[pagesCount];
 		
 		for(int i=0;i<pagesCount;i++) pages[i]=i;
+		
+		for (Lieu li : listeDesLieux) {
+			li.setSalles(salleRepository.findAllByLieu(li));
+		}
 		
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);

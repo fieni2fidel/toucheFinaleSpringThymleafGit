@@ -41,16 +41,19 @@ public class Artiste implements Serializable{
 	
 	private String origineartiste;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	//@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="artiste")
 	private Collection<Video>videos;
 	
-    @OneToMany(fetch = FetchType.LAZY)
+    //@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="artiste")
 	private Collection<Photo>photos;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	//@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="artiste")
 	private Collection<Biographie>biographies;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="artiste")
 	private Collection<Evenement>evenements;
 
 //	@PostLoad

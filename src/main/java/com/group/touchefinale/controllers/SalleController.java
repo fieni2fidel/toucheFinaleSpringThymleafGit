@@ -19,6 +19,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.BiographieRepository;
+import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.LieuRepository;
 import com.group.touchefinale.dao.SalleRepository;
 import com.group.touchefinale.entities.Artiste;
@@ -37,6 +38,9 @@ public class SalleController {
 	
 	@Autowired
 	private LieuRepository lieuRepository;
+	
+	@Autowired
+	private EvenementRepository evenementRepository;
 	
 	@RequestMapping(value="/formulaire_salle", method=RequestMethod.GET)
 	public String formulaire_biographie(Model model) {
@@ -121,6 +125,11 @@ public class SalleController {
 		int[]pages=new int[pagesCount];
 		
 		for(int i=0;i<pagesCount;i++) pages[i]=i;
+		
+		for (Salle sa : listeDesSalles) {
+			sa.setBiographies(biographieRepository.findAllBySalle(sa));
+			sa.setEvenements(evenementRepository.findAllBySalle(sa));
+		}
 		
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);

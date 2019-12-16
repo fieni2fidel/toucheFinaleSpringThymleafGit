@@ -148,12 +148,13 @@ public class ArtisteController {
 		boolean ax=false;
 		List<Artiste> nomArtiste = artisteRepository.findByNomcompletartisteLike("%" + motcleArtiste + "%");
 		Artiste artistefrontend = new Artiste();
+		
 		for (Artiste x : nomArtiste) {
 			artistefrontend = artisteRepository.getOne(x.getIdartiste());
 			Collections.sort((List<Evenement>) artistefrontend.getEvenements());
 			model.addAttribute("artistefrontend", artistefrontend);
 		}
-		//System.out.println("desc artiste: "+ artistefrontend.getBiographies().size());
+		
 		model.addAttribute("nomArtiste", nomArtiste);
 		model.addAttribute("motcleArtiste", motcleArtiste);
 		

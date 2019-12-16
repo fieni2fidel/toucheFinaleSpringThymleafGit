@@ -27,13 +27,14 @@ public class Salle implements Serializable{
 	@JoinColumn
 	private Lieu lieu;
 	
-	@OneToMany
+	//@OneToMany
+	@OneToMany(mappedBy="salle")
 	private Collection<Biographie> biographies;
 	
-	@OneToMany
+	@OneToMany(mappedBy="salle")
 	private Collection<Evenement> evenements;
 	
-	@OneToMany
+	@OneToMany(mappedBy="salle")
 	private Collection<Photo>photos;
 
 	public Salle() {
