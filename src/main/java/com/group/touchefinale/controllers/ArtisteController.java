@@ -156,11 +156,14 @@ public class ArtisteController {
 		//System.out.println("desc artiste: "+ artistefrontend.getBiographies().size());
 		model.addAttribute("nomArtiste", nomArtiste);
 		model.addAttribute("motcleArtiste", motcleArtiste);
-		if (ax==false) {
-			return "front_end/fe_artiste/meiway";
-		} 
 		
-		return "redirect:/artiste/{motcleArtiste}";
+		/*
+		 * if (ax==false) { return "front_end/fe_artiste/meiway"; }
+		 * 
+		 * return "redirect:/artiste/{motcleArtiste}";
+		 */
+		
+		return "front_end/fe_artiste/meiway";
 	}
 
 }
