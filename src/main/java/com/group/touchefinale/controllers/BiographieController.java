@@ -55,6 +55,8 @@ public class BiographieController {
 	
 	if ((name.equals("artiste"))) {
 		
+		//request.getParameter("salle");
+		
 		List<Artiste>listeArtistes=artisteRepository.findAllByOrderByNomcompletartiste();	 
 		model.addAttribute("listeArtistes", listeArtistes);
 		model.addAttribute("artiste", new Artiste());

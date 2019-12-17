@@ -29,12 +29,12 @@ public class Biographie implements Serializable{
 	private String descriptionbiographie;
 	
 	@ManyToOne
-	@NotFound(action = NotFoundAction.IGNORE)
+	//@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn
 	private Artiste artiste;
 	
 	@ManyToOne
-	@NotFound(action = NotFoundAction.IGNORE)
+	//@NotFound(action = NotFoundAction.IGNORE)
 	@JoinColumn
 	private Salle salle;
 	
