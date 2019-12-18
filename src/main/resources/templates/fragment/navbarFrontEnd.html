@@ -21,17 +21,11 @@
 						    </div>
 						    <div class="collapse navbar-collapse navHeaderCollapse">
 							    <ul class="nav navbar-nav">
-							      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
-							      <li><a href="afriquemusique.html">AFRIQUE</a></li>
-							      <li><a href="#">EUROPE</a></li>
-							      <li><a href="#">AMERIQUE</a></li>
-							      <li class="active"><a href="menuArtiste.html">ARTISTE</a></li>
-							      
-								<!--      
-							      <li th:classappend="${module == 'listeArtisteChanteurs' ? 'active' : ''}">
-				              		<a href="#" th:href="@{/liste_artistes}">Artiste</a>
-				          			</li> -->
-				          			
+							      <li><a th:href="@{/}"><span class="glyphicon glyphicon-home"></span></a></li>
+							      <li><a th:href="afrique">AFRIQUE</a></li>
+							      <li><a th:href="europe">EUROPE</a></li>
+							      <li><a th:href="amerique">AMERIQUE</a></li>
+							      <li><a th:href="artiste">ARTISTE</a></li>
 							    </ul>
 							</div>
 					  </div>

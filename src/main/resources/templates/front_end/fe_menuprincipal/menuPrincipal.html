@@ -229,34 +229,8 @@ img {
 	</style>
 </head>
 <body>
-		
-			<div class="menuFixe col-md-12 col-sm-6">
-				<nav class="navbar navbar-inverse navbar-fixed-top">
-				  <div class="container-fluid">
-					    <div class="navbar-header">
-					    	
-					      	<a class="navbar-brand" href="#">TOOCHE FINALE</a>
-					      	<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-					      		<span class="icon-bar"></span>
-					      		<span class="icon-bar"></span>
-					      		<span class="icon-bar"></span>
-					      	</button>
-					    </div>
-					    <div class="collapse navbar-collapse navHeaderCollapse">
-						    <ul class="nav navbar-nav">
-						      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-						      <li><a href="afriquemusique.html">AFRIQUE</a></li>
-						      <li><a href="#">EUROPE</a></li>
-						      <li><a href="#">AMERIQUE</a></li>
-						      <li><a href="#">ARTISTE</a></li>
-						    </ul>
-						</div>
-				  </div>
-				</nav>
-
-				
-				
-		</div>
+	<div class="menuFixe col-md-12 col-sm-6" th:replace="fragment/navbarFrontEnd :: navbarFrontEnd">
+	</div>
 		<div class="container largeCadreAlaffiche">
 			<div class="row">
 				<div class="col-md-12">

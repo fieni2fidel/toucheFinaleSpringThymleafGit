@@ -38,8 +38,6 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	
 	@Query(value = "Select b From Biographie b where artiste.idartiste = :idartiste ")
 	public List<Biographie>findBiographieByIdArtist(Long idartiste);
-	/*
-	 * SELECT colonne1, colonne2, colonne3 FROM table ORDER BY colonne1 DESC,
-	 * colonne2 ASC
-	 */
+	
+	public List<Artiste>findByNomcompletartisteStartingWith(String debutnom);
 }

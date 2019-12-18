@@ -141,8 +141,9 @@ public class ArtisteController {
 
 	}
 
-	/*------------------------------------------------------------------------------------*/
 
+	/*------------------------------------------------------------------------------------*/
+	
 	@RequestMapping(value = "/artiste/{motcleArtiste}")
 	public String artiste(Model model, Long id, @PathVariable("motcleArtiste") String motcleArtiste) {
 		boolean ax=false;
@@ -158,13 +159,57 @@ public class ArtisteController {
 		model.addAttribute("nomArtiste", nomArtiste);
 		model.addAttribute("motcleArtiste", motcleArtiste);
 		
-		/*
-		 * if (ax==false) { return "front_end/fe_artiste/meiway"; }
-		 * 
-		 * return "redirect:/artiste/{motcleArtiste}";
-		 */
-		
 		return "front_end/fe_artiste/meiway";
 	}
+	
+	
+	/*------------------------------------------------------------------------------------*/
+
+	@RequestMapping(value = "/artistes")
+	public String debutmajusculeartiste(Long id, Model model) {
+
+		Artiste artistefrontend = artisteRepository.getOne(id);
+		Collections.sort((List<Evenement>)artistefrontend.getEvenements());
+		model.addAttribute("artistefrontend", artistefrontend);
+		
+		/*
+		 * artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
+		 * artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
+		 * artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
+		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
+		 * model.addAttribute("artiste", artiste);
+		 */
+
+		return "front_end/fe_artiste/meiway";
+
+	}
+	
+	
+	/*------------------------------------------------------------------------------------*/
+	@RequestMapping(value = "/artiste")
+	public String listedebutnom(Model model, String debutnom) {
+		
+		List<Artiste>listeA=artisteRepository.findByNomcompletartisteStartingWith("a");
+		model.addAttribute("listeA", listeA);
+		
+		List<Artiste>listeB=artisteRepository.findByNomcompletartisteStartingWith("b");
+		model.addAttribute("listeB", listeB);
+		
+		List<Artiste>listeC=artisteRepository.findByNomcompletartisteStartingWith("c");
+		model.addAttribute("listeC", listeC);
+		
+		List<Artiste>listeD=artisteRepository.findByNomcompletartisteStartingWith("d");
+		model.addAttribute("listeD", listeD);
+		
+		List<Artiste>listeE=artisteRepository.findByNomcompletartisteStartingWith("e");
+		model.addAttribute("listeE", listeE);
+		
+		List<Artiste>listeF=artisteRepository.findByNomcompletartisteStartingWith("f");
+		model.addAttribute("listeF", listeF);
+		
+		
+		return "front_end/fe_artiste/menuPrincipalArtiste";
+	}
+
 
 }
