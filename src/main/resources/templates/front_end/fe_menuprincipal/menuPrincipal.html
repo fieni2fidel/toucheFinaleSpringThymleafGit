@@ -392,15 +392,16 @@ img {
 		<!-- ----------------------------------------------------------- -->
 
 		<div class="container grandCadre">
+		
+				<!-- ----------- CADRE SIDE BAR GAUCHE AFRIQUE ----------- -->
+				
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA AFRIQUE</div>
 					<div class="col-md-12 trimestre">
 						<h5>Janvier | Fevrier | Mars</h5>
 						<hr>
 					</div>
-					
-					
-
+		
 					<div class="col-md-12 divTADLA">
 						<div class="col-md-12 TitreAgenda">
 							KEROZEN DJ en concert
@@ -462,11 +463,14 @@ img {
 
 				<!-- ------------------------------------------------------ -->
 				</div>
-				<!-- ----------- CADRE DU MILIEU ----------- -->
-				<div class="col-md-6 cadre">
+				
+				<!-- ----------- CADRE DU MILIEU AFRIQUE ----------- -->			
+					
+				<div class="col-md-6 cadre" >
 					<div class="col-md-12">
-						<div class="thumbnail">
-							<img src="imagesIndex/Kerozen-DJ.jpg">
+						<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos}">
+							 <img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
+
 						</div>
 					</div>
 					<div class="col-md-12 btnDanger">
@@ -476,33 +480,34 @@ img {
 						<div class="col-md-4"></div>
 						
 					</div>
-					<div class="col-md-12 titreCadre">
-						<h3>KEROZEN DJ en concert - Cote d'Ivoire</h3>
+					<div class="col-md-12 titreCadre" th:each="lpb:${listeEvenementSurleContinentAfricain[0]}">
+						<h3 th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h3>
 					</div>
 					<!-- --------------------- -->
 					<div class="col-md-12">
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAfricain[1].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[1]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
 						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAfricain[2].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[2]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
 						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Kerozen-DJ.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAfricain[3].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> KEROZEN DJ en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[3]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
 					</div>
 				</div>
+				
 				<!-- --------------- CADRE SIDE BAR DROITE ---------------- -->
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
@@ -594,20 +599,20 @@ img {
 					<!-- ------------------------------------------------------ -->
 				</div>
 				<!-- -----------------FIN SIDE BAR DROITE-------------------------- -->
-				</div>
-		</div>   
+		</div>
 
 
 
 		<div class="container grandCadre">
+		
+			<!-- ----------- CADRE SIDE BAR GAUCHE EUROPE ----------- -->
+		
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA EUROPE</div>
 					<div class="col-md-12 trimestre">
 						<h5>Janvier | Fevrier | Mars</h5>
 						<hr>
 					</div>
-					
-					
 
 					<div class="col-md-12 divTADLA">
 						<div class="col-md-12 TitreAgenda">
@@ -671,44 +676,52 @@ img {
 				<!-- ------------------------------------------------------ -->
 				</div>
 
-				<!-- --------------------------- -->
-				<div class="col-md-6 cadre">
+			<!-- ----------- CADRE MILIEU EUROPE ----------- -->
+		
+								<div class="col-md-6 cadre" >
 					<div class="col-md-12">
-						<div class="thumbnail">
-							<img src="imagesIndex/Dadju-Avril 2019.jpg">
+						<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentEuropeen[0].artiste.photos}">
+							 <img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
+
 						</div>
 					</div>
 					<div class="col-md-12 btnDanger">
 						<div class="col-md-4">
-							<input type="button" name="buttonEurope" value="EUROPE" class="btn btn-primary "></div>
+							<input type="button" name="buttonAfrique" value="EUROPE" class="btn btn-primary "></div>
 						<div class="col-md-4"></div>
 						<div class="col-md-4"></div>
 						
 					</div>
-					<div class="col-md-12 titreCadre">
-						<h3>DADJU en concert - Cote d'Ivoire</h3>
+					<div class="col-md-12 titreCadre" th:each="lpb:${listeEvenementSurleContinentEuropeen[0]}">
+						<h3 th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h3>
 					</div>
+					<!-- --------------------- -->
 					<div class="col-md-12">
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentEuropeen[1].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> DADJU en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[1]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
+						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentEuropeen[2].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> DADJU en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[2]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
+						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/Dadju-Avril 2019.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentEuropeen[3].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> DADJU en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[3]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
 					</div>
 				</div>
+			
+			<!-- ----------- CADRE SIDE BAR DROITE EUROPE ----------- -->	
+			
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
 					<hr>
@@ -803,6 +816,7 @@ img {
 
 
 		<div class="container grandCadre">
+			<!-- ----------- CADRE SIDE BAR GAUCHE AMERIQUE & RESTE DU MONDE ----------- -->
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 agenda"><span class="glyphicon glyphicon-calendar"></span> AGENDA AMERIQUE | ASIE | RESTE DU MONDE</div>
 					<div class="col-md-12 trimestre">
@@ -873,43 +887,51 @@ img {
 
 				<!-- ------------------------------------------------------ -->
 				</div>
-				<div class="col-md-6 cadre">
+			
+			<!-- ----------- CADRE MILIEU AMERIQUE & RESTE DU MONDE----------- -->	
+								<div class="col-md-6 cadre" >
 					<div class="col-md-12">
-						<div class="thumbnail">
-							<img src="imagesIndex/ayaNakamura.jpg">
+						<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAmericain[0].artiste.photos}">
+							 <img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
+
 						</div>
 					</div>
 					<div class="col-md-12 btnDanger">
 						<div class="col-md-4">
-							<input type="button" name="buttonAfrique" value="AMERIQUE | ASIE | RESTE DU MONDE" class="btn btn-success "></div>
+							<input type="button" name="buttonAfrique" value="AMERIQUE & RESTE DU MONDE" class="btn btn-success "></div>
 						<div class="col-md-4"></div>
 						<div class="col-md-4"></div>
 						
 					</div>
-					<div class="col-md-12 titreCadre">
-						<h3>Aya Nakamura en concert - Cote d'Ivoire</h3>
+					<div class="col-md-12 titreCadre" th:each="lpb:${listeEvenementSurleContinentAmericain[0]}">
+						<h3 th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h3>
 					</div>
+					<!-- --------------------- -->
 					<div class="col-md-12">
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/ayaNakamura.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAmericain[1].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[1]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
+						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/ayaNakamura.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAmericain[2].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[2]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
+						<!-- --------------------- -->
 						<div class="col-md-4">
-							<div class="thumbnail">
-								<img src="imagesIndex/ayaNakamura.jpg">	
+							<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentAmericain[3].artiste.photos}">
+								<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">	
 							</div>
-							<h6> Aya Nakamura en concert - Cote d'Ivoire</h6>
+							<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[3]}" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN DJ en concert - Cote d'Ivoire</h6>
 						</div>
 					</div>
 				</div>
+			
+			<!-- ----------- CADRE SIDE BAR DROITE AMERIQUE & RESTE DU MONDE----------- -->	
 				<div class="col-md-3 pticadre">
 					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
 					<hr>

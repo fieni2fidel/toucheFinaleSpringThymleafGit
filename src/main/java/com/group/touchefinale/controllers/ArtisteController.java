@@ -171,14 +171,6 @@ public class ArtisteController {
 		Artiste artistefrontend = artisteRepository.getOne(id);
 		Collections.sort((List<Evenement>)artistefrontend.getEvenements());
 		model.addAttribute("artistefrontend", artistefrontend);
-		
-		/*
-		 * artiste.setEvenements(evenementRepository.findAllByArtiste(artiste));
-		 * artiste.setBiographies(biographieRepository.findAllByArtiste(artiste));
-		 * artiste.setPhotos(photoRepository.findAllByArtiste(artiste));
-		 * artiste.setVideos(videoRepository.findAllByArtiste(artiste));
-		 * model.addAttribute("artiste", artiste);
-		 */
 
 		return "front_end/fe_artiste/meiway";
 
@@ -206,6 +198,66 @@ public class ArtisteController {
 		
 		List<Artiste>listeF=artisteRepository.findByNomcompletartisteStartingWith("f");
 		model.addAttribute("listeF", listeF);
+		
+		List<Artiste>listeG=artisteRepository.findByNomcompletartisteStartingWith("g");
+		model.addAttribute("listeG", listeG);
+		
+		List<Artiste>listeH=artisteRepository.findByNomcompletartisteStartingWith("h");
+		model.addAttribute("listeH", listeH);
+		
+		List<Artiste>listeJ=artisteRepository.findByNomcompletartisteStartingWith("j");
+		model.addAttribute("listeJ", listeJ);
+		
+		List<Artiste>listeI=artisteRepository.findByNomcompletartisteStartingWith("i");
+		model.addAttribute("listeI", listeI);
+		
+		List<Artiste>listeK=artisteRepository.findByNomcompletartisteStartingWith("k");
+		model.addAttribute("listeK", listeK);
+		
+		List<Artiste>listeL=artisteRepository.findByNomcompletartisteStartingWith("l");
+		model.addAttribute("listeL", listeL);
+		
+		List<Artiste>listeM=artisteRepository.findByNomcompletartisteStartingWith("m");
+		model.addAttribute("listeM", listeM);
+		
+		List<Artiste>listeN=artisteRepository.findByNomcompletartisteStartingWith("n");
+		model.addAttribute("listeN", listeN);
+		
+		List<Artiste>listeO=artisteRepository.findByNomcompletartisteStartingWith("o");
+		model.addAttribute("listeO", listeO);
+		
+		List<Artiste>listeP=artisteRepository.findByNomcompletartisteStartingWith("p");
+		model.addAttribute("listeP", listeP);
+		
+		List<Artiste>listeQ=artisteRepository.findByNomcompletartisteStartingWith("q");
+		model.addAttribute("listeQ", listeQ);
+		
+		List<Artiste>listeR=artisteRepository.findByNomcompletartisteStartingWith("r");
+		model.addAttribute("listeR", listeR);
+		
+		List<Artiste>listeS=artisteRepository.findByNomcompletartisteStartingWith("s");
+		model.addAttribute("listeS", listeS);
+		
+		List<Artiste>listeT=artisteRepository.findByNomcompletartisteStartingWith("t");
+		model.addAttribute("listeT", listeT);
+		
+		List<Artiste>listeU=artisteRepository.findByNomcompletartisteStartingWith("u");
+		model.addAttribute("listeU", listeU);
+		
+		List<Artiste>listeV=artisteRepository.findByNomcompletartisteStartingWith("v");
+		model.addAttribute("listeV", listeV);
+		
+		List<Artiste>listeW=artisteRepository.findByNomcompletartisteStartingWith("w");
+		model.addAttribute("listeW", listeW);
+		
+		List<Artiste>listeX=artisteRepository.findByNomcompletartisteStartingWith("x");
+		model.addAttribute("listeX", listeX);
+		
+		List<Artiste>listeY=artisteRepository.findByNomcompletartisteStartingWith("y");
+		model.addAttribute("listeY", listeY);
+		
+		List<Artiste>listeZ=artisteRepository.findByNomcompletartisteStartingWith("z");
+		model.addAttribute("listeZ", listeZ);
 		
 		
 		return "front_end/fe_artiste/menuPrincipalArtiste";

@@ -117,14 +117,14 @@ h1{
 	</div>
 
 	<div class="container largeCadreAlaffiche">
+	
+	<!-- --------------------------- A ------------------------ -->
     <div class="row">
       <h5 class="textRecommandation">A</h5>
       <hr>
       <div class="row">
 	        <div class="col-md-1" th:object="${listeA}" th:each="lpb:${listeA}">
-	         <!--  <a th:href="artiste/${lpb.nomcompletartiste}"> -->
 	         <a th:href="@{artistes(id=${lpb.idartiste})}">
-	           <!-- <a th:href="@{artistes(id=${lpb.idartiste})}"> -->
 	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
 	          </a>
 	        </div>  
@@ -132,12 +132,13 @@ h1{
       <hr>
     </div>
     
-        <div class="row">
+  <!-- --------------------------- B ------------------------ -->
+    <div class="row">
       <h5 class="textRecommandation">B</h5>
       <hr>
       <div class="row">
 	        <div class="col-md-1" th:object="${listeB}" th:each="lpb:${listeB}">
-	          <a>
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
 	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
 	          </a>
 	        </div>  
@@ -145,12 +146,13 @@ h1{
       <hr>
     </div>
     
-        <div class="row">
+    <!-- --------------------------- C ------------------------ -->
+    <div class="row">
       <h5 class="textRecommandation">C</h5>
       <hr>
       <div class="row">
 	        <div class="col-md-1" th:object="${listeC}" th:each="lpb:${listeC}">
-	          <a>
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
 	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
 	          </a>
 	        </div>  
@@ -158,12 +160,13 @@ h1{
       <hr>
     </div>
     
-        <div class="row">
+    <!-- --------------------------- D ------------------------ -->
+    <div class="row">
       <h5 class="textRecommandation">D</h5>
       <hr>
       <div class="row">
 	        <div class="col-md-1" th:object="${listeD}" th:each="lpb:${listeD}">
-	          <a>
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
 	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
 	          </a>
 	        </div>  
@@ -171,18 +174,317 @@ h1{
       <hr>
     </div>
     
-        <div class="row">
+    <!-- --------------------------- E ------------------------ -->
+    <div class="row">
       <h5 class="textRecommandation">E</h5>
       <hr>
       <div class="row">
 	        <div class="col-md-1" th:object="${listeE}" th:each="lpb:${listeE}">
-	          <a>
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
 	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
 	          </a>
 	        </div>  
       </div>
       <hr>
     </div>
+    
+    <!-- --------------------------- F ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">F</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeF}" th:each="lpb:${listeF}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    <!-- --------------------------- G ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">G</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeG}" th:each="lpb:${listeG}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    <!-- --------------------------- H ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">H</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeH}" th:each="lpb:${listeH}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    <!-- --------------------------- I ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">I</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeI}" th:each="lpb:${listeI}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    <!-- --------------------------- J ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">J</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeJ}" th:each="lpb:${listeJ}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    <!-- --------------------------- K ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">K</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeK}" th:each="lpb:${listeK}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- L ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">L</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeL}" th:each="lpb:${listeL}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- M ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">M</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeM}" th:each="lpb:${listeM}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- N ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">N</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeN}" th:each="lpb:${listeN}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- O ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">O</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeO}" th:each="lpb:${listeO}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- P ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">P</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeP}" th:each="lpb:${listeP}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- Q ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">Q</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeQ}" th:each="lpb:${listeQ}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- R ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">R</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeR}" th:each="lpb:${listeR}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- S ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">S</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeS}" th:each="lpb:${listeS}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- T ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">T</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeT}" th:each="lpb:${listeT}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- U ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">U</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeU}" th:each="lpb:${listeU}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- V ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">V</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeV}" th:each="lpb:${listeV}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- W ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">W</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeW}" th:each="lpb:${listeW}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+        <!-- --------------------------- X ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">X</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeX}" th:each="lpb:${listeX}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+           <!-- --------------------------- Y ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">Y</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeY}" th:each="lpb:${listeY}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+           <!-- --------------------------- Z ------------------------ -->
+    <div class="row">
+      <h5 class="textRecommandation">Z</h5>
+      <hr>
+      <div class="row">
+	        <div class="col-md-1" th:object="${listeZ}" th:each="lpb:${listeZ}">
+	         <a th:href="@{artistes(id=${lpb.idartiste})}">
+	            <h5 class="textRecommandation" th:text="${lpb.nomcompletartiste}">Maitre Gims</h5>
+	          </a>
+	        </div>  
+      </div>
+      <hr>
+    </div>
+    
+    
+    
+    
 </div>
 
 <div th:replace="fragment/footer :: footerFrontAndBack">

@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.BiographieRepository;
+import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
@@ -29,17 +30,26 @@ public class MenuPrincipalController {
 	
 	@Autowired
 	private BiographieRepository biographieRepository;
+	
+	@Autowired
+	private EvenementRepository evenementRepository;
 
 	/*------------------------------------------------------------------------------------*/
 	@RequestMapping(value="/")
-	public String menu_principal_frontend() {
-		
-		
-		return "front_end/fe_menuprincipal/menuPrincipal";
-		}
-	
-	/*------------------------------------------------------------------------------------*/
+	public String menu_principal_frontend(Model model) {
 
+	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinentafricain();
+	  model.addAttribute("listeEvenementSurleContinentAfricain", listeEvenementSurleContinentAfricain);
+	  
+	  List<Evenement> listeEvenementSurleContinentEuropeen = evenementRepository.evenementsurlecontinenteuropeen();
+	  model.addAttribute("listeEvenementSurleContinentEuropeen", listeEvenementSurleContinentEuropeen);
+	  
+	  List<Evenement> listeEvenementSurleContinentAmericain = evenementRepository.evenementsurlecontinentamericain();
+	  model.addAttribute("listeEvenementSurleContinentAmericain", listeEvenementSurleContinentAmericain);
+	  
+	  return "front_end/fe_menuprincipal/menuPrincipal";
+	  
+	  }
 }
 
 

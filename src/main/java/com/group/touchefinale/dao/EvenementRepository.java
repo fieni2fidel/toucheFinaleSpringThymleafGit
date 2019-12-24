@@ -34,5 +34,21 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	List<Evenement> findAllByArtiste(Artiste artiste);
 	
 	List<Evenement> findAllBySalle(Salle salle);
+	
+	
+	@Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='afrique'") 
+	  public List<Evenement>evenementsurlecontinentafricain();
+	
+	@Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='europe'") 
+	  public List<Evenement>evenementsurlecontinenteuropeen();
+	
+	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='amerique'") 
+	  public List<Evenement>evenementsurlecontinentamericain();
+	 
+	
+	/*
+	 * SELECT CLI_NOM, TEL_NUMERO FROM T_CLIENT C, T_TELEPHONE T WHERE C.CLI_ID =
+	 * T.CLI_ID AND TYP_CODE = 'FAX'
+	 */
 
 }

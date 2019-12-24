@@ -129,5 +129,11 @@ public class EvenementController {
 		return "evenement/voirFormulaireEvenement";
 
 	}
+	
+	/*------------------------------------------------------------------------------------*/
+
+	
+	 
+	
 
 }
