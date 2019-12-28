@@ -514,94 +514,33 @@ img {
 					<hr>
 					</div>
 
-					<div class="col-md-12 divTADLA">
+					<div class="col-md-12 divTADLA"  th:each="lxx:${listeProchainEvenementEnAfriqueAA}">
 						<div class="col-md-12 TitreEvenement">
 							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
+								<div class="col-md-12 TitreProchainEvenement" th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									SALIF KEITA EN CONCERT
+								</div>
+								
+								<div class="col-md-12 timePEAL" th:text="${#dates.format(lxx.datedebutevenement, 'dd-MMM-yyyy')}">
 								</div>
 							</div>
-							
-							
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+									<img th:src="@{getphotoimage(id=${lpx.idphoto})}" src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>	
 						</div>
 						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							 <h6 class="timePE"	th:text="${lxx.salle.lieu.payslieu}">  Congo-Brazzaville | 
+							 </h6>
 							<hr>
-						</div>
-						
+						</div>	
 					</div>
 					
-					<!-- --------------------------------------------- -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
-							<hr>
-						</div>
-						
-					</div>
-
-					<!-- ------------------------------------------------------ -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
-							<hr>
-						</div>
-						
-					</div>
-					<!-- ----------------------------------------------------------- -->
-
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
-							<hr>
-						</div>
-						
-					</div>
 					<!-- ------------------------------------------------------ -->
 				</div>
 				<!-- -----------------FIN SIDE BAR DROITE-------------------------- -->
 		</div>
-
-
 
 		<div class="container grandCadre">
 		
@@ -678,7 +617,7 @@ img {
 
 			<!-- ----------- CADRE MILIEU EUROPE ----------- -->
 		
-								<div class="col-md-6 cadre" >
+				<div class="col-md-6 cadre" >
 					<div class="col-md-12">
 						<div class="thumbnail" th:each="lpb:${listeEvenementSurleContinentEuropeen[0].artiste.photos}">
 							 <img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
@@ -723,93 +662,36 @@ img {
 			<!-- ----------- CADRE SIDE BAR DROITE EUROPE ----------- -->	
 			
 				<div class="col-md-3 pticadre">
+					
 					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
 					<hr>
 					</div>
 
-					<div class="col-md-12 divTADLA">
+					<div class="col-md-12 divTADLA"  th:each="lxx:${listeProchainEvenementEnEuropeEE}">
 						<div class="col-md-12 TitreEvenement">
 							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
+								<div class="col-md-12 TitreProchainEvenement" th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									SALIF KEITA EN CONCERT
+								</div>
+								
+								<div class="col-md-12 timePEAL" th:text="${#dates.format(lxx.datedebutevenement, 'dd-MMM-yyyy')}">
 								</div>
 							</div>
-							
-							
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+									<img th:src="@{getphotoimage(id=${lpx.idphoto})}" src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>	
 						</div>
 						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							 <h6 class="timePE"	th:text="${lxx.salle.lieu.payslieu}">  Congo-Brazzaville | 
+							 </h6>
 							<hr>
-						</div>
-						
+						</div>	
 					</div>
 					
-					<!-- --------------------------------------------- -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
-							<hr>
-						</div>
-						
-					</div>
-
 					<!-- ------------------------------------------------------ -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
-							<hr>
-						</div>
-						
-					</div>
-					<!-- ----------------------------------------------------------- -->
-
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
-							<hr>
-						</div>
-						
-					</div>
-					<!-- ------------------------------------------------------ -->
+				
 				</div>
 		</div> 
 
@@ -932,96 +814,40 @@ img {
 				</div>
 			
 			<!-- ----------- CADRE SIDE BAR DROITE AMERIQUE & RESTE DU MONDE----------- -->	
+				
 				<div class="col-md-3 pticadre">
+					
 					<div class="col-md-12 prochainEvenement"><span class="glyphicon glyphicon-time"></span> PROCHAINEMENT EVENEMENT
 					<hr>
 					</div>
-
-					<div class="col-md-12 divTADLA">
+					<div class="col-md-12">
+					<div class="col-md-12 divTADLA" th:each="lxx: ${listeProchainEvenementEnAmeriqueAM}">
 						<div class="col-md-12 TitreEvenement">
 							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
+								<div class="col-md-12 TitreProchainEvenement" th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									SALIF KEITA EN CONCERT
+								</div>
+								
+								<div class="col-md-12 timePEAL" th:text="${#dates.format(lxx.datedebutevenement, 'dd-MMM-yyyy')}">
 								</div>
 							</div>
-							
-							
+							<div class="col-md-4 imgProchainEvenement">
+								<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+									<img th:src="@{getphotoimage(id=${lpx.idphoto})}" src="imagesIndex/SalifKeita.jpg">	
+								</div>
+							</div>	
 						</div>
 						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Auj. </span></h6>
+							 <h6 class="timePE"	th:text="${lxx.salle.lieu.payslieu}">  Congo-Brazzaville | 
+							 </h6>
 							<hr>
-						</div>
-						
+						</div>	
 					</div>
-					
-					<!-- --------------------------------------------- -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 1jr </span></h6>
-							<hr>
-						</div>
-						
-					</div>
-
-					<!-- ------------------------------------------------------ -->
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2jr</span></h6>
-							<hr>
-						</div>
-						
-					</div>
-					<!-- ----------------------------------------------------------- -->
-
-					<div class="col-md-12 divTADLA">
-						<div class="col-md-12 TitreEvenement">
-							<div class="col-md-8 TitreProchainEvenement">
-							SALIF KEITA EN CONCERT
-							</div>
-							<div class="col-md-4 imgProchainEvenement">
-								<div class="thumbnail">
-									<img src="imagesIndex/SalifKeita.jpg">	
-								</div>
-							</div>
-							
-							
-						</div>
-						<div class="col-md-12 dateEtLieuPE">
-							 <h6 class="timePE">  Congo-Brazzaville | <span class="timePEAL"> Dans 2sem</span></h6>
-							<hr>
-						</div>
-						
 					</div>
 					<!-- ------------------------------------------------------ -->
+				
 				</div>
-		</div> 
+			</div> 
 
 
 

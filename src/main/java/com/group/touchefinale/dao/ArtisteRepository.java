@@ -3,8 +3,6 @@ package com.group.touchefinale.dao;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.NamedQuery;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -40,4 +38,6 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	public List<Biographie>findBiographieByIdArtist(Long idartiste);
 	
 	public List<Artiste>findByNomcompletartisteStartingWith(String debutnom);
+
+	//List<Artiste> findAllOrderByNomCompletartiste();
 }

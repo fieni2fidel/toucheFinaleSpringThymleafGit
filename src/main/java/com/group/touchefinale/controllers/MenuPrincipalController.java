@@ -1,4 +1,6 @@
 package com.group.touchefinale.controllers;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +41,33 @@ public class MenuPrincipalController {
 	public String menu_principal_frontend(Model model) {
 
 	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinentafricain();
+	  Collections.sort(listeEvenementSurleContinentAfricain);
 	  model.addAttribute("listeEvenementSurleContinentAfricain", listeEvenementSurleContinentAfricain);
 	  
 	  List<Evenement> listeEvenementSurleContinentEuropeen = evenementRepository.evenementsurlecontinenteuropeen();
+	  Collections.sort(listeEvenementSurleContinentEuropeen);
+	  //Collections.reverse(listeEvenementSurleContinentEuropeen);
 	  model.addAttribute("listeEvenementSurleContinentEuropeen", listeEvenementSurleContinentEuropeen);
 	  
 	  List<Evenement> listeEvenementSurleContinentAmericain = evenementRepository.evenementsurlecontinentamericain();
+	  Collections.sort(listeEvenementSurleContinentAmericain);
+	  //Collections.reverse(listeEvenementSurleContinentAmericain);
 	  model.addAttribute("listeEvenementSurleContinentAmericain", listeEvenementSurleContinentAmericain);
+	  
+	  List<Evenement>listeProchainEvenementEnAfriqueAA=evenementRepository.prochainevenement("afrique",new Date());
+	  Collections.sort(listeProchainEvenementEnAfriqueAA);
+	  Collections.reverse(listeProchainEvenementEnAfriqueAA);
+	  model.addAttribute("listeProchainEvenementEnAfriqueAA", listeProchainEvenementEnAfriqueAA);
+	  
+	  List<Evenement>listeProchainEvenementEnEuropeEE=evenementRepository.prochainevenement("europe",new Date());
+	  Collections.sort(listeProchainEvenementEnEuropeEE);
+	  Collections.reverse(listeProchainEvenementEnEuropeEE);
+	  model.addAttribute("listeProchainEvenementEnEuropeEE", listeProchainEvenementEnEuropeEE);
+	  
+	  List<Evenement>listeProchainEvenementEnAmeriqueAM=evenementRepository.prochainevenement("amerique",new Date());
+	  Collections.sort(listeProchainEvenementEnAmeriqueAM);
+	  Collections.reverse(listeProchainEvenementEnAmeriqueAM);
+	  model.addAttribute("listeProchainEvenementEnAmeriqueAM", listeProchainEvenementEnAmeriqueAM);
 	  
 	  return "front_end/fe_menuprincipal/menuPrincipal";
 	  
