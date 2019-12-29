@@ -37,7 +37,7 @@ public class MenuPrincipalController {
 	private EvenementRepository evenementRepository;
 
 	/*------------------------------------------------------------------------------------*/
-	@RequestMapping(value="/")
+	@RequestMapping(value= {"/","/menuprincipal"})
 	public String menu_principal_frontend(Model model) {
 
 	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinentafricain();
