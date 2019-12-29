@@ -54,6 +54,9 @@ public class MenuPrincipalController {
 	  //Collections.reverse(listeEvenementSurleContinentAmericain);
 	  model.addAttribute("listeEvenementSurleContinentAmericain", listeEvenementSurleContinentAmericain);
 	  
+	  
+	  // ---------------------------------------------------------------------------------------------
+	  
 	  List<Evenement>listeProchainEvenementEnAfriqueAA=evenementRepository.prochainevenement("afrique",new Date());
 	  Collections.sort(listeProchainEvenementEnAfriqueAA);
 	  Collections.reverse(listeProchainEvenementEnAfriqueAA);

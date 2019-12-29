@@ -43,6 +43,7 @@ body {
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
+	font-variant: small-caps;
 }
 
 .grandCadre, .largeCadreAlaffiche {
@@ -136,11 +137,17 @@ h5 {
 	/*color: grey;*/
 	padding: 0px;
 	margin: 0px;
+	font-variant: small-caps;
 }
 
 .TitreProchainEvenement {
 	padding: 3px;
 	margin: 0px;
+	font-variant: small-caps;
+}
+
+.upper{
+	font-variant: small-caps;
 }
 
 .imgProchainEvenement {
@@ -237,7 +244,7 @@ img {
 <body>
 	<div class="menuFixe col-md-12 col-sm-6"
 		th:replace="fragment/navbarFrontEnd :: navbarFrontEnd"></div>
-	<div class="container largeCadreAlaffiche">
+	<!-- <div class="container largeCadreAlaffiche">
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="alaffiche">A L'AFFICHE</h2>
@@ -325,7 +332,7 @@ img {
 	</div>
 
 
-	<!-- ------------------------------------------------------------ -->
+	------------------------------------------------------------
 
 
 
@@ -417,9 +424,10 @@ img {
 	</div>
 
 
-
-
-	<!-- ----------------------------------------------------------- -->
+******************************************************************
+ -->	
+ 
+ <!-- ----------------------------------------------------------- -->
 
 	<div class="container grandCadre">
 
@@ -514,38 +522,15 @@ img {
 			</div>
 			<!-- --------------------- -->
 			<div class="col-md-12">
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAfricain[1].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[1]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
-				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAfricain[2].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[2]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
-				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAfricain[3].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAfricain[3]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
+				<div class="col-md-4" th:each="lpb, iter:${listeEvenementSurleContinentAfricain}" th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">	
+					<div class="thumbnail">														
+						<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+							src="imagesIndex/Kerozen-DJ.jpg">									
+					</div>					
+					<h6 class="upper" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+					DJ en concert - Cote d'Ivoire</h6>
+					
+				</div>				
 			</div>
 		</div>
 
@@ -558,7 +543,8 @@ img {
 			</div>
 
 			<div class="col-md-12 divTADLA"
-				th:each="lxx:${listeProchainEvenementEnAfriqueAA}">
+				th:each="lxx, iter:${listeProchainEvenementEnAfriqueAA}">
+			 <div th:if="${iter.index < 4 }">
 				<div class="col-md-12 TitreEvenement">
 					<div class="col-md-8 TitreProchainEvenement">
 						<div class="col-md-12 TitreProchainEvenement"
@@ -584,6 +570,7 @@ img {
 			</div>
 
 			<!-- ------------------------------------------------------ -->
+		 </div>
 		</div>
 		<!-- -----------------FIN SIDE BAR DROITE-------------------------- -->
 	</div>
@@ -681,38 +668,16 @@ img {
 			</div>
 			<!-- --------------------- -->
 			<div class="col-md-12">
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentEuropeen[1].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[1]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
+				<!-- --------------------- -->
+				<div class="col-md-4" th:each="lpb, iter:${listeEvenementSurleContinentEuropeen}" th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">	
+					<div class="thumbnail">														
+						<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+							src="imagesIndex/Kerozen-DJ.jpg">									
+					</div>					
+					<h6 class="upper" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+					DJ en concert - Cote d'Ivoire</h6>
 				</div>
 				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentEuropeen[2].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[2]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
-				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentEuropeen[3].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentEuropeen[3]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
 			</div>
 		</div>
 
@@ -727,7 +692,8 @@ img {
 			</div>
 
 			<div class="col-md-12 divTADLA"
-				th:each="lxx:${listeProchainEvenementEnEuropeEE}">
+				th:each="lxx, iter:${listeProchainEvenementEnEuropeEE}">
+			 <div th:if="${iter.index < 4 }">
 				<div class="col-md-12 TitreEvenement">
 					<div class="col-md-8 TitreProchainEvenement">
 						<div class="col-md-12 TitreProchainEvenement"
@@ -753,7 +719,7 @@ img {
 			</div>
 
 			<!-- ------------------------------------------------------ -->
-
+		 </div>
 		</div>
 	</div>
 
@@ -771,55 +737,15 @@ img {
 				<hr>
 			</div>
 
-
-
-			<div class="col-md-12 divTADLA">
-				<div class="col-md-12 TitreAgenda">AYA NAKAMURA en concert</div>
-				<div class="col-md-12 dateEtLieuAgenda">
-					<h5>20/03/2019 | Congo-Brazzaville</h5>
-					<hr>
-				</div>
-
-			</div>
-
-			<!-- --------------------------------------------- -->
-			<div class="col-md-12 divTADLA">
-				<div class="col-md-12 TitreAgenda">AYA NAKAMURA en concert</div>
-				<div class="col-md-12 dateEtLieuAgenda">
-					<h5>20/03/2019 | Congo-Brazzaville</h5>
-					<hr>
-				</div>
-
-			</div>
-
-			<!-- ------------------------------------------------------ -->
-			<div class="col-md-12 divTADLA">
-				<div class="col-md-12 TitreAgenda">AYA NAKAMURA en concert</div>
-				<div class="col-md-12 dateEtLieuAgenda">
-					<h5>20/03/2019 | Congo-Brazzaville</h5>
-					<hr>
-				</div>
-
-			</div>
-			<!-- ----------------------------------------------------------- -->
-
-			<div class="col-md-12 divTADLA">
-				<div class="col-md-12 TitreAgenda">AYA NAKAMURA en concert</div>
-				<div class="col-md-12 dateEtLieuAgenda">
-					<h5>20/03/2019 | Congo-Brazzaville</h5>
-					<hr>
-				</div>
-
-			</div>
-
 			<!-- ----------------------------------------------------- -->
-			<div class="col-md-12 divTADLA">
-				<div class="col-md-12 TitreAgenda">AYA NAKAMURA en concert</div>
-				<div class="col-md-12 dateEtLieuAgenda">
-					<h5>20/03/2019 | Congo-Brazzaville</h5>
-					<hr>
+			<div class="col-md-12 divTADLA" >
+				<div th:each="lpb, iter:${listeProchainEvenementEnAmeriqueAM}" th:if="${iter.index &gt; 3 and iter.index &lt; 9}"> 
+					<div class="col-md-12 TitreAgenda" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA NAKAMURA en concert</div>
+					<div class="col-md-12 dateEtLieuAgenda">
+						<h5 th:text="${'__${#dates.format(lpb.datedebutevenement, 'MMM-yyyy')}__' + ' | ' + '__${lpb.salle.lieu.payslieu}__'}">20/03/2019 | Congo-Brazzaville</h5>
+						<hr>
+					</div>
 				</div>
-
 			</div>
 
 			<!-- ------------------------------------------------------ -->
@@ -852,38 +778,17 @@ img {
 			</div>
 			<!-- --------------------- -->
 			<div class="col-md-12">
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAmericain[1].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[1]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
+				<!-- --------------------- -->
+				<div class="col-md-4" th:each="lpb, iter:${listeEvenementSurleContinentAmericain}" th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">	
+					<div class="thumbnail">														
+						<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+							src="imagesIndex/Kerozen-DJ.jpg">									
+					</div>					
+					<h6 class="upper" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+					DJ en concert - Cote d'Ivoire</h6>
 				</div>
 				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAmericain[2].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[2]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
-				<!-- --------------------- -->
-				<div class="col-md-4">
-					<div class="thumbnail"
-						th:each="lpb:${listeEvenementSurleContinentAmericain[3].artiste.photos}">
-						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
-							src="imagesIndex/Kerozen-DJ.jpg">
-					</div>
-					<h6 th:each="lpb:${listeEvenementSurleContinentAmericain[3]}"
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
-						DJ en concert - Cote d'Ivoire</h6>
-				</div>
+
 			</div>
 		</div>
 
