@@ -45,6 +45,14 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a AND e.datedebutevenement < :x") 
 	  public List<Evenement>evenementpasse(@Param("a")String a, @Param("x")Date x);
+	  
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.artiste.idartiste= :a AND e.datedebutevenement >= :x") 
+	  public List<Evenement>dateArtistesAVenir(@Param("a")Long a, @Param("x")Date x);
+	  
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.artiste.idartiste= :a AND e.datedebutevenement < :x") 
+	  public List<Evenement>dateArtistesTermine(@Param("a")Long a, @Param("x")Date x);
 	 
 	
 	/*

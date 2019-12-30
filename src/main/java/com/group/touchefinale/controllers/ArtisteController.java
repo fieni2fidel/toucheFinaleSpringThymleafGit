@@ -1,6 +1,7 @@
 package com.group.touchefinale.controllers;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,6 +152,7 @@ public class ArtisteController {
 		for (Artiste x : nomArtiste) {
 			artistefrontend = artisteRepository.getOne(x.getIdartiste());
 			Collections.sort((List<Evenement>) artistefrontend.getEvenements());
+			Collections.reverse((List<Evenement>) artistefrontend.getEvenements());
 			model.addAttribute("artistefrontend", artistefrontend);
 		}
 
@@ -165,11 +167,19 @@ public class ArtisteController {
 	@RequestMapping(value = "/artistes")
 	public String debutmajusculeartiste(Long id, Model model) {
 
-		Artiste artistefrontend = artisteRepository.getOne(id);
-		Collections.sort((List<Evenement>) artistefrontend.getEvenements());
+		 Artiste artistefrontend = artisteRepository.getOne(id); 
+		
+		List<Evenement> listeDateArtistesAVenir= evenementRepository.dateArtistesAVenir(id, new Date());
+		Collections.sort(listeDateArtistesAVenir);
+		Collections.reverse(listeDateArtistesAVenir);
+		model.addAttribute("listeDateArtistesAVenir", listeDateArtistesAVenir);
+		
 		model.addAttribute("artistefrontend", artistefrontend);
 		
+		List<Evenement> listeDateArtistesTermine= evenementRepository.dateArtistesTermine(id, new Date());
+		Collections.sort(listeDateArtistesTermine);
 		
+		model.addAttribute("listeDateArtistesTermine",listeDateArtistesTermine);
 
 		return "front_end/fe_artiste/meiway";
 

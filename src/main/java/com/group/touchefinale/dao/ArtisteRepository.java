@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
+import com.group.touchefinale.entities.Evenement;
 
 public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 
@@ -39,5 +40,12 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	
 	public List<Artiste>findByNomcompletartisteStartingWith(String debutnom);
 
-	//List<Artiste> findAllOrderByNomCompletartiste();
+	
+	/*
+	 * @Query(value =
+	 * "Select e FROM Artiste e WHERE e.idartiste= :a AND e.evenements.datedebutevenement >= :x"
+	 * ) public List<Artiste>dateArtistesAVenir(@Param("a")Long a, @Param("x")Date
+	 * x);
+	 */
+	 
 }

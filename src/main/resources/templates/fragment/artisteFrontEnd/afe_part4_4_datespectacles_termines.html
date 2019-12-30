@@ -13,7 +13,7 @@
 		<!-- part V dates de spectacles -->
 
 				
-				<div th:each="lpb:${listeDateArtistesAVenir}" th:fragment="afe_part4_datespectacles">
+				<div th:each="lpb:${listeDateArtistesTermine}" th:fragment="afe_part4_4_datespectacles_termines">
 						<div class="row" >
 							<div class="col-sm-4">
 								<div><h3 class="dateSpectacleArtiste" th:text="${#calendars.dayOfWeekName(lpb.datedebutevenement)}">Vendredi</h3></div>
@@ -33,7 +33,7 @@
 										
 										<h4 class="tarifSpectacleArtiste" th:text="${lpb.tarifevenement}">vip : 10000 frs CFA</h4>
 										
-									<a href="#" class="btn btn-success">Plus d'infos</a>
+									<a class="btn btn-danger">Terminé</a>
 								</div>
 							</div>
 						</div>
