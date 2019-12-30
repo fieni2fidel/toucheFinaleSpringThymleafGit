@@ -31,22 +31,20 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 										 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 										 Date d2, Pageable pageable);
 	
-	List<Evenement> findAllByArtiste(Artiste artiste);
+	  List<Evenement> findAllByArtiste(Artiste artiste);
 	
-	List<Evenement> findAllBySalle(Salle salle);
+	  List<Evenement> findAllBySalle(Salle salle);
 	
 	
-	@Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='afrique'") 
-	  public List<Evenement>evenementsurlecontinentafricain();
+	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a") 
+	  public List<Evenement>evenementsurlecontinent(@Param("a")String a);
 	
-	@Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='europe'") 
-	  public List<Evenement>evenementsurlecontinenteuropeen();
-	
-	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu='amerique'") 
-	  public List<Evenement>evenementsurlecontinentamericain();
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a AND e.datedebutevenement >= :x") 
 	  public List<Evenement>prochainevenement(@Param("a")String a, @Param("x")Date x);
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a AND e.datedebutevenement < :x") 
+	  public List<Evenement>evenementpasse(@Param("a")String a, @Param("x")Date x);
 	 
 	
 	/*

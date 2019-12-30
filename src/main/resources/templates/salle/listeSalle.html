@@ -66,7 +66,8 @@
 					<th>ID</th>
 					<th>nom salle</th><th>nombre de place</th>
 					<th>Image de la salle</th>
-					<th>Ville</th><th>Biographie de la salle</th>
+					<th>Ville</th>
+					<!-- <th>Biographie de la salle</th> -->
 			</thead>
 			<tbody>
 				<tr th:each="ldb:${listeDesSalles}">
@@ -90,9 +91,9 @@
 					<td th:text="${ldb.lieu.villelieu}"></td>
 					
 					
-					<td th:each="bio:${ldb.biographies}">
+					<!-- <td th:each="bio:${ldb.biographies}">
 				         <span th:text="${bio.descriptionbiographie}"></span>
-	                </td>
+	                </td> -->
 
 
 				</tr>

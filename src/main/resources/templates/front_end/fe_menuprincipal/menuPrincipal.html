@@ -90,11 +90,6 @@ color: white;}
 	color: white;
 }
 
-.cadre {
-	/*border:grey solid 1px;*/
-	
-}
-
 .menuFixe {
 	margin-top: 1.5px;
 	padding: 0px;
@@ -219,15 +214,8 @@ h5 {
 
 .idh2 {
 	-webkit-filter: sepia(100%);
-	Safari
-	6.0
-	-
-	9.0
-	filter
-	:
-	sepia(
-	100%
-	);
+	Safari 6.0	- 9.0 
+	filter:sepia(100%);
 }
 
 h1 {
@@ -485,7 +473,7 @@ img {
 		<div class="col-md-6 cadre">
 			<div class="col-md-12">
 				<div class="thumbnail"
-					th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos}">
+					th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos[0]}">
 					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
 						<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
 							src="imagesIndex/Kerozen-DJ.jpg">

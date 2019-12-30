@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>artiste presentation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+*{
+	font-family: 'Roboto', sans-serif;
+}
+
+body{
+	background-color: #2E2E2E;
+}
+
+.thumbnail{
+	padding: 0px;
+	margin: 0px;
+}
+.btnDanger{
+	margin: 0px;
+
+
+}
+.titreCadre{
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+.grandCadre, .largeCadreAlaffiche{
+	margin-top: 100px;
+}
+
+.alaffiche{
+	color:white;
+	padding: 0px;
+	margin: 0px;
+}
+
+.box:hover {
+	transform: translateY(3px);
+}
+
+.imgBox:hover{
+	opacity: 0.5;
+	transition: 0.5s;
+	transform: translateY(3px);
+}
+
+.box{
+	overflow: hidden;
+}
+
+.textRecommandation{
+	color: white;
+}
+
+
+.menuFixe{
+	margin-top: 1.5px;
+	padding: 0px;
+}
+
+h3, h6{
+	color: white;
+}
+
+h5{
+	padding: 0px;
+}
+
+.pticadre{
+	background-color: #131111;
+}
+
+.trimestre{
+	padding: 0px;	
+}
+
+.agenda{
+	padding: 0px;
+	color: white;
+	margin-top: 2px;
+	
+}
+
+ .titreAlaffiche1{
+	margin:1px;
+	padding:2px;
+	font-variant: small-caps;
+} 
+
+
+.titreAlaffiche2{
+	color:  #7C6A19;
+	margin:1px;
+	padding:2px;
+	font-variant: small-caps;
+}
+
+.prochainEvenement{
+	padding: 0px;
+	color:  #7C6A19;
+	margin-top: 2px;
+}
+
+.divTADLA{
+	padding: 0px;
+	margin: 0px;
+}
+
+.TitreAgenda, .TitreEvenement{
+	color: white;
+	padding: 0px;
+}
+
+.dateEtLieuAgenda{
+	color: grey;
+	padding: 0px;
+	margin: 0px;
+}
+
+.dateEtLieuPE{
+	padding: 0px;
+	margin: 0px;
+}
+
+.TitreProchainEvenement{
+	padding: 3px;
+	margin: 0px;
+}
+
+.imgProchainEvenement{
+	padding: 0px;
+	margin: 0px;
+}
+
+.timePE{
+	color: grey;
+	padding: 0px;
+	margin-top: 8px;
+}
+.timePEAL{
+	padding: 0px;
+	margin: 0px;
+	color: #E20102;
+}
+
+.idh1{
+	text-align: center;
+	margin: 25% 25% 25% 25%;
+	position: absolute;
+	z-index: 2;
+	background-color: black;
+	color: white;
+	font-size: 50px;
+*/  font-family: 'Roboto', sans-serif;
+  	opacity: 0.8;
+  	border-radius: 5px;
+  	padding: 0px;
+  	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+  	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+  	box-shadow:10px 10px 5px 0px rgba(0,0,0,0.5);;
+}
+.idh2{	
+	-webkit-filter: sepia(100%);
+  	filter: sepia(100%); 	
+}
+
+h1{
+	padding: 0px;
+	margin: 0px;
+}
+
+img {
+  padding: 0px;
+  margin: 0px;
+}
+
+.row{
+	padding: 0px;
+	margin: 0px;
+}
+
+.acol{
+	padding: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin: 0px;
+}
+
+
+#phydel01,#phydel02{
+	margin: 0px;
+	padding: 0 0;
+}
+	
+#phydel011,#phydel012,#phydel013,#phydel014,#phydel015,#phydel016{	
+	padding: 0px;
+}
+#phydel0111,#phydel0112,#phydel0113,#phydel0114,#phydel0115,#phydel0116{
+	margin: 0 0;
+}
+
+.textEnAvant{
+	background-color: yellow !important;
+}
+</style>
+	
+</head>
+<body>
+
+	<div class="menuFixe col-md-12 col-sm-6" th:replace="fragment/navbarFrontEnd :: navbarFrontEnd">
+	</div>
+
+	<div class="container largeCadreAlaffiche">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="alaffiche">BIENTOT</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-3" th:each="lpb:${listeEvenementAVenir}">
+					<div class="box">
+						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> 
+							<div class="thumbnail imgBox">
+								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						</a>
+						<div class="textRecommandation">
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
+								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert | '}">
+								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
+								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span>COTE D'IVOIRE</span></h5>
+								
+						</div>
+					</div>
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------termine----------------------------------------- -->
+
+		<div class="container largeCadreAlaffiche">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="alaffiche">TERMINE</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+
+				<!-- ---------------------------------- -->
+				<div class="col-xs-6 col-sm-6 col-md-3 idh2" th:each="lpb:${listeEvenementTermine}">
+					<div class="box">
+						<!-- <a th:href="@{artistes(id=${lpb.artiste.idartiste})}">  -->
+							<div class="thumbnail imgBox">
+								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+							</div>
+						<!-- </a> -->
+						<div class="textRecommandation">
+								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert | '}">
+								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
+								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								
+						</div>
+					</div>
+					<br>
+				</div>
+			</div>	
+		</div>
+	
+<div th:replace="fragment/footer :: footerFrontAndBack">
+</div>
+</body>
+</html>

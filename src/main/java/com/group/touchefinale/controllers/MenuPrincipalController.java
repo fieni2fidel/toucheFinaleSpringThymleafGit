@@ -40,16 +40,16 @@ public class MenuPrincipalController {
 	@RequestMapping(value= {"/","/menuprincipal"})
 	public String menu_principal_frontend(Model model) {
 
-	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinentafricain();
+	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinent("afrique");
 	  Collections.sort(listeEvenementSurleContinentAfricain);
 	  model.addAttribute("listeEvenementSurleContinentAfricain", listeEvenementSurleContinentAfricain);
 	  
-	  List<Evenement> listeEvenementSurleContinentEuropeen = evenementRepository.evenementsurlecontinenteuropeen();
+	  List<Evenement> listeEvenementSurleContinentEuropeen = evenementRepository.evenementsurlecontinent("europe");
 	  Collections.sort(listeEvenementSurleContinentEuropeen);
 	  //Collections.reverse(listeEvenementSurleContinentEuropeen);
 	  model.addAttribute("listeEvenementSurleContinentEuropeen", listeEvenementSurleContinentEuropeen);
 	  
-	  List<Evenement> listeEvenementSurleContinentAmericain = evenementRepository.evenementsurlecontinentamericain();
+	  List<Evenement> listeEvenementSurleContinentAmericain = evenementRepository.evenementsurlecontinent("amerique");
 	  Collections.sort(listeEvenementSurleContinentAmericain);
 	  //Collections.reverse(listeEvenementSurleContinentAmericain);
 	  model.addAttribute("listeEvenementSurleContinentAmericain", listeEvenementSurleContinentAmericain);
@@ -75,6 +75,26 @@ public class MenuPrincipalController {
 	  return "front_end/fe_menuprincipal/menuPrincipal";
 	  
 	  }
+	
+	
+	@RequestMapping(value="/{continent}")
+	public String menu_principal_afrique(Model model, @PathVariable("continent") String continent) {
+
+	  List<Evenement> listeEvenementAVenir = evenementRepository.prochainevenement(continent, new Date());
+	  Collections.sort(listeEvenementAVenir);
+	  Collections.reverse(listeEvenementAVenir);
+	  model.addAttribute("listeEvenementAVenir", listeEvenementAVenir);
+	  
+	  List<Evenement> listeEvenementTermine = evenementRepository.evenementpasse(continent, new Date());
+	  Collections.sort(listeEvenementTermine);
+	  //Collections.reverse(listeEvenementTermine);
+	  model.addAttribute("listeEvenementTermine", listeEvenementTermine);
+	  
+	  
+	  return "front_end/fe_menuprincipal/menuPrincipalContinent";
+	  
+	  }
+	
 }
 
 
