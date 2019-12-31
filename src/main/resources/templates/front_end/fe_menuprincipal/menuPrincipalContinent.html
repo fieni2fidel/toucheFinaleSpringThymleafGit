@@ -231,7 +231,7 @@ img {
 
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-3" th:each="lpb:${listeEvenementAVenir}">
+				<div class="col-xs-6 col-sm-4 col-md-3" th:each="lpb:${listeEvenementAVenir}">
 					<div class="box">
 						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> 
 							<div class="thumbnail imgBox">
@@ -266,7 +266,7 @@ img {
 			<div class="row">
 
 				<!-- ---------------------------------- -->
-				<div class="col-xs-6 col-sm-6 col-md-3 idh2" th:each="lpb:${listeEvenementTermine}">
+				<div class="col-xs-6 col-sm-4 col-md-3 idh2" th:each="lpb:${listeEvenementTermine}">
 					<div class="box">
 						<!-- <a th:href="@{artistes(id=${lpb.artiste.idartiste})}">  -->
 							<div class="thumbnail imgBox">

@@ -28,6 +28,8 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	public List<Artiste>findByNomcompletartisteContaining(String mc);
 	
 	public List<Artiste>findByNomcompletartisteLike(String mc);
+	
+	//public List<Artiste>findAllOrderByNomcompletartiste();
 
 	@Query("select e from Artiste e where e.datenaissanceartiste > :x and e.datenaissanceartiste < :y")
 	public List<Artiste>chercherArtiste(@Param("x")Date d1, @Param("y")Date d2);

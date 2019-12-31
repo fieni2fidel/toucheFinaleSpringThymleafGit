@@ -189,16 +189,26 @@ public class ArtisteController {
 	@RequestMapping(value = "/artiste")
 	public String listedebutnom(Model model, String debutnom) {
 
+		
 		/*
-		 * List<Artiste> artistes = artisteRepository.findAllOrderByNomCompletartiste();
+		 * List<Artiste> artistes = artisteRepository.findAllOrderByNomcompletartiste();
 		 * String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; int index = 0; for (int i =
 		 * 0; i < alphabet.length(); i++) { // Ecrire le nom de la lettre et le divider
 		 * for (int j = index; j < artistes.size(); j++) { if
 		 * (artistes.get(j).getNomcompletartiste().toLowerCase() .startsWith("" +
-		 * alphabet.toLowerCase().charAt(i))) { //ecrerice le nom de l'artiste }else {
-		 * index = j; break; } } }
+		 * alphabet.toLowerCase().charAt(i))) { //ecrerice le nom de l'artiste
+		 * 
+		 * }else { index = j; break; } } }
 		 */
-		List<Artiste> listeA = artisteRepository.findByNomcompletartisteStartingWith("a");
+		 
+		
+		/*
+		 * String[]listeAlphabetique = { "A", "B", "C", "D", "E", "F", "F" };
+		 * 
+		 * model.addAttribute("listeAlphabetique", listeAlphabetique);
+		 */
+		
+		List<Artiste> listeA = artisteRepository.findByNomcompletartisteStartingWith("A");
 		model.addAttribute("listeA", listeA);
 
 		List<Artiste> listeB = artisteRepository.findByNomcompletartisteStartingWith("b");
