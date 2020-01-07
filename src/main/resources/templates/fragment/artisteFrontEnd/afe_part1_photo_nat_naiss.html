@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<!-- part I photo nationalite naissance -->
+	<div th:fragment="afe_part1_photo_nat_naiss" class="col-sm-12">
 
-
-			<!-- part I photo nationalite naissance -->
-					<div th:fragment="afe_part1_photo_nat_naiss" class="col-sm-12">
-	
-						<div class="box">
-								<div class="col-sm-12">
-									<div  th:object="${artistefrontend}" th:each="bb : ${artistefrontend.photos}">
-											<div class="thumbnail">
-		     									<img th:src="@{getphotoimage(id=${bb.idphoto})}"/>	
-		   									</div>
-									</div>
-								</div>
-							<div class="col-sm-12  textRecommandation" th:object="${artistefrontend}" th:each="lpb:${artistefrontend}">
-									<div class="col-xs-6">
-										<h6><span class="titreAlaffiche">ORIGINE : </span></h6>
-										<h6 class="titreAlaffichex" th:text="${lpb.origineartiste}"></h6>	
-									</div>
-									<div class="col-xs-6">
-										<h6><span class="titreAlaffiche">NE(E) LE : </span></h6>
-										<h6 th:text="${#dates.format(lpb.datenaissanceartiste,'dd-MMM-yyyy')}"></h6>
-									</div>
-									
-							</div>
-						</div>
+		<div class="box">
+			<div class="col-sm-12">
+				<div th:object="${artistefrontend}"
+					th:each="bb : ${artistefrontend.photos}">
+					<div class="thumbnail">
+						<img th:src="@{getphotoimage(id=${bb.idphoto})}"
+							th:onerror="'this.src=\'' + @{/tofs_artistes/logoTF.jpg} + '\';'" />
 					</div>
-			
+				</div>
+				<div class="thumbnail">
+					<img th:unless="${#lists.size(artistefrontend.photos) > 0}"
+						th:src="@{/tofs_artistes/logoTF.jpg}" />
+				</div>
+			</div>
+			<div class="col-sm-12  textRecommandation"
+				th:object="${artistefrontend}" th:each="lpb:${artistefrontend}">
+				<div class="col-xs-6">
+					<h6>
+						<span class="titreAlaffiche">ORIGINE : </span>
+					</h6>
+					<h6 class="titreAlaffichex" th:text="${lpb.origineartiste}"></h6>
+				</div>
+				<div class="col-xs-6">
+					<h6>
+						<span class="titreAlaffiche">NE(E) LE : </span>
+					</h6>
+					<h6
+						th:text="${#dates.format(lpb.datenaissanceartiste,'dd-MMM-yyyy')}"></h6>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
