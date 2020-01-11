@@ -334,10 +334,10 @@ img {
 								D'IVOIRE</span>
 						</h5> -->
 						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnEuropeEE[1].artiste.nomcompletartiste}__' + ' en concert | '}">
+							th:text="${'__${listeProchainEvenementEnEuropeEE[0].artiste.nomcompletartiste}__' + ' en concert | '}">
 							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
 						<h5
-							th:text="${listeProchainEvenementEnEuropeEE[1].salle.lieu.payslieu}"
+							th:text="${listeProchainEvenementEnEuropeEE[0].salle.lieu.payslieu}"
 							class="titreAlaffiche">
 							<span>COTE D'IVOIRE</span>
 						</h5>
@@ -353,7 +353,7 @@ img {
 					<a href="#">
 						<div class="thumbnail imgBox">
 							<img
-								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[2].artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[1].artiste.photos[0].idphoto})}"
 								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 						</div>
 					</a>
@@ -364,10 +364,10 @@ img {
 						</h5> -->
 
 						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnEuropeEE[2].artiste.nomcompletartiste}__' + ' en concert | '}">
+							th:text="${'__${listeProchainEvenementEnEuropeEE[1].artiste.nomcompletartiste}__' + ' en concert | '}">
 							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
 						<h5
-							th:text="${listeProchainEvenementEnEuropeEE[2].salle.lieu.payslieu}"
+							th:text="${listeProchainEvenementEnEuropeEE[1].salle.lieu.payslieu}"
 							class="titreAlaffiche">
 							<span>COTE D'IVOIRE</span>
 						</h5>
