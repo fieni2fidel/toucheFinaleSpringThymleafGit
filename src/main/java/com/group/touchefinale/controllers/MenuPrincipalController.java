@@ -95,6 +95,25 @@ public class MenuPrincipalController {
 	  
 	  }
 	
+	/*-----------------------------------lister les artistes -------------------------------------------------*/
+
+	@RequestMapping(value = "/recherche_artiste")
+	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
+
+		List<Artiste> listDesArtistes = artisteRepository.rechercherArtistes("%" + motcle + "%");
+		model.addAttribute("listDesArtistes", listDesArtistes);
+
+		List<Evenement>listEvenementParVilleAVenir=evenementRepository.evenementSurLaVilleAVenir(motcle, new Date());
+		model.addAttribute("listEvenementParVilleAVenir", listEvenementParVilleAVenir);
+		
+		List<Evenement>listEvenementParVilleTermine=evenementRepository.evenementSurLaVilleTermine(motcle, new Date());
+		model.addAttribute("listEvenementParVilleTermine", listEvenementParVilleTermine);
+		
+		model.addAttribute("motcle", motcle);
+		
+		return "front_end/fe_menuprincipal/ResultatRecherche";
+	}
+	
 }
 
 

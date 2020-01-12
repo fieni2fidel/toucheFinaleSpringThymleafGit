@@ -20,7 +20,7 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	public List<Artiste>findAllByOrderByIdartisteDesc();
 	
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
-	public Page<Artiste>chercherEtudiants(@Param("x")String mc, Pageable pageable);	
+	public Page<Artiste>chercherArtistes(@Param("x")String mc, Pageable pageable);	
 	
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
 	public List<Artiste>chercherArtisteFrontEnd(@Param("x")String mc);
@@ -41,6 +41,10 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	public List<Biographie>findBiographieByIdArtist(Long idartiste);
 	
 	public List<Artiste>findByNomcompletartisteStartingWith(String debutnom);
+	
+	
+	@Query("select e from Artiste e where e.nomcompletartiste like :x")
+	public List<Artiste>rechercherArtistes(@Param("x")String mc);	
 
 	
 	/*

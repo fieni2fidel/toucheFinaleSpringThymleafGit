@@ -38,7 +38,8 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a") 
 	  public List<Evenement>evenementsurlecontinent(@Param("a")String a);
-	
+	  
+	  
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a AND e.datedebutevenement >= :x") 
 	  public List<Evenement>prochainevenement(@Param("a")String a, @Param("x")Date x);
@@ -53,6 +54,14 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.artiste.idartiste= :a AND e.datedebutevenement < :x") 
 	  public List<Evenement>dateArtistesTermine(@Param("a")Long a, @Param("x")Date x);
+	  
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.villelieu= :a AND e.datedebutevenement > :x") 
+	  public List<Evenement>evenementSurLaVilleAVenir(@Param("a")String a, @Param("x")Date x);
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.villelieu= :a AND e.datedebutevenement < :x") 
+	  public List<Evenement>evenementSurLaVilleTermine(@Param("a")String a, @Param("x")Date x);
+	
 	 
 	
 	/*

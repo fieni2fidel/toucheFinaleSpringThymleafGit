@@ -63,13 +63,13 @@ public class ArtisteController {
 		return "artiste/pageMessageConfirmationFormulaire";
 	}
 
-	/*------------------------------------------------------------------------------------*/
+	/*-----------------------------------lister les artistes -------------------------------------------------*/
 
 	@RequestMapping(value = "/liste_artistes")
 	public String liste_artistes(Model model, @RequestParam(name = "pageRP", defaultValue = "0") int page,
 			@RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
 
-		Page<Artiste> listDesArtistes = artisteRepository.chercherEtudiants("%" + motcle + "%",
+		Page<Artiste> listDesArtistes = artisteRepository.chercherArtistes("%" + motcle + "%",
 				new PageRequest(page, 10));
 
 		int pagesCount = listDesArtistes.getTotalPages();
@@ -93,7 +93,7 @@ public class ArtisteController {
 		return "artiste/listeArtisteChanteurs";
 	}
 
-	/*------------------------------------------------------------------------------------*/
+	/*---------------------------supprimer un artiste ---------------------------------------------------------*/
 
 	@RequestMapping(value = "/supprimerartiste")
 	public String supprimerartiste(Long id) {

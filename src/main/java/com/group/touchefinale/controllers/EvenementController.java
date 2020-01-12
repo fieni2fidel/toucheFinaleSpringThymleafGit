@@ -3,6 +3,7 @@ package com.group.touchefinale.controllers;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -132,7 +133,18 @@ public class EvenementController {
 	
 	/*------------------------------------------------------------------------------------*/
 
-	
+	/*-------------------------------------diriger sur un evenement precis-----------------------------------------------*/
+
+	@RequestMapping(value = "/evenements")
+	public String debutmajusculeartiste(Long id, Model model) {
+
+		Evenement evenementfrontend=evenementRepository.getOne(id);
+		model.addAttribute("evenementfrontend", evenementfrontend);
+
+
+		return "front_end/fe_artiste/artisteOneEvenement";
+
+	}
 	 
 	
 

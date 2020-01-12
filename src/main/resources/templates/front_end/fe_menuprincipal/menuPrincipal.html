@@ -288,21 +288,17 @@ img {
 	<div class="container">
 		<div class="row">
 
-			<div class="col-xs-6 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3" >
 				<div class="box">
-					<a href="#">
+					
 						<div class="thumbnail imgBox">
 							<img
 								th:src="@{getphotoimage(id=${listeProchainEvenementEnAfriqueAA[0].artiste.photos[0].idphoto})}"
 								th:onerror="'this.src=\'' + @{/tofs_artistes/logoTF.jpg} + '\';'"
 								class="imgAlaffiche">
 						</div>
-					</a>
+					
 					<div class="textRecommandation">
-						<!-- <h5>
-							DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE
-								D'IVOIRE</span>
-						</h5> -->
 
 						<h5 class="titreAlaffiche1"
 							th:text="${'__${listeProchainEvenementEnAfriqueAA[0].artiste.nomcompletartiste}__' + ' en concert | '}">
@@ -313,7 +309,7 @@ img {
 							<span>COTE D'IVOIRE</span>
 						</h5>
 
-						<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						<a th:href="@{evenements(id=${listeProchainEvenementEnAfriqueAA[0].idevenement})}" class="btn btn-warning xx">Plus d'infos</a>
 					</div>
 				</div>
 
@@ -321,13 +317,13 @@ img {
 
 			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="box">
-					<a href="#">
+					
 						<div class="thumbnail imgBox">
 							<img
 								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[0].artiste.photos[0].idphoto})}"
 								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 						</div>
-					</a>
+					
 					<div class="textRecommandation">
 						<!-- <h5>
 							DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE
@@ -342,7 +338,7 @@ img {
 							<span>COTE D'IVOIRE</span>
 						</h5>
 
-						<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						 <a th:href="@{evenements(id=${listeProchainEvenementEnEuropeEE[0].idevenement})}" class="btn btn-warning xx">Plus d'infos</a>
 					</div>
 				</div>
 
@@ -350,13 +346,13 @@ img {
 
 			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="box">
-					<a href="#">
+					
 						<div class="thumbnail imgBox">
 							<img
 								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[1].artiste.photos[0].idphoto})}"
 								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 						</div>
-					</a>
+				
 					<div class="textRecommandation">
 						<!-- <h5>
 							DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE
@@ -371,135 +367,45 @@ img {
 							class="titreAlaffiche">
 							<span>COTE D'IVOIRE</span>
 						</h5>
-						<a href="#" class="btn btn-warning xx">Plus d'infos</a>
+						<a th:href="@{evenements(id=${listeProchainEvenementEnEuropeEE[1].idevenement})}" class="btn btn-warning xx">Plus d'infos</a>
 					</div>
 				</div>
 
 			</div>
 
 			<div class="col-xs-6 col-sm-6 col-md-3">
-				<div class="box">
-					<a href="#">
-						<div class="thumbnail imgBox">
-							<img
-								th:src="@{getphotoimage(id=${listeProchainEvenementEnAmeriqueAM[0].artiste.photos[0].idphoto})}"
-								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
+				
+					<div class="box">
+						
+							<div class="thumbnail imgBox">
+								<img
+									th:src="@{getphotoimage(id=${listeProchainEvenementEnAmeriqueAM[0].artiste.photos[0].idphoto})}"
+									src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
+							</div>
+					
+						<div class="textRecommandation">
+							<!-- <h5>
+								DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE
+									D'IVOIRE</span>
+							</h5>
+							 -->
+							<h5 class="titreAlaffiche1"
+								th:text="${'__${listeProchainEvenementEnAmeriqueAM[0].artiste.nomcompletartiste}__' + ' en concert | '}">
+								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
+							<h5
+								th:text="${listeProchainEvenementEnAmeriqueAM[0].salle.lieu.payslieu}"
+								class="titreAlaffiche">
+								<span>COTE D'IVOIRE</span>
+							</h5>
+							<a th:href="@{evenements(id=${listeProchainEvenementEnAmeriqueAM[0].idevenement})}" class="btn btn-warning xx">Plus d'infos</a>
 						</div>
-					</a>
-					<div class="textRecommandation">
-						<!-- <h5>
-							DOBET GNAHORE EN CONCERT A ABIDJAN | <span class="titreAlaffiche">COTE
-								D'IVOIRE</span>
-						</h5>
-						 -->
-						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnAmeriqueAM[0].artiste.nomcompletartiste}__' + ' en concert | '}">
-							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
-						<h5
-							th:text="${listeProchainEvenementEnAmeriqueAM[0].salle.lieu.payslieu}"
-							class="titreAlaffiche">
-							<span>COTE D'IVOIRE</span>
-						</h5>
-						<a href="#" class="btn btn-warning xx">Plus d'infos</a>
 					</div>
-				</div>
-
+				
 			</div>
-
-
 
 		</div>
 
 	</div>
-
-	<!-- 	<div class="container largeCadreAlaffiche">
-		<div class="row">
-			<div class="col-md-12">
-				<h2 class="alaffiche">PRES DE CHEZ VOUS</h2>
-				<hr>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- 	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="box">
-					<a href="#">
-						<div class="thumbnail imgBox">
-							<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
-						</div>
-					</a>
-					<div class="textRecommandation">
-						<h5>
-							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | <span
-								class="titreAlaffiche">COTE D'IVOIRE</span>
-						</h5>
-						<a href="#" class="btn btn-success">Plus d'infos</a>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				<div class="box">
-					<a href="#">
-						<div class="thumbnail imgBox">
-							<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
-						</div>
-					</a>
-					<div class="textRecommandation">
-						<h5>
-							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | <span
-								class="titreAlaffiche">COTE D'IVOIRE</span>
-						</h5>
-						<a href="#" class="btn btn-success">Plus d'infos</a>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				<div class="box">
-					<a href="#">
-						<div class="thumbnail imgBox">
-							<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
-						</div>
-					</a>
-					<div class="textRecommandation">
-						<h5>
-							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | <span
-								class="titreAlaffiche">COTE D'IVOIRE</span>
-						</h5>
-						<a href="#" class="btn btn-success">Plus d'infos</a>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-md-3">
-				<div class="box">
-					<a href="#">
-						<div class="thumbnail imgBox">
-							<img src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
-						</div>
-					</a>
-					<div class="textRecommandation">
-						<h5>
-							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | <span
-								class="titreAlaffiche">COTE D'IVOIRE</span>
-						</h5>
-						<a href="#" class="btn btn-success">Plus d'infos</a>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</div> -->
-
-
 
 	<!-- ----------------------------------------------------------- -->
 
@@ -520,7 +426,7 @@ img {
 				<div th:each="lpb, iter:${listeProchainEvenementEnAfriqueAA}"
 					th:if="${iter.index &gt; 3 and iter.index &lt; 10}">
 					<div class="col-md-12 col-sm-6 col-xs-6">
-						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+						<a th:href="@{evenements(id=${lpb.idevenement})}">
 							<div class="col-md-12 TitreAgenda"
 								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
 								NAKAMURA en concert</div>
@@ -542,9 +448,8 @@ img {
 			<div class="col-md-12">
 				<div class="thumbnail"
 					th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos[0]}">
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> <img
-						th:src="@{getphotoimage(id=${lpb.idphoto})}"
-						src="imagesIndex/Kerozen-DJ.jpg">
+					<a th:href="@{evenements(id=${listeEvenementSurleContinentAfricain[0].idevenement})}"> 
+					<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
 					</a>
 
 				</div>
@@ -560,7 +465,7 @@ img {
 			</div>
 			<div class="col-md-12 titreCadre"
 				th:each="lpb:${listeEvenementSurleContinentAfricain[0]}">
-				<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
 						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
@@ -572,7 +477,7 @@ img {
 					th:each="lpb, iter:${listeEvenementSurleContinentAfricain}"
 					th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">
 					<div></div>
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<div class="thumbnail">
 							<img
 								th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
@@ -599,7 +504,7 @@ img {
 				<div th:if="${iter.index < 4 }">
 					<div class="col-md-12 TitreEvenement">
 						<div class="col-md-8 TitreProchainEvenement">
-							<a th:href="@{artistes(id=${lxx.artiste.idartiste})}">
+							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
 									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
 									SALIF KEITA EN CONCERT</div>
@@ -611,7 +516,7 @@ img {
 						<div class="col-md-4 imgProchainEvenement">
 							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
 
-								<a th:href="@{artistes(id=${lxx.artiste.idartiste})}"> <img
+								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
 									src="imagesIndex/SalifKeita.jpg">
 								</a>
@@ -648,7 +553,7 @@ img {
 				<div th:each="lpb, iter:${listeProchainEvenementEnEuropeEE}"
 					th:if="${iter.index &gt; 3 and iter.index &lt; 10}">
 					<div class="col-md-12 col-sm-6 col-xs-6">
-						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+						<a th:href="@{evenements(id=${lpb.idevenement})}">
 							<div class="col-md-12 TitreAgenda"
 								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
 								NAKAMURA en concert</div>
@@ -670,7 +575,7 @@ img {
 			<div class="col-md-12">
 				<div class="thumbnail"
 					th:each="lpb:${listeEvenementSurleContinentEuropeen[0].artiste.photos}">
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> <img
+					<a th:href="@{evenements(id=${listeEvenementSurleContinentEuropeen[0].idevenement})}"> <img
 						th:src="@{getphotoimage(id=${lpb.idphoto})}"
 						src="imagesIndex/Kerozen-DJ.jpg">
 					</a>
@@ -687,7 +592,7 @@ img {
 			</div>
 			<div class="col-md-12 titreCadre"
 				th:each="lpb:${listeEvenementSurleContinentEuropeen[0]}">
-				<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
 						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
@@ -700,7 +605,7 @@ img {
 				<div class="col-md-4 col-sm-4 col-xs-6"
 					th:each="lpb, iter:${listeEvenementSurleContinentEuropeen}"
 					th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<div class="thumbnail">
 							<img
 								th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
@@ -732,7 +637,7 @@ img {
 					<div class="col-md-12 TitreEvenement">
 						<div class="col-md-8 TitreProchainEvenement">
 
-							<a th:href="@{artistes(id=${lxx.artiste.idartiste})}">
+							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
 									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
 									SALIF KEITA EN CONCERT</div>
@@ -745,7 +650,7 @@ img {
 						<div class="col-md-4 imgProchainEvenement">
 							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
 
-								<a th:href="@{artistes(id=${lxx.artiste.idartiste})}"> <img
+								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
 									src="imagesIndex/SalifKeita.jpg">
 								</a>
@@ -783,7 +688,7 @@ img {
 				<div th:each="lpb, iter:${listeProchainEvenementEnAmeriqueAM}"
 					th:if="${iter.index &gt; 3 and iter.index &lt; 10}">
 					<div class="col-md-12 col-sm-6 col-xs-6">
-						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+						<a th:href="@{evenements(id=${lpb.idevenement})}">
 							<div class="col-md-12 TitreAgenda"
 								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
 								NAKAMURA en concert</div>
@@ -806,7 +711,7 @@ img {
 			<div class="col-md-12">
 				<div class="thumbnail"
 					th:each="lpb:${listeEvenementSurleContinentAmericain[0].artiste.photos}">
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> <img
+					<a th:href="@{evenements(id=${listeEvenementSurleContinentAmericain[0].idevenement})}"> <img
 						th:src="@{getphotoimage(id=${lpb.idphoto})}"
 						src="imagesIndex/Kerozen-DJ.jpg">
 					</a>
@@ -822,7 +727,7 @@ img {
 			<div class="col-md-12 titreCadre"
 				th:each="lpb:${listeEvenementSurleContinentAmericain[0]}">
 
-				<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
 						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
@@ -836,12 +741,12 @@ img {
 					th:each="lpb, iter:${listeEvenementSurleContinentAmericain}"
 					th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">
 					<div class="thumbnail">
-						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> <img
+						<a th:href="@{evenements(id=${lpb.idevenement})}"> <img
 							th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
 							src="imagesIndex/Kerozen-DJ.jpg">
 						</a>
 					</div>
-					<a th:href="@{artistes(id=${lpb.artiste.idartiste})}">
+					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<h6 class="upper"
 							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 							DJ en concert - Cote d'Ivoire</h6>
@@ -868,7 +773,7 @@ img {
 					<div class="col-md-12 TitreEvenement">
 						<div class="col-md-8 TitreProchainEvenement">
 
-							<a th:href="@{artistes(id=${lxx.artiste.idartiste})}">
+							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
 									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
 									SALIF KEITA EN CONCERT</div>
@@ -880,7 +785,7 @@ img {
 						</div>
 						<div class="col-md-4 imgProchainEvenement">
 							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
-								<a th:href="@{artistes(id=${lxx.artiste.idartiste})}"> <img
+								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
 									src="imagesIndex/SalifKeita.jpg">
 								</a>
