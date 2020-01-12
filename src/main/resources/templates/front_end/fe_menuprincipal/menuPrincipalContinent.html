@@ -94,7 +94,8 @@ h5{
  .titreAlaffiche1{
 	margin:1px;
 	padding:2px;
-	font-variant: small-caps;
+	text-transform:uppercase;
+	/* font-variant: small-caps; */
 } 
 
 
@@ -102,7 +103,8 @@ h5{
 	color:  #7C6A19;
 	margin:1px;
 	padding:2px;
-	font-variant: small-caps;
+	text-transform:uppercase;
+	/* font-variant: small-caps; */
 }
 
 .prochainEvenement{
@@ -233,7 +235,7 @@ img {
 			<div class="row">
 				<div class="col-xs-6 col-sm-4 col-md-3" style="padding: 2px;" th:each="lpb:${listeEvenementAVenir}">
 					<div class="box">
-						<a th:href="@{artistes(id=${lpb.artiste.idartiste})}"> 
+						<a th:href="@{evenements(id=${lpb.idevenement})}"> 
 							<div class="thumbnail imgBox">
 								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
 							</div>

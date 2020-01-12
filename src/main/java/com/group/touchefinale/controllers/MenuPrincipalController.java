@@ -97,7 +97,7 @@ public class MenuPrincipalController {
 	
 	/*-----------------------------------lister les artistes -------------------------------------------------*/
 
-	@RequestMapping(value = "/recherche_artiste")
+	@RequestMapping(value = "/recherche")
 	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
 
 		List<Artiste> listDesArtistes = artisteRepository.rechercherArtistes("%" + motcle + "%");
