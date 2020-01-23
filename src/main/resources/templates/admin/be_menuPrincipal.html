@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	
+	<title>Administration Menu</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto:500');
+
+		.ah55{
+	/*color: #17202a;*/
+	color:  #959595 ;
+}
+
+.bh55{
+	color:    #959595;
+}
+
+.h55{
+	color: white;
+
+}
+
+.visitesEtTempsReel{
+	margin-top: 25px;
+}
+
+.tempsReel{
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 3px;
+	background-color: white;
+}
+
+.p100{
+	font-size: 100px;
+	font-weight: bolder;
+	text-align: center;
+
+}
+
+.ptr{
+	text-align: center;
+}
+
+.hDate{
+	text-align: left;
+}
+
+.bUsers{
+	text-align: center;
+}
+
+.hArtisteDeLaSemaine, .hSemaineClassement{
+	text-align: right;
+}
+
+.row{
+	padding: 0px;
+	margin: 0px;
+}
+
+.tablo2bord{
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 3px;
+	/*background-color: #0F5775;*/
+	background-color:      #424344 ;
+	/*opacity: 0.1;*/
+
+}
+
+.h5right{
+	text-align: right;
+}
+
+.h5left{
+	text-align: left;
+}
+
+.contenuActivitesPages{
+	text-align: center;
+	/*background-color: black;*/
+
+}
+
+.blocActivitesPages{
+	color: black !important;
+}
+
+.activitesPages{
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 3px;
+	background-color: #E7F3E6;
+	margin-top: 50px;
+}
+
+.aa{
+	margin: 0px;
+	padding: 4px;
+}
+
+.ab, .imgBox{
+	margin: 0px;
+	padding: 4px; }
+
+.aa1{
+	text-align: left;
+}
+
+.boutonAjout{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.row2{
+	margin-top: 25px;
+}
+
+.activitesClasses{
+	color: white;
+}
+
+.tableauDeBord .conteneurVosTraveaux{
+	color: #B32526;
+	/*background-color: #B32526;*/
+	text-align: center;
+	font-weight:bolder;
+}
+
+.activitesrecentesetotres, .travauxDesDifferentesClasses{
+	margin-top: 50px;
+}
+
+
+.conteneurVosTraveaux, .activitesrecentescomment{
+	margin-top: 25px;
+}
+
+.conteneurActivitesRecentes, .tableauDeBord{
+
+	/*border: black solid 0.2px;*/
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+
+.activitesrecentes{
+	color: white;
+	background-color: #B32526;
+	text-align: center;
+
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 5px;
+
+}
+
+.ar3{
+	margin-top: 40px;
+}
+
+.conteneurAr3{
+	padding: 1px;
+	text-align: justify;
+
+	box-shadow:3px 3px 3px 0px rgba(0,0,0,0.5);
+	border-radius: 5px;
+
+}
+
+.ar2{
+	padding: 0px;
+	margin: 0px;
+}
+
+.ar2x1{
+	 background-image: linear-gradient(to right, red , yellow);
+	color: white;
+	margin: 0px;
+
+}
+
+.ar2x2{
+	background-color: #C3B61B;
+	color: white;
+	margin: 0px;
+
+}
+
+.ar2x3{
+	background-color: #2F9224;
+	color: white;
+	margin: 0px;
+
+}
+
+.ar2x4{
+	background-color: #2DA8DB;
+	color: white;
+	margin: 0px;
+
+}
+
+.visiteurs{
+	margin-top: 25px;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+		
+	</style>
+</head>
+<body>
+<div th:replace="fragment/navbar :: navbarBackend">
+</div>
+
+  <div class="content">
+    <div class="col-md-12 activitesrecentesetotres">
+      <!-- <div class="col-md-4 ar1">
+        <img src="toftouchefinale/recentlogo.jpg"  height="200px" width="200px">
+      </div> -->
+      <div class="row">
+          <div class="visiteurs">
+            <div class="col-md-4">
+
+              <div class="row tablo2bord">
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Visiteurs</h5> -->
+                  <input type="button" class="btn btn-danger" name="Visiteurs/Jour" value="Visiteurs/Jour">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="bh55">Aujourd'hui</h5>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <h5 class="h55">1.000.000</h5>
+                </div>
+                <div class="col-md-6 h5right">
+                  <span class="glyphicon glyphicon-user"></span>
+                </div>
+
+                <div class="col-md-12">
+                  <hr>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Hier</h5> -->
+                  <input type="button" class="btn btn-default" name="Hier" value="Hier">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="h55">+15%</h5>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+              <div class="row tablo2bord">
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Visiteurs</h5> -->
+                  <input type="button" class="btn btn-danger" name="Visiteurs/Sem." value="Visiteurs/Sem.">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="bh55">Sem 40</h5>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <h5 class="h55">7.000.000</h5>
+                </div>
+                <div class="col-md-6 h5right">
+                  <span class="glyphicon glyphicon-user"></span>
+                </div>
+
+                <div class="col-md-12">
+                  <hr>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Semaine precedente</h5> -->
+                  <input type="button" class="btn btn-default" value="Semaine precedente">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="h55">+15%</h5>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+              <div class="row tablo2bord">
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Visiteurs</h5> -->
+                  <input type="button" class="btn btn-danger" name="Visiteurs/Mois" value="Visiteurs/Mois">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="bh55">Decembre 2020</h5>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <h5 class="h55">30.000.000</h5>
+                </div>
+                <div class="col-md-6 h5right">
+                  <span class="glyphicon glyphicon-user"></span>
+                </div>
+
+                <div class="col-md-12">
+                  <hr>
+                </div>
+
+                <div class="col-md-6 h5left">
+                  <!-- <h5 class="h55">Mois precedent</h5> -->
+                  <input type="button" class="btn btn-default" value="Mois precedent">
+                </div>
+                <div class="col-md-6 h5right">
+                  <h5 class="h55">+15%</h5>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+      </div>
+
+      <!-- ----------------------------- -->
+
+      <div class="row row2">
+        <div class="col-md-4">
+
+          <div class="row tablo2bord">
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="ah55">Utilisateurs/Jour</h5> -->
+              <input type="button" class="btn btn-danger" name="Utilisateurs/Jour" value="Utilisateurs/Jour">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="bh55">Aujourd'hui</h5>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <h5 class="h55">1.000.000</h5>
+            </div>
+            <div class="col-md-6 h5right">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="h55">Hier</h5> -->
+              <input type="button" class="btn btn-default" value="Hier">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="h55">+15%</h5>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+          <div class="row tablo2bord">
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="ah55">Sessions/Jour</h5> -->
+              <input type="button" class="btn btn-danger" name="Sessions/Jour" value="Sessions/Jour">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="bh55">Aujourd'hui</h5>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <h5 class="h55">10.000.000</h5>
+            </div>
+            <div class="col-md-6 h5right">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="h55">Sessions d'hier</h5> -->
+              <input type="button" class="btn btn-default" value="Sessions d'hier">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="h55">+15%</h5>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+          <div class="row tablo2bord">
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="ah55">Visiteurs/An</h5> -->
+              <input type="button" class="btn btn-danger" name="Visiteurs/An" value="Visiteurs/An">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="bh55">2020</h5>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <h5 class="h55">100.000.000</h5>
+            </div>
+            <div class="col-md-6 h5right">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+
+            <div class="col-md-12">
+              <hr>
+            </div>
+
+            <div class="col-md-6 h5left">
+              <!-- <h5 class="h55">Année precedente</h5> -->
+              <input type="button" class="btn btn-default" value="Année precedente">
+            </div>
+            <div class="col-md-6 h5right">
+              <h5 class="h55">+15%</h5>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+      <!-- --------------visites et temps reel-------------------- -->
+
+      <div class="col-md-12 visitesEtTempsReel">
+        <div class="col-md-6">
+          <div class="col-md-12 tempsReel">
+            <div>
+              <!-- <input type="button" class="btn btn-danger btn-block" value="Temps Reel">
+              <button type="button" class="btn btn-danger">Temps Reel</button> -->
+
+              <h1 class="ptr">TEMPS REEL</h1>
+            </div>
+            <div>
+              <p class="p100">100</p>
+            </div>
+            <div>
+              <div class="col-md-4">
+                <h4 class="hDate">25/12/2019</h4>
+              </div>
+              <div class="col-md-4">
+                <button type="button" class="btn btn-success btn-block bUsers">Utilisateur(s)</button>
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-12 tempsReel">
+            <div>
+              <div class="col-md-4">
+                <h5 class="hDate">Artiste de la Semaine</h5>
+              </div>
+              <div class="col-md-4">
+
+              </div>
+              <div class="col-md-4">
+                <a href="#">
+                  <h5 class="hArtisteDeLaSemaine">Hommage a dj Arafat</h5>
+                </a>
+              </div>
+            </div>
+
+            <div class="thumbnail imgBox">
+                <img src="../../../assets/images/imagesArtistes/dj_arafat_rfi_legendes_urbaines_canthony_ravera_0.jpg" class="imgAlaffiche">
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-10 visitesEtTempsReel">
+      </div>
+
+      <!-- ---------------------------------- -->
+
+
+    <div>
+      <div class="col-md-6 ax">
+        <div class="col-md-12 activitesPages">
+
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5 class="ab"><span class="glyphicon glyphicon-ok"> </span>  Artiste recemment ajouté</h5>
+                <!-- <img src="toftouchefinale/gims.jpg"  height="50px" width="100px"> -->
+                <div class="thumbnail imgBox">
+                    <img src="../../../assets/images/imagesArtistes/yemiAlade.jpg" class="imgAlaffiche">
+                </div>
+                <h5 class="ab">Maitre Gims</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5 class="ab"><span class="glyphicon glyphicon-ok"> </span>  Biographie recemment ajoutée</h5>
+                <!-- <img src="toftouchefinale/yemi.jpg"  height="50px" width="100px"> -->
+                <div class="thumbnail imgBox">
+                    <img src="../../../assets/images/imagesArtistes/yemiAlade.jpg" class="imgAlaffiche">
+                </div>
+                <h5 class="ab">Yemi Alade</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 activitesPages">
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5 class="ab"><span class="glyphicon glyphicon-ok"> </span>  Image recemment ajoutée</h5>
+                <!-- <img src="toftouchefinale/aya.jpg"  height="50px" width="100px"> -->
+                <div class="thumbnail imgBox">
+                    <img src="../../../assets/images/imagesArtistes/yemiAlade.jpg" class="imgAlaffiche">
+                </div>
+                <h5 class="ab">Aya Nakamura</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5 class="ab"><span class="glyphicon glyphicon-ok"> </span>  Video recemment ajoutée</h5>
+                <!-- <img src="toftouchefinale/gims.jpg"  height="50px" width="100px"> -->
+                <div class="thumbnail imgBox">
+                    <img src="../../../assets/images/imagesArtistes/yemiAlade.jpg" class="imgAlaffiche">
+                  </div>
+                <h5 class="ab">Maitre Gims</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 ax">
+        <div class="col-md-12 activitesPages">
+
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5 class="aa">Dernier Spectacle ajouté</h5>
+                <!-- <img src="toftouchefinale/aya.jpg"  height="100px" width="200px"> -->
+                <div class="thumbnail imgBox">
+                  <img src="../../../assets/images/imagesIndex/ayaNakamura.jpg" class="imgAlaffiche">
+                </div>
+
+                <h5 class="aa1">
+                <span class="glyphicon glyphicon-user"> </span>
+                Aya Nakamura en Concert</h5>
+
+                <h5 class="aa1">
+                <span class="glyphicon glyphicon-calendar"> </span>
+                12/12/2019 - 20h</h5>
+
+                <h5 class="aa1">
+                <span class="glyphicon glyphicon-globe"> </span>
+                Abidjan - Cote d'Ivoire</h5>
+
+                <h5 class="aa1">
+                <span class="glyphicon glyphicon-tag"> </span>
+                10.000 - 15.000</h5>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="contenuActivitesPages">
+              <div class="blocActivitesPages">
+                <h5>Spectacles recement ajoutés</h5>
+
+                <h5><span class="glyphicon glyphicon-plus"> </span>
+                Maitre Gims en Concert</h5>
+
+                <h5><span class="glyphicon glyphicon-plus"> </span>
+                Maitre Gims en Concert</h5>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- ---------------------------------- -->
+  </div>
+
+			<!-- -------------------------------------------- -->
+	<div th:replace="fragment/footer :: footerFrontAndBack">
+	</div>
+</body>
+</html>
