@@ -20,5 +20,5 @@ public interface BiographieRepository extends JpaRepository<Biographie, Long>{
 	public Page<Biographie>chercherBiographies(@Param("x")String mc, Pageable pageable);
 	
 	List<Biographie> findAllByArtiste(Artiste artiste);
-	List<Biographie> findAllBySalle(Salle salle);
+	/* List<Biographie> findAllBySalle(Salle salle); */
 }

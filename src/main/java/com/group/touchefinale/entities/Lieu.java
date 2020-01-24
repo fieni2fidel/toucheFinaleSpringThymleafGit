@@ -3,6 +3,7 @@ package com.group.touchefinale.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Lieu implements Serializable{
 	private String villelieu;
 
 	//@OneToMany
-	@OneToMany(mappedBy="lieu")
+	@OneToMany(mappedBy="lieu", cascade = CascadeType.REMOVE)
 	private Collection<Salle> salles;
 	
 

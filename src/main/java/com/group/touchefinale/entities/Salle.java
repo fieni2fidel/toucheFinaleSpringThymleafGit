@@ -3,6 +3,7 @@ package com.group.touchefinale.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,15 +28,18 @@ public class Salle implements Serializable{
 	@JoinColumn
 	private Lieu lieu;
 	
-	//@OneToMany
-	@OneToMany(mappedBy="salle")
-	private Collection<Biographie> biographies;
+	/*
+	 * //@OneToMany
+	 * 
+	 * @OneToMany(mappedBy="salle") private Collection<Biographie> biographies;
+	 */
 	
-	@OneToMany(mappedBy="salle")
+	@OneToMany(mappedBy="salle", cascade = CascadeType.REMOVE)
 	private Collection<Evenement> evenements;
 	
-	@OneToMany(mappedBy="salle")
-	private Collection<Photo>photos;
+	/*
+	 * @OneToMany(mappedBy="salle") private Collection<Photo>photos;
+	 */
 
 	public Salle() {
 		super();
@@ -43,38 +47,31 @@ public class Salle implements Serializable{
 	}
 
 
-	public Salle(Long idsalle, String nomsalle, Long nombredeplacesalle, Lieu lieu, Collection<Biographie> biographies,
-			Collection<Evenement> evenements, Collection<Photo> photos) {
-		super();
-		this.idsalle = idsalle;
-		this.nomsalle = nomsalle;
-		this.nombredeplacesalle = nombredeplacesalle;
-		this.lieu = lieu;
-		this.biographies = biographies;
-		this.evenements = evenements;
-		this.photos = photos;
-	}
+	/*
+	 * public Salle(Long idsalle, String nomsalle, Long nombredeplacesalle, Lieu
+	 * lieu, Collection<Biographie> biographies, Collection<Evenement> evenements,
+	 * Collection<Photo> photos) { super(); this.idsalle = idsalle; this.nomsalle =
+	 * nomsalle; this.nombredeplacesalle = nombredeplacesalle; this.lieu = lieu;
+	 * this.biographies = biographies; this.evenements = evenements; this.photos =
+	 * photos; }
+	 */
 
 
 
 
 
-	public Salle(Long idsalle, String nomsalle, Long nombredeplacesalle, Lieu lieu) {
-		super();
-		this.idsalle = idsalle;
-		this.nomsalle = nomsalle;
-		this.nombredeplacesalle = nombredeplacesalle;
-		this.lieu = lieu;
-	}
+	/*
+	 * public Salle(Long idsalle, String nomsalle, Long nombredeplacesalle, Lieu
+	 * lieu) { super(); this.idsalle = idsalle; this.nomsalle = nomsalle;
+	 * this.nombredeplacesalle = nombredeplacesalle; this.lieu = lieu; }
+	 */
 
-	public Salle(String nomsalle, Long nombredeplacesalle, Collection<Biographie> biographies,
-			Collection<Evenement> evenements) {
-		super();
-		this.nomsalle = nomsalle;
-		this.nombredeplacesalle = nombredeplacesalle;
-		this.biographies = biographies;
-		this.evenements = evenements;
-	}
+	/*
+	 * public Salle(String nomsalle, Long nombredeplacesalle, Collection<Biographie>
+	 * biographies, Collection<Evenement> evenements) { super(); this.nomsalle =
+	 * nomsalle; this.nombredeplacesalle = nombredeplacesalle; this.biographies =
+	 * biographies; this.evenements = evenements; }
+	 */
 
 
 	public Salle(String nomsalle, Long nombredeplacesalle) {
@@ -107,13 +104,12 @@ public class Salle implements Serializable{
 		this.nombredeplacesalle = nombredeplacesalle;
 	}
 
-	public Collection<Biographie> getBiographies() {
-		return biographies;
-	}
-
-	public void setBiographies(Collection<Biographie> biographies) {
-		this.biographies = biographies;
-	}
+	/*
+	 * public Collection<Biographie> getBiographies() { return biographies; }
+	 * 
+	 * public void setBiographies(Collection<Biographie> biographies) {
+	 * this.biographies = biographies; }
+	 */
 
 	public Collection<Evenement> getEvenements() {
 		return evenements;
@@ -132,13 +128,11 @@ public class Salle implements Serializable{
 	}
 
 
-	public Collection<Photo> getPhotos() {
-		return photos;
-	}
-
-
-	public void setPhotos(Collection<Photo> photos) {
-		this.photos = photos;
-	}
+	/*
+	 * public Collection<Photo> getPhotos() { return photos; }
+	 * 
+	 * 
+	 * public void setPhotos(Collection<Photo> photos) { this.photos = photos; }
+	 */
 	
 }

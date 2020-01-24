@@ -275,8 +275,22 @@ img {
 </head>
 <body>
 	<div class="menuFixe col-md-12 col-sm-6"
-		th:replace="fragment/navbarFrontEnd :: navbarFrontEnd"></div>
-	<div class="container largeCadreAlaffiche">
+		th:replace="fragment/navbarFrontEnd :: navbarFrontEnd">
+	</div>
+	
+	
+	<div class="container">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" style="margin-top: 65px;">
+				<div class="thumbnail">
+					<img th:src="@{/tofs_artistes/banniere_tooche_finale.jpg}" />
+				</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	
+	
+	<div class="container" style="margin-top: 20px;">
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="alaffiche">A L'AFFICHE</h2>
@@ -407,6 +421,22 @@ img {
 
 	</div>
 
+
+
+	<div class="container">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8" style="margin-top: 65px;">
+						<div th:fragment="afe_part3_videoyoutube" class="playlistArtiste">		
+							<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:each="lpb:${listeVideox[0]}">
+								<iframe class="embed-responsive-item" width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
+									frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+									picture-in-picture" allowfullscreen>
+								</iframe>
+							</div>		
+						</div>
+			</div>
+			<div class="col-sm-2"></div>
+	</div>
 	<!-- ----------------------------------------------------------- -->
 
 	<div class="container grandCadre">

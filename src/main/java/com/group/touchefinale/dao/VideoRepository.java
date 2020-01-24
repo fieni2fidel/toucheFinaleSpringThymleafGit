@@ -19,5 +19,7 @@ public interface VideoRepository extends JpaRepository<Video, Long>{
 	public Page<Video>chercherVideo(@Param("x")String mc, Pageable pageable);
 	
 	List<Video> findAllByArtiste(Artiste artiste);
+	
+	//List<Video> findAllByByOrderByIdvideoDesc();
 
 }

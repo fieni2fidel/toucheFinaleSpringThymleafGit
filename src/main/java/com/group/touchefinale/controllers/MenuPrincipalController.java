@@ -2,6 +2,7 @@ package com.group.touchefinale.controllers;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.BiographieRepository;
 import com.group.touchefinale.dao.EvenementRepository;
+import com.group.touchefinale.dao.VideoRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
@@ -35,6 +37,9 @@ public class MenuPrincipalController {
 	
 	@Autowired
 	private EvenementRepository evenementRepository;
+	
+	@Autowired
+	private VideoRepository videoRepository;
 
 	/*------------------------------------------------------------------------------------*/
 	@RequestMapping(value= {"/","/menuprincipal"})
@@ -71,6 +76,11 @@ public class MenuPrincipalController {
 	  Collections.sort(listeProchainEvenementEnAmeriqueAM);
 	  Collections.reverse(listeProchainEvenementEnAmeriqueAM);
 	  model.addAttribute("listeProchainEvenementEnAmeriqueAM", listeProchainEvenementEnAmeriqueAM);
+	  
+	  
+	  List<Video>listeVideox=videoRepository.findAll();
+		 Collections.shuffle(listeVideox, new Random()); 
+	  model.addAttribute("listeVideox", listeVideox);
 	  
 	  return "front_end/fe_menuprincipal/menuPrincipal";
 	  

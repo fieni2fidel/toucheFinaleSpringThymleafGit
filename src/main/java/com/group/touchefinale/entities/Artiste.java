@@ -46,11 +46,11 @@ public class Artiste implements Serializable{
 	private Collection<Video>videos;
 	
     //@OneToMany(fetch = FetchType.LAZY)
-	@OneToMany(mappedBy="artiste", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="artiste", cascade = CascadeType.REMOVE)
 	private Collection<Photo>photos;
 	
 	//@OneToMany(fetch = FetchType.LAZY)
-	@OneToMany(mappedBy="artiste", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="artiste", cascade = CascadeType.REMOVE)
 	private Collection<Biographie>biographies;
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy="artiste", cascade = CascadeType.REMOVE)

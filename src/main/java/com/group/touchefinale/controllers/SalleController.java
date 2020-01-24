@@ -29,145 +29,144 @@ import com.group.touchefinale.entities.Salle;
 
 @Controller
 public class SalleController {
-	
+
 	@Autowired
 	private BiographieRepository biographieRepository;
-	
+
 	@Autowired
 	private SalleRepository salleRepository;
-	
+
 	@Autowired
 	private LieuRepository lieuRepository;
-	
+
 	@Autowired
 	private EvenementRepository evenementRepository;
-	
-	@RequestMapping(value="/formulaire_salle", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/formulaire_salle", method = RequestMethod.GET)
 	public String formulaire_biographie(Model model) {
 		model.addAttribute("salle", new Salle());
-		
-		List<Lieu>listeDesLieuxParPays=lieuRepository.findAllByOrderByPayslieu();
-		
-		List<Lieu>ListeDesLieuxParVille=lieuRepository.findAllByOrderByVillelieu();
-			 
+
+		List<Lieu> listeDesLieuxParPays = lieuRepository.findAllByOrderByPayslieu();
+
+		List<Lieu> ListeDesLieuxParVille = lieuRepository.findAllByOrderByVillelieu();
+
 		model.addAttribute("ListeDesLieuxParVille", ListeDesLieuxParVille);
 		model.addAttribute("ListeDesLieuxParPays", listeDesLieuxParPays);
-		
+
 		return "salle/formulaireSalle";
-		}
-	
+	}
+
 	/*------------------------------------------------------------------------------------*/
 
-	
-	/*verifier et valider le formulaire avec condition --- si on doit l'associer a un artiste ou non*/
-	@RequestMapping(value="/validation_formulaire_salle", method=RequestMethod.POST)
+	/*
+	 * verifier et valider le formulaire avec condition --- si on doit l'associer a
+	 * un artiste ou non
+	 */
+	@RequestMapping(value = "/validation_formulaire_salle", method = RequestMethod.POST)
 	public String validation_formulaire_salle(Salle salle, Model model) {
-	 salleRepository.save(salle);
+		salleRepository.save(salle);
 		return "salle/pageMessageConfirmationSalle";
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	
-	/*verifier et valider le formulaire*/
-	@RequestMapping(value="/validation_modification_formulaire_salle", method=RequestMethod.POST)
+
+	/* verifier et valider le formulaire */
+	@RequestMapping(value = "/validation_modification_formulaire_salle", method = RequestMethod.POST)
 	public String validation_modification_formulaire_salle(Salle salle, Model model) {
-	
-	salleRepository.save(salle);
+
+		salleRepository.save(salle);
 
 		return "salle/pageMessageConfirmationSalle";
 	}
 
 	/*------------------------------------------------------------------------------------*/
 
-	
-	/*verifier et valider le formulaire  avec le nom de l'artiste*/
-	@RequestMapping(value="/suite_validation_formulaire_salle", method=RequestMethod.POST)
-	public String suite_validation_formulaire_salle(@ModelAttribute("lieusuite") Lieu lieusuite,
-			HttpServletRequest request) {
-	
-	String nomsalle=request.getParameter("nomsalle");
-	
-	String nbreplxsalle=request.getParameter("nombredeplacesalle");
-	Long longnbreplxsalle=Long.parseLong(nbreplxsalle);
-	
-	String idsalle=request.getParameter("idsalle");
-	Long longidsalle=Long.parseLong(idsalle);
-	
-	String idlieu=request.getParameter("idlieu");
-	Long longlieu=Long.parseLong(idlieu);
+	/* verifier et valider le formulaire avec le nom de l'artiste */
+	/*
+	 * @RequestMapping(value="/suite_validation_formulaire_salle",
+	 * method=RequestMethod.POST) public String
+	 * suite_validation_formulaire_salle(@ModelAttribute("lieusuite") Lieu
+	 * lieusuite, HttpServletRequest request) {
+	 * 
+	 * String nomsalle=request.getParameter("nomsalle");
+	 * 
+	 * String nbreplxsalle=request.getParameter("nombredeplacesalle"); Long
+	 * longnbreplxsalle=Long.parseLong(nbreplxsalle);
+	 * 
+	 * String idsalle=request.getParameter("idsalle"); Long
+	 * longidsalle=Long.parseLong(idsalle);
+	 * 
+	 * String idlieu=request.getParameter("idlieu"); Long
+	 * longlieu=Long.parseLong(idlieu);
+	 * 
+	 * Salle salsal=salleRepository.save(new Salle(longidsalle, nomsalle,
+	 * longnbreplxsalle, new Lieu(longlieu)));
+	 * 
+	 * Salle xsalle=salleRepository.getOne(salsal.getIdsalle());
+	 * 
+	 * lieusuite=lieuRepository.getOne(longlieu); lieusuite.getSalles().add(xsalle);
+	 * 
+	 * System.out.println("**************** ******** "+lieusuite);
+	 * 
+	 * lieuRepository.save(lieusuite); return "redirect:liste_biographie"; return
+	 * "salle/pageMessageConfirmationSalle"; }
+	 */
 
-	Salle salsal=salleRepository.save(new Salle(longidsalle, nomsalle, longnbreplxsalle, new Lieu(longlieu)));
-	
-	Salle xsalle=salleRepository.getOne(salsal.getIdsalle());
-	
-	lieusuite=lieuRepository.getOne(longlieu);
-	lieusuite.getSalles().add(xsalle);
-	
-	System.out.println("**************** ******** "+lieusuite);
-	
-	lieuRepository.save(lieusuite);	
-		/* return "redirect:liste_biographie"; */
-		 return "salle/pageMessageConfirmationSalle"; 
-	}
-	
-	
 	/*------------------------------------------------------------------------------------*/
-	
-	@RequestMapping(value="/liste_salle")
-	public String liste_salle(Model model,
-			@RequestParam(name="pageRP", defaultValue = "0")int page,
-			@RequestParam(name="motcleRP", defaultValue = "")String motcle) {
-		
-		Page<Salle>listeDesSalles=salleRepository.chercherNomSalle("%"+motcle+"%",new PageRequest(page, 10));
-		
-		int pagesCount=listeDesSalles.getTotalPages();
-		
-		int[]pages=new int[pagesCount];
-		
-		for(int i=0;i<pagesCount;i++) pages[i]=i;
-		
+
+	@RequestMapping(value = "/liste_salle")
+	public String liste_salle(Model model, @RequestParam(name = "pageRP", defaultValue = "0") int page,
+			@RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
+
+		Page<Salle> listeDesSalles = salleRepository.chercherNomSalle("%" + motcle + "%", new PageRequest(page, 10));
+
+		int pagesCount = listeDesSalles.getTotalPages();
+
+		int[] pages = new int[pagesCount];
+
+		for (int i = 0; i < pagesCount; i++)
+			pages[i] = i;
+
 		for (Salle sa : listeDesSalles) {
-			sa.setBiographies(biographieRepository.findAllBySalle(sa));
+			/* sa.setBiographies(biographieRepository.findAllBySalle(sa)); */
 			sa.setEvenements(evenementRepository.findAllBySalle(sa));
 		}
-		
+
 		model.addAttribute("pages", pages);
 		model.addAttribute("pageCourante", page);
-		model.addAttribute("motcle", motcle);		
+		model.addAttribute("motcle", motcle);
 		model.addAttribute("listeDesSalles", listeDesSalles);
 
 		return "salle/listeSalle";
 	}
 
-	
 	@RequestMapping(value = "/supprimersalle")
-		public String supprimersalle(Long id) {
+	public String supprimersalle(Long id) {
 		salleRepository.deleteById(id);
-		
-		
+
 		return "redirect:liste_salle";
 	}
-	
+
 	@RequestMapping(value = "/editersalle")
 	public String editersallee(Long id, Model model) {
-	
-		Salle salle=salleRepository.getOne(id);
+
+		Salle salle = salleRepository.getOne(id);
 		model.addAttribute("salle", salle);
-		
-		System.out.println("***** ******* **** "+salle.getIdsalle());
-	
-	return "salle/modificationFormulaireSalle";
-	
-}
+
+		System.out.println("***** ******* **** " + salle.getIdsalle());
+
+		return "salle/modificationFormulaireSalle";
+
+	}
 	/*------------------------------------------------------------------------------------*/
-	
-	/*mise a jour de lartiste*/
-	@RequestMapping(value="/mise_a_jour_salle", method=RequestMethod.POST)
+
+	/* mise a jour de lartiste */
+	@RequestMapping(value = "/mise_a_jour_salle", method = RequestMethod.POST)
 	public String mise_a_jour_salle(Salle salle) {
-			  	 
-	salleRepository.save(salle);
-		
+
+		salleRepository.save(salle);
+
 		return "redirect:liste_salle";
 	}
-	
+
 }
