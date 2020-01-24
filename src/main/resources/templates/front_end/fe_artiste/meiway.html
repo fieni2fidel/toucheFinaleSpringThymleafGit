@@ -404,37 +404,31 @@ margin-top: 10px;
 			
 		<!-- part V spectacles ou artistes similaires -->
  			<div class="col-sm-2">
-			<!--	<div class="row">
-					<div class="col-sm-12">
-						<h3 class="artisteSimilaire">SIMILAIRE</h3>
-					</div>
+				<div class="row">
+						<div class="col-sm-12">
+							<h3 class="artisteSimilaire">SIMILAIRE</h3>
+						</div>
 				</div>
 				<hr>
 				<div class="row">
-					<div class="col-sm-12">
-						<a href="#"> 
-							<div class="thumbnail imgBox">
-								<img src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche">
-							</div>
-						</a>
-							<div class="textRecommandation">
-								<h6 class="titreTextRecommandation">DOBET GNAHORE EN CONCERT A ABIDJAN</h6>
-							</div>
-					</div>
+					<div th:each="lpb, iter:${listeMemeNationalite}"
+						th:if="${iter.index < 8 }">
+						<div class="col-sm-12">
+							<a th:href="@{artistes(id=${lpb.idartiste})}">
+								<div class="thumbnail imgBox">
+									<img th:src="@{getphotoimage(id=${lpb.photos[0].idphoto})}" 
+									src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche"/>
+								</div>
+							</a>
+								<div class="textRecommandation">
+									<h6 class="titreTextRecommandation" th:text="${lpb.nomcompletartiste}" 
+									style="text-transform:uppercase;">DOBET GNAHORE EN CONCERT A ABIDJAN</h6>
+									
+									<!-- <h6 th:text="${lpb.salle.lieu.payslieu}" class="titreTextRecommandation" 
+									style="text-transform:uppercase;"><span>COTE D'IVOIRE</span></h6> -->
+								</div>
+						</div>
 				</div>
-
-				<div class="row">
-					<div class="col-sm-12">
-						<a href="#"> 
-							<div class="thumbnail imgBox">
-							<img src="imagesIndex/Kerozen-DJ.jpg">
-						</div>
-						</a>
-							<div class="textRecommandation">
-								<h6 class="titreTextRecommandation">KEROZEN EN CONCERT A ABIDJAN</h6>
-						</div>
-					</div>
-				</div>  -->
 
 			</div>
 	</div>

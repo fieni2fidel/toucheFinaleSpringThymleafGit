@@ -2,10 +2,12 @@ package com.group.touchefinale.controllers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -138,7 +140,28 @@ public class EvenementController {
 	@RequestMapping(value = "/evenements")
 	public String debutmajusculeartiste(Long id, Model model) {
 
-		Evenement evenementfrontend=evenementRepository.getOne(id);
+		Evenement evenementfrontend=evenementRepository.getOne(id);	
+		Evenement evenementfrontendComparaison=evenementRepository.getOne(id);
+		
+		List<Evenement> evenementDBA=evenementRepository.findAll();
+		List<Evenement> evenementDBAAEvenements=new ArrayList<Evenement>();
+		
+		
+		
+		for (Evenement x : evenementDBA) {
+			if(evenementfrontendComparaison.getSalle().getLieu().getPayslieu()==x.getSalle().getLieu().getPayslieu()
+					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
+				evenementDBAAEvenements.add(x);
+			}else if(evenementfrontendComparaison.getSalle().getLieu().getContinentlieu()==x.getSalle().getLieu().getContinentlieu()
+					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
+				evenementDBAAEvenements.add(x);
+			}else if(evenementfrontendComparaison.getArtiste().getOrigineartiste()==x.getArtiste().getOrigineartiste()
+					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
+				evenementDBAAEvenements.add(x);}
+		}
+		
+		Collections.shuffle(evenementDBAAEvenements, new Random());
+		model.addAttribute("evenementDBAAEvenements", evenementDBAAEvenements);
 		model.addAttribute("evenementfrontend", evenementfrontend);
 
 

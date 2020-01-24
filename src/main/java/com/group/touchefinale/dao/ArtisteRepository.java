@@ -25,6 +25,9 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
 	public List<Artiste>chercherArtisteFrontEnd(@Param("x")String mc);
 	
+	@Query("select e from Artiste e where e.origineartiste = :x")
+	public List<Artiste>chercherArtisteNationalite(@Param("x")String nat);
+	
 	public List<Artiste>findByNomcompletartisteContaining(String mc);
 	
 	public List<Artiste>findByNomcompletartisteLike(String mc);

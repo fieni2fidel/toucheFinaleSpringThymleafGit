@@ -33,7 +33,7 @@
 										
 										<h4 class="tarifSpectacleArtiste" th:text="${lpb.tarifevenement}">vip : 10000 frs CFA</h4>
 										
-									<a href="#" class="btn btn-success">A venir</a>
+									<a th:href="@{evenements(id=${lpb.idevenement})}" class="btn btn-success">A venir</a>
 								</div>
 							</div>
 						</div>

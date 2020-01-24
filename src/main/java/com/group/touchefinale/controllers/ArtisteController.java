@@ -1,8 +1,10 @@
 package com.group.touchefinale.controllers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -165,7 +167,7 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/artistes")
-	public String debutmajusculeartiste(Long id, Model model) {
+	public String debutmajusculeartiste(Long id,String nationalite, Model model) {
 
 		 Artiste artistefrontend = artisteRepository.getOne(id); 
 		
@@ -180,6 +182,23 @@ public class ArtisteController {
 		Collections.sort(listeDateArtistesTermine);
 		
 		model.addAttribute("listeDateArtistesTermine",listeDateArtistesTermine);
+		
+		 Artiste artistefrontendComparaison = artisteRepository.getOne(id);
+		 nationalite=artistefrontendComparaison.getOrigineartiste();
+		 List<Artiste>listeMemeNationalite=artisteRepository.chercherArtisteNationalite(nationalite);
+		
+		
+		
+		  
+		  for (Artiste x : listeMemeNationalite) { 
+			  if(x.getNomcompletartiste()!=artistefrontendComparaison.getNomcompletartiste()) {
+			  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
+		  
+		  }
+		  
+		  }
+		
+		Collections.shuffle(listeMemeNationalite, new Random());
 
 		return "front_end/fe_artiste/meiway";
 
@@ -288,5 +307,8 @@ public class ArtisteController {
 
 		return "front_end/fe_artiste/menuPrincipalArtiste";
 	}
+	
+	
+	
 
 }

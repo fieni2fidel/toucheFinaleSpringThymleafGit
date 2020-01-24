@@ -401,8 +401,11 @@ margin-top: 10px;
 			<!-- part II Biographie -->
 				<div class="col-sm-7">
 				
-								<div>
-									<h2><span class="titreAlaffiche" th:object="${evenementfrontend}" th:text="${evenementfrontend.artiste.nomcompletartiste}"> | MAITRE GIMS |</span></h2>
+								<div th:object="${evenementfrontend}">
+								<a th:href="@{artistes(id=${evenementfrontend.artiste.idartiste})}">
+									<h2><span class="titreAlaffiche" 
+									th:text="${evenementfrontend.artiste.nomcompletartiste}"> | MAITRE GIMS |</span></h2>
+								</a>
 								</div>
 							
 							<div class="textRecommandation" th:object="${evenementfrontend}" th:each="lpb:${evenementfrontend.artiste.biographies}">
@@ -446,7 +449,6 @@ margin-top: 10px;
 					</div>	
 	</div>
 	<div class="col-sm-2">
-		<div class="fb-page" data-href="https://www.facebook.com/toochefinale4/" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/toochefinale4/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/toochefinale4/">Tooche Finale</a></blockquote></div>
 		<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoochefinale4%2F&tabs&width=340&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 	</div>
 <!-- -------------------------- -->
@@ -475,13 +477,38 @@ margin-top: 10px;
 		</div>		
 	</div>
 <!-- -------------------------- -->
-
+	<div class="col-sm-12" style="margin-top:75px;">
+		<h4 style="color:white;float: left; margin:5px;">A voir également</h4>
+	</div>
+	<div class="col-sm-12">
+		<div class="row">
+			<div th:each="lpb, iter:${evenementDBAAEvenements}"
+				th:if="${iter.index < 6 }">
+					<div class="col-xs-6 col-sm-3 col-md-2" style="padding: 5px; margin-top:1px;">
+						<div class="box">
+							<a th:href="@{evenements(id=${lpb.idevenement})}"> 
+								<div class="thumbnail imgBox">
+									<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+								</div>
+							</a>
+							<div class="textRecommandation">
+									<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
+									<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert  '}" style="text-transform:uppercase;">
+									MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
+									<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2" style="text-transform:uppercase;"><span>COTE D'IVOIRE</span></h5>
+									
+							</div>
+						</div>
+						<br>
+					</div>
+				</div>
+		</div>
+	</div>
 </div>	
 
 </div>
 <div th:replace="fragment/footer :: footerFrontAndBack">
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0"></script>
+
 </div>
 </body>
 </html>
