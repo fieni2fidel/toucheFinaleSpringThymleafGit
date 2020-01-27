@@ -410,16 +410,17 @@ margin-top: 10px;
 						</div>
 				</div>
 				<hr>
-				<div class="row">
+				<div class="row" th:object="${listeMemeNationalite}">
 					<div th:each="lpb, iter:${listeMemeNationalite}"
 						th:if="${iter.index < 8 }">
 						<div class="col-sm-12">
-							<a th:href="@{artistes(id=${lpb.idartiste})}">
-								<div class="thumbnail imgBox">
-									<img th:src="@{getphotoimage(id=${lpb.photos[0].idphoto})}" 
-									src="imagesIndex/DobetGnahore.jpg" class="imgAlaffiche"/>
+							
+								<div class="thumbnail">
+									<a th:href="@{artistes(id=${lpb.idartiste})}">
+										<img th:src="@{getphotoimage(id=${lpb.photos[0].idphoto})}" 
+										 class="imgAlaffiche" /></a>
 								</div>
-							</a>
+						
 								<div class="textRecommandation">
 									<h6 class="titreTextRecommandation" th:text="${lpb.nomcompletartiste}" 
 									style="text-transform:uppercase;">DOBET GNAHORE EN CONCERT A ABIDJAN</h6>

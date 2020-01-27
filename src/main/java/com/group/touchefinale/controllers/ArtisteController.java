@@ -189,15 +189,19 @@ public class ArtisteController {
 		
 		
 		
-		  
-		  for (Artiste x : listeMemeNationalite) { 
-			  if(x.getNomcompletartiste()!=artistefrontendComparaison.getNomcompletartiste()) {
-			  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
-		  
-		  }
-		  
-		  }
 		
+		/*
+		 * for (Artiste x : listeMemeNationalite) {
+		 * if(x.getNomcompletartiste()!=artistefrontendComparaison.getNomcompletartiste(
+		 * )) { model.addAttribute("listeMemeNationalite",listeMemeNationalite);
+		 * 
+		 * }
+		 * 
+		 * }
+		 */
+		 
+		 
+		  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
 		Collections.shuffle(listeMemeNationalite, new Random());
 
 		return "front_end/fe_artiste/meiway";

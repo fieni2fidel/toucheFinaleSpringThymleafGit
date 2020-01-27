@@ -373,10 +373,10 @@ margin-top: 10px;
 										th:onerror="'this.src=\'' + @{/tofs_artistes/logoTF.jpg} + '\';'" />
 								</div>
 							</div>
-							<div class="thumbnail">
+							<!-- <div class="thumbnail">
 								<img th:unless="${#lists.size(evenementfrontend.artiste.photos) > 0}"
 									th:src="@{/tofs_artistes/logoTF.jpg}" />
-							</div>
+							</div> -->
 						</div>
 						<div class="col-sm-12  textRecommandation"
 							th:object="${evenementfrontend}" th:each="lpb:${evenementfrontend.artiste}">
