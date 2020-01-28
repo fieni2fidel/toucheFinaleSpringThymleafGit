@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +48,7 @@ public class ArtisteController {
 	private String imageDir;
 
 	/*------------------------------------------------------------------------------------*/
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/formulaire_artiste", method = RequestMethod.GET)
 	public String formulaire_artiste(Model model) {
 		model.addAttribute("artiste", new Artiste());
@@ -57,6 +59,7 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	/* verifier et valider le formulaire */
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/validation_formulaire_artiste", method = RequestMethod.POST)
 	public String validation_formulaire_artiste(Artiste artiste) {
 
@@ -66,7 +69,7 @@ public class ArtisteController {
 	}
 
 	/*-----------------------------------lister les artistes -------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/liste_artistes")
 	public String liste_artistes(Model model, @RequestParam(name = "pageRP", defaultValue = "0") int page,
 			@RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
@@ -96,7 +99,7 @@ public class ArtisteController {
 	}
 
 	/*---------------------------supprimer un artiste ---------------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/supprimerartiste")
 	public String supprimerartiste(Long id) {
 		artisteRepository.deleteById(id);
@@ -105,7 +108,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/editerartiste")
 	public String editerartiste(Long id, Model model) {
 
@@ -124,6 +127,7 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	/* mise a jour de lartiste */
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/mise_a_jour_artiste", method = RequestMethod.POST)
 	public String mise_a_jour_artiste(Artiste artiste) {
 
@@ -133,7 +137,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/voirartiste")
 	public String voirartiste(@RequestParam(value = "id") Long id, Model model) {
 
@@ -144,7 +148,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/artiste/{motcleArtiste}")
 	public String artiste(Model model, Long id, @PathVariable("motcleArtiste") String motcleArtiste) {
 		boolean ax = false;
@@ -165,7 +169,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/artistes")
 	public String debutmajusculeartiste(Long id,String nationalite, Model model) {
 
@@ -187,9 +191,6 @@ public class ArtisteController {
 		 nationalite=artistefrontendComparaison.getOrigineartiste();
 		 List<Artiste>listeMemeNationalite=artisteRepository.chercherArtisteNationalite(nationalite);
 		
-		
-		
-		
 		/*
 		 * for (Artiste x : listeMemeNationalite) {
 		 * if(x.getNomcompletartiste()!=artistefrontendComparaison.getNomcompletartiste(
@@ -199,8 +200,7 @@ public class ArtisteController {
 		 * 
 		 * }
 		 */
-		 
-		 
+		 	 
 		  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
 		Collections.shuffle(listeMemeNationalite, new Random());
 
@@ -209,6 +209,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
+	@Secured(value= {"ROLE_FIDEL"})
 	@RequestMapping(value = "/artiste")
 	public String listedebutnom(Model model, String debutnom) {
 

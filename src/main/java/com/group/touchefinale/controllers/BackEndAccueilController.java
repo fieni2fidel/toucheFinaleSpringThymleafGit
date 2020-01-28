@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
 import com.group.touchefinale.entities.Video;
 
+@Configuration
 @Controller
 public class BackEndAccueilController {
 	
@@ -47,13 +49,23 @@ public class BackEndAccueilController {
 	
 	
 	
-	@RequestMapping(value= "/afroo_admin_connect")
-	public String menu_principal_frontend(Model model) {
-
 	  
-	  return "admin/admin_connect";
+	  @RequestMapping(value= "/tf_connect") 
+	  public String menu_principal_frontend() {
+	  
+	  return "admin/tf_connect";
 	  
 	  }
+	  
+	/*
+	 * @RequestMapping(value= "/tf_connect", method = RequestMethod.POST) public
+	 * String menu() {
+	 * 
+	 * return "admin/be_menuPrincipal";
+	 * 
+	 * }
+	 */
+	 
 	
 	/*-----------------------------------------------------------*/
 

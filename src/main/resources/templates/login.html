@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Connect Admin</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="space" style="margin-top: 125px;">
+		<div class="col-md-4 col-sm-4 col-xs-2"></div>
+		<div class="col-md-4 col-sm-4 col-xs-8" style="position: relative; background-color: #ededed;border-radius: 20px;">
+			<form th:action="@{/login}" method="post">
+				<div>
+					<div class="col-md-12" style="margin-top: 25px;">
+						<div class="col-md-4"></div>
+						<div class="col-md-4"></div>
+						<div class="col-md-4" style="margin-top: 15px; text-align: right;">
+							Afroo
+						</div>
+					</div>
+	
+					<div class="col-md-12" style="margin-top: 25px;">
+						<h4>Utilisateur</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="username" class="form-control" placeholder="Utilisateur">
+					</div>
+	
+					<div class="col-md-12" style="margin-top: 25px;">
+						<h4>Mot de passe</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="password" name="password" class="form-control" placeholder="Mot de Passe">
+					</div>
+	
+					<div class="col-md-12" style="margin-top: 25px;">
+						
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<!-- <a href="#" class="btn btn-info xx">Se connecter</a> -->
+							<input type="submit" class="btn btn-info" value="Se Connecter"/>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+	
+					<div class="col-md-12" style="margin-top: 25px;">
+						
+						<div class="col-md-6" style="margin-bottom: 15px;">
+							<a href="#" style="color: : blue; cursor: pointer;">Mot de passe oublié</a>
+						</div>
+						<div class="col-md-3">
+							<!-- <a th:href="#" class="btn btn-info xx">Se connecter</a> -->
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+	
+	
+				</div>
+			</form>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-2"></div>
+	</div>
+</body>
+</html>
