@@ -9,39 +9,62 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div th:fragment="navbarBackend">
-			<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="navbarBackend">
 					  <div class="container-fluid">
-					    <div class="navbar-header">
-					      <a class="navbar-brand" th:href="@{/afroo_admin_menu}">Touche Finale - Backend</a>
-					    </div>
-					    <ul class="nav navbar-nav">
-		
-					      <li th:classappend="${module == 'listeArtisteChanteurs' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_artistes}">Artiste</a>
-				          </li>
-					      <li  th:classappend="${module == 'listeBiographie' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_biographie}">Biographie</a>
-				          </li>
-					      <li th:classappend="${module == 'listeEvenement' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_evenement}">Evenement</a>
-				          </li>
-				           <li th:classappend="${module == 'listeLieu' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_lieu}">Lieu</a>
-				          </li>
-				           <li th:classappend="${module == 'listePhoto' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_photo}">Photo</a>
-				          </li>
-				           <li th:classappend="${module == 'listeSalle' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_salle}">Salle</a>
-				          </li>
-				           <li th:classappend="${module == 'listeVideo' ? 'active' : ''}">
-				              <a href="#" th:href="@{/liste_videos}">Video</a>
-				          </li>
-					   
-					    </ul>
+					     <div class="navbar-header">
+						      	<a class="navbar-brand" th:href="@{/}">TOOCHE FINALE</a>
+						      	<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+						      		<span class="icon-bar"></span>
+						      		<span class="icon-bar"></span>
+						      		<span class="icon-bar"></span>
+						      	</button>
+						    </div>
+						    <div class="collapse navbar-collapse navHeaderCollapse">
+							    <ul class="nav navbar-nav">
+							    	<li th:classappend="${module == 'home' ? 'active' : ''}">
+							      		<a th:href="@{/afroo_admin_menu}"><span class="glyphicon glyphicon-home"></span></a>
+							      	</li>
+									<li th:classappend="${module == 'listeArtisteChanteurs' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_artistes}">Artiste</a>
+							          </li>
+								      <li  th:classappend="${module == 'listeBiographie' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_biographie}">Biographie</a>
+							          </li>
+								      <li th:classappend="${module == 'listeEvenement' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_evenement}">Evenement</a>
+							          </li>
+							           <li th:classappend="${module == 'listeLieu' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_lieu}">Lieu</a>
+							          </li>
+							           <li th:classappend="${module == 'listePhoto' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_photo}">Photo</a>
+							          </li>
+							           <li th:classappend="${module == 'listeSalle' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_salle}">Salle</a>
+							          </li>
+							           <li th:classappend="${module == 'listeVideo' ? 'active' : ''}">
+							              <a href="#" th:href="@{/liste_videos}">Video</a>
+							          </li>
+							    </ul>
+								<!--    <form class="navbar-form navbar-left" th:action="@{recherche}">
+							      <div class="input-group">
+							        <input type="text" class="form-control"  name="motcleRP" th:value="${motcle}" placeholder="Artiste, ville">
+							        <div class="input-group-btn">
+							          <button class="btn btn-default" type="submit">
+							            <i class="glyphicon glyphicon-search"></i>
+							          </button>
+							        </div>
+							      </div>
+							    </form> -->
+							   	
+							    <div style="float: right;margin-top:14px;">
+  									<a th:href="@{/deconnexion}"> 
+										Se deconnecter
+									</a>
+								</div>
+							 
+							</div>
 					  </div>
 			</nav>
-		</div>
 	</body>
 </html>

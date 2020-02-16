@@ -12,16 +12,24 @@
 	<div class="space" style="margin-top: 125px;">
 		<div class="col-md-4 col-sm-4 col-xs-2"></div>
 		<div class="col-md-4 col-sm-4 col-xs-8" style="position: relative; background-color: #ededed;border-radius: 20px;">
+
 			<form th:action="@{/tf_connect}" method="post">
 				<div>
 					<div class="col-md-12" style="margin-top: 25px;">
-						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div th:if="${loginError}" style="font-weight: bold;">
+								Login et mot de passe invalides
+							</div>
+							<div th:if="${deconnecte}" style="font-weight: bold;">
+								A Bientot!!
+							</div>
+						</div>
 						<div class="col-md-4"></div>
 						<div class="col-md-4" style="margin-top: 15px; text-align: right;">
-							Afroo
+							Tooche Finale
 						</div>
 					</div>
-	
+					
 					<div class="col-md-12" style="margin-top: 25px;">
 						<h4>Utilisateur</h4>
 					</div>

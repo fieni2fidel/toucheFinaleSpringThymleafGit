@@ -231,6 +231,17 @@ div.content {
 <div th:replace="fragment/navbar :: navbarBackend">
 </div>
 
+<div class="container">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-2">
+		<h4 th:object=${username} th:text=${username}>faux</h4>
+	</div>
+		<div class="col-sm-2" th:each="lde:${roles}">
+		<h4 th:text=${lde}>faux</h4>
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+
   <div class="content">
     <div class="col-md-12 activitesrecentesetotres">
       <!-- <div class="col-md-4 ar1">
