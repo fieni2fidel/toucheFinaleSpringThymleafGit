@@ -48,13 +48,20 @@ public interface ArtisteRepository extends JpaRepository<Artiste, Long>{
 	
 	@Query("select e from Artiste e where e.nomcompletartiste like :x")
 	public List<Artiste>rechercherArtistes(@Param("x")String mc);	
-
 	
+	
+	//Requete pour afficher tous les artistes ayant au moins 1 photo 
+	// exemple SELECT client, SUM(tarif) FROM achat	GROUP BY client	HAVING SUM(tarif) > 40
 	/*
 	 * @Query(value =
-	 * "Select e FROM Artiste e WHERE e.idartiste= :a AND e.evenements.datedebutevenement >= :x"
-	 * ) public List<Artiste>dateArtistesAVenir(@Param("a")Long a, @Param("x")Date
-	 * x);
+	 * "SELECT * FROM ARTISTE A, PHOTO B GROUP BY A.idphoto=B.idphoto HAVING COUNT(A.idphoto) >= 1"
+	 * , nativeQuery = true)
+	 * 
+	 * @Query("select e from Artiste e, Photo b GROUP BY e.idphoto=b.idphoto HAVING COUNT(e.photos)> 1"
+	 * ) public List<Artiste>listeArtisteAvecAuMoinsUnePhoto();
 	 */
-	 
+	
+	
+	public List<Artiste>findByPhotosGreaterThanEqual(Long x);
+
 }

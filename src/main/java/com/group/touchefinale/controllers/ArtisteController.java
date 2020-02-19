@@ -24,7 +24,9 @@ import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.PhotoRepository;
 import com.group.touchefinale.dao.VideoRepository;
 import com.group.touchefinale.entities.Artiste;
+import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
+import com.group.touchefinale.entities.Photo;
 
 @Controller
 public class ArtisteController {
@@ -319,6 +321,71 @@ public class ArtisteController {
 	}
 	
 	
+	//controller pour afficher tous les artistes ayant au moins 1 photo 
 	
+	@RequestMapping(value = "/requetes_indispensables")
+	public String requetesindispensables(Model model) {
+
+		//List<Photo> listeArtistes= photoRepository.listeArtisteAvecAuMoinsUnePhoto();
+		List<Artiste> listeArtistes= artisteRepository.findAllByOrderByNomcompletartiste();
+		List<Artiste>tabloArtiste3CNR=new ArrayList<>();
+		List<Artiste>tabloArtisteCondPhotoNR=new ArrayList<>();
+		List<Artiste>tabloArtisteCondVideoNR=new ArrayList<>();
+		List<Artiste>tabloArtisteCondBioNR=new ArrayList<>();
+		List<Artiste>tabloArtisteNonVide=new ArrayList<>();
+		
+		
+		//liste des artistes qui ne remplit pas l'une des 3 conditions(photo, biographie, video)    
+		for (Artiste lxx : listeArtistes) {
+			if (lxx.getPhotos().isEmpty()||lxx.getBiographies().isEmpty()||lxx.getVideos().isEmpty()) {
+				tabloArtiste3CNR.add(lxx);
+			}
+		}
+		model.addAttribute("tabloArtiste3CNR", tabloArtiste3CNR);
+		
+		//liste des artistes sans aucune photo   
+				for (Artiste lxx : listeArtistes) {
+					if (lxx.getPhotos().isEmpty()) {
+						tabloArtisteCondPhotoNR.add(lxx);
+					}
+				}
+		model.addAttribute("tabloArtisteCondPhotoNR", tabloArtisteCondPhotoNR);
+				
+		//liste des artistes sans aucune Video
+		for (Artiste lxx : listeArtistes) {
+			if (lxx.getVideos().isEmpty()) {
+				tabloArtisteCondVideoNR.add(lxx);
+				}
+			}
+		model.addAttribute("tabloArtisteCondVideoNR", tabloArtisteCondVideoNR);
+		
+		
+		//liste des artistes sans aucune Biographie 
+		for (Artiste lxx : listeArtistes) {
+			if (lxx.getBiographies().isEmpty()) {
+				tabloArtisteCondBioNR.add(lxx);
+				}
+			}
+		model.addAttribute("tabloArtisteCondBioNR", tabloArtisteCondBioNR);
+		
+		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		  for (Artiste laa : listeArtistes) { 
+			  if ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.getVideos().isEmpty())) {
+		  tabloArtisteNonVide.add(laa); 
+			  } 
+		}
+		
+		/*
+		 * for (Artiste laa : listeArtistes) { if (laa.getPhotos().size()>1) {
+		 * tabloArtisteNonVide.add(laa); } }
+		 */
+		
+		
+		model.addAttribute("tabloArtisteNonVide", tabloArtisteNonVide);
+		model.addAttribute("listeArtistes", listeArtistes);
+
+		return "requetesindispensables/requetes";
+
+	}
 
 }

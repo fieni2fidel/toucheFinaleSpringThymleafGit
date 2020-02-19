@@ -21,5 +21,22 @@ public interface PhotoRepository extends JpaRepository<Photo, Long>{
 	
 	List<Photo> findAllByArtiste(Artiste artiste);
 	List<Photo> findAllBySalle(Salle salle);
+	
+	//Requete pour afficher tous les artistes ayant au moins 1 photo 
+		// exemple SELECT client, SUM(tarif) FROM achat	GROUP BY client	HAVING SUM(tarif) > 40
+		//@Query(value = "SELECT * FROM ARTISTE A, PHOTO B GROUP BY A.idphoto=B.idphoto HAVING COUNT(A.idphoto) >= 1", nativeQuery = true)
+	/*
+	 * @Query(value = "SELECT count(idphoto), nomphoto, artiste_idartiste " +
+	 * "FROM db_groupe_toochefinale.photo group by artiste_idartiste having count(idphoto)>1"
+	 * , nativeQuery = true)
+	 */
+		@Query("select e FROM Photo e GROUP BY e.artiste.idartiste HAVING COUNT (e.idphoto)=null")
+		public List<Photo>listeArtisteAvecAuMoinsUnePhoto();
+		
+	/*
+	 * SELECT count(idphoto), nomphoto, artiste_idartiste FROM
+	 * db_groupe_toochefinale.photo group by artiste_idartiste having
+	 * count(idphoto)>1;
+	 */
 
 }

@@ -21,4 +21,6 @@ public interface BiographieRepository extends JpaRepository<Biographie, Long>{
 	
 	List<Biographie> findAllByArtiste(Artiste artiste);
 	/* List<Biographie> findAllBySalle(Salle salle); */
+	
+
 }
