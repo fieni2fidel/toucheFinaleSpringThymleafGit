@@ -1,9 +1,12 @@
 package com.group.touchefinale.controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +53,7 @@ public class ArtisteController {
 	private String imageDir;
 
 	/*------------------------------------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
+	
 	@RequestMapping(value = "/formulaire_artiste", method = RequestMethod.GET)
 	public String formulaire_artiste(Model model) {
 		model.addAttribute("artiste", new Artiste());
@@ -61,7 +64,6 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	/* verifier et valider le formulaire */
-	//@Secured(value= {"ROLE_ADMIN"})
 	@RequestMapping(value = "/validation_formulaire_artiste", method = RequestMethod.POST)
 	public String validation_formulaire_artiste(Artiste artiste) {
 
@@ -71,7 +73,6 @@ public class ArtisteController {
 	}
 
 	/*-----------------------------------lister les artistes -------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
 	@RequestMapping(value = "/liste_artistes")
 	public String liste_artistes(Model model, @RequestParam(name = "pageRP", defaultValue = "0") int page,
 			@RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
@@ -101,7 +102,6 @@ public class ArtisteController {
 	}
 
 	/*---------------------------supprimer un artiste ---------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
 	@RequestMapping(value = "/supprimerartiste")
 	public String supprimerartiste(Long id) {
 		artisteRepository.deleteById(id);
@@ -110,7 +110,6 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
 	@RequestMapping(value = "/editerartiste")
 	public String editerartiste(Long id, Model model) {
 
@@ -129,7 +128,6 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	/* mise a jour de lartiste */
-	//@Secured(value= {"ROLE_ADMIN"})
 	@RequestMapping(value = "/mise_a_jour_artiste", method = RequestMethod.POST)
 	public String mise_a_jour_artiste(Artiste artiste) {
 
@@ -139,7 +137,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
+	
 	@RequestMapping(value = "/voirartiste")
 	public String voirartiste(@RequestParam(value = "id") Long id, Model model) {
 
@@ -150,7 +148,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
+	
 	@RequestMapping(value = "/artiste/{motcleArtiste}")
 	public String artiste(Model model, Long id, @PathVariable("motcleArtiste") String motcleArtiste) {
 		boolean ax = false;
@@ -171,7 +169,7 @@ public class ArtisteController {
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	//@Secured(value= {"ROLE_ADMIN"})
+
 	@RequestMapping(value = "/artistes")
 	public String pageartisteavectouteslesdates(Long id,String nationalite, Model model) {
 
@@ -197,16 +195,7 @@ public class ArtisteController {
 		 Artiste artistefrontendComparaison = artisteRepository.getOne(id);
 		 nationalite=artistefrontendComparaison.getOrigineartiste();
 		 List<Artiste>listeMemeNationalite=artisteRepository.chercherArtisteNationalite(nationalite);
-		
-		/*
-		 * for (Artiste x : listeMemeNationalite) {
-		 * if(x.getNomcompletartiste()!=artistefrontendComparaison.getNomcompletartiste(
-		 * )) { model.addAttribute("listeMemeNationalite",listeMemeNationalite);
-		 * 
-		 * }
-		 * 
-		 * }
-		 */
+	
 		 	 
 		  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
 		Collections.shuffle(listeMemeNationalite, new Random());
@@ -220,107 +209,65 @@ public class ArtisteController {
 	@RequestMapping(value = "/artiste")
 	public String listedebutnom(Model model, String debutnom) {
 
-		
+		//String[] monTableau = new String[] {"A", "B", "C"};
 		/*
-		 * List<Artiste> artistes = artisteRepository.findAllOrderByNomcompletartiste();
-		 * String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; int index = 0; for (int i =
-		 * 0; i < alphabet.length(); i++) { // Ecrire le nom de la lettre et le divider
-		 * for (int j = index; j < artistes.size(); j++) { if
-		 * (artistes.get(j).getNomcompletartiste().toLowerCase() .startsWith("" +
-		 * alphabet.toLowerCase().charAt(i))) { //ecrerice le nom de l'artiste
-		 * 
-		 * }else { index = j; break; } } }
-		 */
-		 
-		
-		/*
-		 * String[]listeAlphabetique = { "A", "B", "C", "D", "E", "F", "F" };
-		 * 
-		 * model.addAttribute("listeAlphabetique", listeAlphabetique);
+		 * Map<Long, String>test=new HashMap<Long, String>(); test.put((long) 1,
+		 * "A");test.put((long) 2, "B");test.put((long) 3, "C");
 		 */
 		
-		List<Artiste> listeA = artisteRepository.findByNomcompletartisteStartingWith("A");
-		model.addAttribute("listeA", listeA);
+		ArrayList<String> tabloArt = new ArrayList<String>(Arrays.asList( "A", "B", "C","D","E","F","G","H","I","J","K","L","M"
+				,"N","O","P","Q","R","S","T","U","V","W","X","Y","Z") );
+		 List<Artiste>listeArtisteAZ=new ArrayList<>();
+		for(int i = 0; i < tabloArt.size(); i++)
+		{
+		    System.out.println(tabloArt.get(i));
+		    List<Artiste> listeAZ = artisteRepository.findByNomcompletartisteStartingWith(tabloArt.get(i));
+		    
+		    
+		    for (Artiste z : listeAZ) {
+				if ((!z.getPhotos().isEmpty())&&(!z.getBiographies().isEmpty())&&(!z.getVideos().isEmpty())){
+					listeArtisteAZ.add(z);
+				}
+				
+				//model.addAttribute("listeArtisteAZ", listeArtisteAZ);
+		    }
+		}
 
-		List<Artiste> listeB = artisteRepository.findByNomcompletartisteStartingWith("b");
-		model.addAttribute("listeB", listeB);
-
-		List<Artiste> listeC = artisteRepository.findByNomcompletartisteStartingWith("c");
-		model.addAttribute("listeC", listeC);
-
-		List<Artiste> listeD = artisteRepository.findByNomcompletartisteStartingWith("d");
-		model.addAttribute("listeD", listeD);
-
-		List<Artiste> listeE = artisteRepository.findByNomcompletartisteStartingWith("e");
-		model.addAttribute("listeE", listeE);
-
-		List<Artiste> listeF = artisteRepository.findByNomcompletartisteStartingWith("f");
-		model.addAttribute("listeF", listeF);
-
-		List<Artiste> listeG = artisteRepository.findByNomcompletartisteStartingWith("g");
-		model.addAttribute("listeG", listeG);
-
-		List<Artiste> listeH = artisteRepository.findByNomcompletartisteStartingWith("h");
-		model.addAttribute("listeH", listeH);
-
-		List<Artiste> listeJ = artisteRepository.findByNomcompletartisteStartingWith("j");
-		model.addAttribute("listeJ", listeJ);
-
-		List<Artiste> listeI = artisteRepository.findByNomcompletartisteStartingWith("i");
-		model.addAttribute("listeI", listeI);
-
-		List<Artiste> listeK = artisteRepository.findByNomcompletartisteStartingWith("k");
-		model.addAttribute("listeK", listeK);
-
-		List<Artiste> listeL = artisteRepository.findByNomcompletartisteStartingWith("l");
-		model.addAttribute("listeL", listeL);
-
-		List<Artiste> listeM = artisteRepository.findByNomcompletartisteStartingWith("m");
-		model.addAttribute("listeM", listeM);
-
-		List<Artiste> listeN = artisteRepository.findByNomcompletartisteStartingWith("n");
-		model.addAttribute("listeN", listeN);
-
-		List<Artiste> listeO = artisteRepository.findByNomcompletartisteStartingWith("o");
-		model.addAttribute("listeO", listeO);
-
-		List<Artiste> listeP = artisteRepository.findByNomcompletartisteStartingWith("p");
-		model.addAttribute("listeP", listeP);
-
-		List<Artiste> listeQ = artisteRepository.findByNomcompletartisteStartingWith("q");
-		model.addAttribute("listeQ", listeQ);
-
-		List<Artiste> listeR = artisteRepository.findByNomcompletartisteStartingWith("r");
-		model.addAttribute("listeR", listeR);
-
-		List<Artiste> listeS = artisteRepository.findByNomcompletartisteStartingWith("s");
-		model.addAttribute("listeS", listeS);
-
-		List<Artiste> listeT = artisteRepository.findByNomcompletartisteStartingWith("t");
-		model.addAttribute("listeT", listeT);
-
-		List<Artiste> listeU = artisteRepository.findByNomcompletartisteStartingWith("u");
-		model.addAttribute("listeU", listeU);
-
-		List<Artiste> listeV = artisteRepository.findByNomcompletartisteStartingWith("v");
-		model.addAttribute("listeV", listeV);
-
-		List<Artiste> listeW = artisteRepository.findByNomcompletartisteStartingWith("w");
-		model.addAttribute("listeW", listeW);
-
-		List<Artiste> listeX = artisteRepository.findByNomcompletartisteStartingWith("x");
-		model.addAttribute("listeX", listeX);
-
-		List<Artiste> listeY = artisteRepository.findByNomcompletartisteStartingWith("y");
-		model.addAttribute("listeY", listeY);
-
-		List<Artiste> listeZ = artisteRepository.findByNomcompletartisteStartingWith("z");
-		model.addAttribute("listeZ", listeZ);
-
+		model.addAttribute("listeArtisteAZ", listeArtisteAZ);
+		model.addAttribute("tabloArt", tabloArt);
+		
 		return "front_end/fe_artiste/menuPrincipalArtiste";
 	}
 	
 	
+	
+	/*------------------------------------------------------------------------------------*/
+
+	@RequestMapping(value = "/recherche_alphabetique")
+	public String recherchealphabetique(String lettre, Model model) {
+
+		/*------------------------------------------------------------------------------------*/
+
+		 List<Artiste>listeArtisteAZ=new ArrayList<>();
+
+		 List<Artiste> listeAZ = artisteRepository.findByNomcompletartisteStartingWith(lettre);
+		    
+		    
+		    for (Artiste z : listeAZ) {
+				if ((!z.getPhotos().isEmpty())&&(!z.getBiographies().isEmpty())&&(!z.getVideos().isEmpty())){
+					listeArtisteAZ.add(z);
+				}
+				
+				model.addAttribute("listeArtisteAZ", listeArtisteAZ);
+		    }
+				
+		/*------------------------ -----------------------------------------------------------*/
+
+		return "front_end/fe_artiste/listeArtisteDeAaZ";
+
+	}
+	
+
 	//controller pour afficher tous les artistes ayant au moins 1 photo 
 	
 	@RequestMapping(value = "/requetes_indispensables")
@@ -333,6 +280,16 @@ public class ArtisteController {
 		List<Artiste>tabloArtisteCondVideoNR=new ArrayList<>();
 		List<Artiste>tabloArtisteCondBioNR=new ArrayList<>();
 		List<Artiste>tabloArtisteNonVide=new ArrayList<>();
+		
+		List<Artiste>tabloArtiste1Concert3CNR=new ArrayList<>();
+		
+		//artistes qui à au moins 1 concert mais ne remplit pas l'un des 3 conditions (photo, video, biographie)    
+				for (Artiste lxx : listeArtistes) {
+					if ((lxx.getPhotos().isEmpty()||lxx.getBiographies().isEmpty()||lxx.getVideos().isEmpty())&&(!(lxx.getEvenements().isEmpty()))) {
+						tabloArtiste1Concert3CNR.add(lxx);
+					}
+				}
+				model.addAttribute("tabloArtiste1Concert3CNR", tabloArtiste1Concert3CNR);
 		
 		
 		//liste des artistes qui ne remplit pas l'une des 3 conditions(photo, biographie, video)    

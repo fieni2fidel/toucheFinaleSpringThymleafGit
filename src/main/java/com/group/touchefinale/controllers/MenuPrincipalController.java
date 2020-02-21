@@ -1,4 +1,5 @@
 package com.group.touchefinale.controllers;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -91,14 +92,28 @@ public class MenuPrincipalController {
 	public String menu_principal_afrique(Model model, @PathVariable("continent") String continent) {
 
 	  List<Evenement> listeEvenementAVenir = evenementRepository.prochainevenement(continent, new Date());
-	  Collections.sort(listeEvenementAVenir);
-	  Collections.reverse(listeEvenementAVenir);
-	  model.addAttribute("listeEvenementAVenir", listeEvenementAVenir);
+	  List<Evenement>tabloEvenementAVenir=new ArrayList<>();
+	  for (Evenement EE : listeEvenementAVenir) {
+		if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getBiographies().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
+			tabloEvenementAVenir.add(EE);
+		}
+	}
 	  
+	  Collections.sort(tabloEvenementAVenir);
+	  Collections.reverse(tabloEvenementAVenir);
+	  model.addAttribute("tabloEvenementAVenir", tabloEvenementAVenir);
+	  
+	  
+	  List<Evenement>tabloEvenementATerminer=new ArrayList<>();
 	  List<Evenement> listeEvenementTermine = evenementRepository.evenementpasse(continent, new Date());
-	  Collections.sort(listeEvenementTermine);
+	  for (Evenement EE : listeEvenementTermine) {
+		  if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getBiographies().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
+			  tabloEvenementATerminer.add(EE);
+			}
+	}
+	  Collections.sort(tabloEvenementATerminer);
 	  //Collections.reverse(listeEvenementTermine);
-	  model.addAttribute("listeEvenementTermine", listeEvenementTermine);
+	  model.addAttribute("tabloEvenementATerminer", tabloEvenementATerminer);
 	  
 	  
 	  return "front_end/fe_menuprincipal/menuPrincipalContinent";

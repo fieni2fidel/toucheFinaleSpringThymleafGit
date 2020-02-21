@@ -28,7 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	DataSource dataSource;
 	
 	
-	  @Bean public UserDetailsService userDetailsService() {
+	  @Bean 
+	  public UserDetailsService userDetailsService() {
 	  
 	  User.UserBuilder users = User.withDefaultPasswordEncoder();
 	  InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -37,11 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  manager.createUser(users.username("admin").password("password").roles("USER",
 	  "ADMIN").build());
 	  manager.createUser(users.username("fidel").password("fidel").roles("FIDEL").
-	  build()); return manager;
-	  
+	  build());
+	  return manager;	  
 	  }
-	 
-	
 	
 	/*
 	 * @Override protected void configure(AuthenticationManagerBuilder auth) throws
@@ -67,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/","/menuprincipal",
 				"/artiste/getphotoimage","/getphotoimage",
-				"/artiste","/artistes",
+				"/artiste","/artistes","recherche_alphabetique",
 				"/evenements","/afrique","/europe","/amerique",
 				"/tofs_artistes/banniere_tooche_finale.jpg","/tofs_artistes/xfacebook.png")
 					.permitAll()
@@ -81,7 +80,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 						.successForwardUrl("/afroo_admin_menu")
 							.and()
 								.logout()
-									.logoutUrl("/deconnexion");
+									.logoutUrl("/deconnexion")
+										.and()
+											.exceptionHandling()
+												.accessDeniedPage("/403");
 								
 	}
 }
