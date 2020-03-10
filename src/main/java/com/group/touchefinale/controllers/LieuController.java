@@ -61,6 +61,9 @@ public class LieuController {
 			@RequestParam(name="motcleRP", defaultValue = "")String motcle) {
 		
 		Page<Lieu>listeDesLieux=lieuRepository.chercherLieux("%"+motcle+"%",new PageRequest(page, 10));
+		
+		
+		
 		int pagesCount=listeDesLieux.getTotalPages();
 		int[]pages=new int[pagesCount];
 		

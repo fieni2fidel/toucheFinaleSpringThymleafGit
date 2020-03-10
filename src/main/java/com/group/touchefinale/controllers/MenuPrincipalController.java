@@ -45,17 +45,37 @@ public class MenuPrincipalController {
 	/*------------------------------------------------------------------------------------*/
 	@RequestMapping(value= {"/","/menuprincipal"})
 	public String menu_principal_frontend(Model model) {
-
-	  List<Evenement> listeEvenementSurleContinentAfricain = evenementRepository.evenementsurlecontinent("afrique");
+		
+		
+		List<Evenement>listeEvenementSurleContinentAfricain=new ArrayList<>();
+	  List<Evenement> listeEvenementSurleContinentAfricainXX = evenementRepository.evenementsurlecontinent("afrique");
+	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+	 for (Evenement laa : listeEvenementSurleContinentAfricainXX) { if
+	 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+	 getVideos().isEmpty())) { listeEvenementSurleContinentAfricain.add(laa); } }
+			  
 	  Collections.sort(listeEvenementSurleContinentAfricain);
 	  model.addAttribute("listeEvenementSurleContinentAfricain", listeEvenementSurleContinentAfricain);
 	  
-	  List<Evenement> listeEvenementSurleContinentEuropeen = evenementRepository.evenementsurlecontinent("europe");
+	  
+	  List<Evenement>listeEvenementSurleContinentEuropeen=new ArrayList<>();
+	  List<Evenement> listeEvenementSurleContinentEuropeenXX = evenementRepository.evenementsurlecontinent("europe");
+	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		 for (Evenement laa : listeEvenementSurleContinentEuropeenXX) { if
+		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		 getVideos().isEmpty())) { listeEvenementSurleContinentEuropeen.add(laa); } }
+		 
 	  Collections.sort(listeEvenementSurleContinentEuropeen);
 	  //Collections.reverse(listeEvenementSurleContinentEuropeen);
 	  model.addAttribute("listeEvenementSurleContinentEuropeen", listeEvenementSurleContinentEuropeen);
 	  
-	  List<Evenement> listeEvenementSurleContinentAmericain = evenementRepository.evenementsurlecontinent("amerique");
+	  List<Evenement>listeEvenementSurleContinentAmericain=new ArrayList<>();
+	  List<Evenement> listeEvenementSurleContinentAmericainXX = evenementRepository.evenementsurlecontinent("amerique");
+	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		 for (Evenement laa : listeEvenementSurleContinentAmericainXX) { if
+		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		 getVideos().isEmpty())) { listeEvenementSurleContinentAmericain.add(laa); } }
+	  
 	  Collections.sort(listeEvenementSurleContinentAmericain);
 	  //Collections.reverse(listeEvenementSurleContinentAmericain);
 	  model.addAttribute("listeEvenementSurleContinentAmericain", listeEvenementSurleContinentAmericain);
@@ -63,17 +83,38 @@ public class MenuPrincipalController {
 	  
 	  // ---------------------------------------------------------------------------------------------
 	  
-	  List<Evenement>listeProchainEvenementEnAfriqueAA=evenementRepository.prochainevenement("afrique",new Date());
+	  List<Evenement>listeProchainEvenementEnAfriqueAA=new ArrayList<>();
+	  List<Evenement>listeProchainEvenementEnAfriqueXX=evenementRepository.prochainevenement("afrique",new Date());
+	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		
+		  for (Evenement laa : listeProchainEvenementEnAfriqueXX) { if
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  getVideos().isEmpty())) { listeProchainEvenementEnAfriqueAA.add(laa); } }
+		 
+	  
 	  Collections.sort(listeProchainEvenementEnAfriqueAA);
 	  Collections.reverse(listeProchainEvenementEnAfriqueAA);
 	  model.addAttribute("listeProchainEvenementEnAfriqueAA", listeProchainEvenementEnAfriqueAA);
 	  
-	  List<Evenement>listeProchainEvenementEnEuropeEE=evenementRepository.prochainevenement("europe",new Date());
+	  
+	  List<Evenement>listeProchainEvenementEnEuropeEE=new ArrayList<>();
+	  List<Evenement>listeProchainEvenementEnEuropeXX=evenementRepository.prochainevenement("europe",new Date());
+	  for (Evenement laa : listeProchainEvenementEnEuropeXX) { if
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  getVideos().isEmpty())) { listeProchainEvenementEnEuropeEE.add(laa); } }
+	  
 	  Collections.sort(listeProchainEvenementEnEuropeEE);
 	  Collections.reverse(listeProchainEvenementEnEuropeEE);
 	  model.addAttribute("listeProchainEvenementEnEuropeEE", listeProchainEvenementEnEuropeEE);
 	  
-	  List<Evenement>listeProchainEvenementEnAmeriqueAM=evenementRepository.prochainevenement("amerique",new Date());
+	  
+	  
+	  List<Evenement>listeProchainEvenementEnAmeriqueAM=new ArrayList<>();
+	  List<Evenement>listeProchainEvenementEnAmeriqueXX=evenementRepository.prochainevenement("amerique",new Date());
+	  for (Evenement laa : listeProchainEvenementEnAmeriqueXX) { if
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  getVideos().isEmpty())) { listeProchainEvenementEnAmeriqueAM.add(laa); } }
+	  
 	  Collections.sort(listeProchainEvenementEnAmeriqueAM);
 	  Collections.reverse(listeProchainEvenementEnAmeriqueAM);
 	  model.addAttribute("listeProchainEvenementEnAmeriqueAM", listeProchainEvenementEnAmeriqueAM);
@@ -126,6 +167,14 @@ public class MenuPrincipalController {
 	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
 
 		List<Artiste> listDesArtistes = artisteRepository.rechercherArtistes("%" + motcle + "%");
+		
+		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+				/*
+				 * for (Artiste laa : listeArtistes) { if
+				 * ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.
+				 * getVideos().isEmpty())) { tabloArtisteNonVide.add(laa); } }
+				 */
+		
 		model.addAttribute("listDesArtistes", listDesArtistes);
 
 		List<Evenement>listEvenementParVilleAVenir=evenementRepository.evenementSurLaVilleAVenir(motcle, new Date());

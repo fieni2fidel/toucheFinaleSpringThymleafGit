@@ -20,6 +20,8 @@ public interface LieuRepository extends JpaRepository<Lieu, Long>{
 	
 	
 	
-	@Query("select e from Lieu e where e.payslieu like :x")
+	@Query("select e from Lieu e where e.villelieu like :x")
 	public Page<Lieu>chercherLieux(@Param("x")String mc, Pageable pageable);
+	
+	
 }

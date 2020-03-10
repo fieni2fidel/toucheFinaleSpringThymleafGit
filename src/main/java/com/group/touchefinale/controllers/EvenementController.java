@@ -144,21 +144,29 @@ public class EvenementController {
 		Evenement evenementfrontendComparaison=evenementRepository.getOne(id);
 		
 		List<Evenement> evenementDBA=evenementRepository.findAll();
-		List<Evenement> evenementDBAAEvenements=new ArrayList<Evenement>();
+		List<Evenement> evenementDBAAEvenementsXX=new ArrayList<Evenement>();
 		
 		
 		
 		for (Evenement x : evenementDBA) {
 			if(evenementfrontendComparaison.getSalle().getLieu().getPayslieu()==x.getSalle().getLieu().getPayslieu()
 					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
-				evenementDBAAEvenements.add(x);
+				evenementDBAAEvenementsXX.add(x);
 			}else if(evenementfrontendComparaison.getSalle().getLieu().getContinentlieu()==x.getSalle().getLieu().getContinentlieu()
 					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
-				evenementDBAAEvenements.add(x);
+				evenementDBAAEvenementsXX.add(x);
 			}else if(evenementfrontendComparaison.getArtiste().getOrigineartiste()==x.getArtiste().getOrigineartiste()
 					&&evenementfrontendComparaison.getArtiste().getNomcompletartiste()!=x.getArtiste().getNomcompletartiste()) {
-				evenementDBAAEvenements.add(x);}
+				evenementDBAAEvenementsXX.add(x);}
 		}
+		
+		List<Evenement> evenementDBAAEvenements=new ArrayList<Evenement>();
+		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+				
+				  for (Evenement laa : evenementDBAAEvenementsXX) { if
+				  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+				  getVideos().isEmpty())) { evenementDBAAEvenements.add(laa); } }
+				 
 		
 		Collections.shuffle(evenementDBAAEvenements, new Random());
 		model.addAttribute("evenementDBAAEvenements", evenementDBAAEvenements);

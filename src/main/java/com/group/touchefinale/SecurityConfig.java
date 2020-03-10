@@ -39,7 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  "ADMIN").build());
 	  manager.createUser(users.username("fidel").password("fidel").roles("FIDEL").
 	  build());
-	  return manager;	  
+	  
+	  return manager;
+	  
 	  }
 	
 	/*
@@ -63,7 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.authorizeRequests()
+
+		http.cors().and().csrf().disable().authorizeRequests()
 			.antMatchers("/","/menuprincipal",
 				"/artiste/getphotoimage","/getphotoimage",
 				"/artiste","/artistes","recherche_alphabetique",

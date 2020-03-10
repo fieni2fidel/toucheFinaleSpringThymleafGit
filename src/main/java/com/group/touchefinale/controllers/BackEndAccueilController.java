@@ -79,23 +79,23 @@ public class BackEndAccueilController {
 	    return "admin/tf_connect";
 	  }
 	  
-	  @RequestMapping(value= "/getUser")
-	  @ResponseBody
-	  public Map<String, Object>getLogedUser(HttpServletRequest httpServletRequest){
-		  HttpSession httpSession=httpServletRequest.getSession();
-		  SecurityContext securityContext=(SecurityContext) httpSession.getAttribute("SPRING_SECURITY_CONTEXT");
-		  String username=securityContext.getAuthentication().getName();
-		  List<String>roles=new ArrayList<>();
-		  for (GrantedAuthority ga:securityContext.getAuthentication().getAuthorities()) {
-			  roles.add(ga.getAuthority());
-			
-		}
-		  
-		  Map<String, Object>params=new HashMap<>();
-		  params.put("username", username);
-		  params.put("roles", roles);
-		  return params;
-	  }
+	/*
+	 * @RequestMapping(value= "/getUser")
+	 * 
+	 * @ResponseBody public Map<String, Object>getLogedUser(HttpServletRequest
+	 * httpServletRequest){ HttpSession httpSession=httpServletRequest.getSession();
+	 * SecurityContext securityContext=(SecurityContext)
+	 * httpSession.getAttribute("SPRING_SECURITY_CONTEXT"); String
+	 * username=securityContext.getAuthentication().getName(); List<String>roles=new
+	 * ArrayList<>(); for (GrantedAuthority
+	 * ga:securityContext.getAuthentication().getAuthorities()) {
+	 * roles.add(ga.getAuthority());
+	 * 
+	 * }
+	 * 
+	 * Map<String, Object>params=new HashMap<>(); params.put("username", username);
+	 * params.put("roles", roles); return params; }
+	 */
 	
 	/*-----------------------------------------------------------*/
 

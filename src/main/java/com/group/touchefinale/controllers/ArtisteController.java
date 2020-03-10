@@ -171,7 +171,7 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/artistes")
-	public String pageartisteavectouteslesdates(Long id,String nationalite, Model model) {
+	public String pageartisteavectouteslesdates(Long id, String nationalite, Model model) {
 
 		/*----------------------dates de concerts a venir --------------------------------------------------------------*/
 		 Artiste artistefrontend = artisteRepository.getOne(id); 
@@ -194,11 +194,31 @@ public class ArtisteController {
 		
 		 Artiste artistefrontendComparaison = artisteRepository.getOne(id);
 		 nationalite=artistefrontendComparaison.getOrigineartiste();
-		 List<Artiste>listeMemeNationalite=artisteRepository.chercherArtisteNationalite(nationalite);
+		 
+		 List<Artiste>listeMemeNationalite=new ArrayList<>();
+		 List<Artiste>listeMemeNationaliteXX=artisteRepository.chercherArtisteNationalite(nationalite);
+		 
+		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		  for (Artiste laa : listeMemeNationaliteXX) { 
+			  if ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.getVideos().isEmpty())) {
+				  listeMemeNationalite.add(laa); 
+			  } 
+		}
 	
 		 	 
-		  model.addAttribute("listeMemeNationalite",listeMemeNationalite);
+		model.addAttribute("listeMemeNationalite",listeMemeNationalite);
 		Collections.shuffle(listeMemeNationalite, new Random());
+		
+		
+		
+		// ////////////////////////:::::
+		
+		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
+		/*
+		 * for (Artiste laa : listeArtistes) { if
+		 * ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.
+		 * getVideos().isEmpty())) { tabloArtisteNonVide.add(laa); } }
+		 */
 
 		return "front_end/fe_artiste/meiway";
 
@@ -238,8 +258,7 @@ public class ArtisteController {
 		
 		return "front_end/fe_artiste/menuPrincipalArtiste";
 	}
-	
-	
+		
 	
 	/*------------------------------------------------------------------------------------*/
 
