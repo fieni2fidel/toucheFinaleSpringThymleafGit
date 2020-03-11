@@ -315,7 +315,7 @@ img {
 					<div class="textRecommandation">
 
 						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnAfriqueAA[0].artiste.nomcompletartiste}__' + ' en concert | '}">
+							th:text="${'__${listeProchainEvenementEnAfriqueAA[0].artiste.nomcompletartiste}__' + ' en ' + '__${listeProchainEvenementEnAfriqueAA[0].nomevenement}__'}">
 							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN </h5>
 						<h5
 							th:text="${listeProchainEvenementEnAfriqueAA[0].salle.lieu.payslieu}"
@@ -344,7 +344,7 @@ img {
 								D'IVOIRE</span>
 						</h5> -->
 						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnEuropeEE[0].artiste.nomcompletartiste}__' + ' en concert | '}">
+							th:text="${'__${listeProchainEvenementEnEuropeEE[0].artiste.nomcompletartiste}__' + ' en ' + '__${listeProchainEvenementEnEuropeEE[0].nomevenement}__'}">
 							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
 						<h5
 							th:text="${listeProchainEvenementEnEuropeEE[0].salle.lieu.payslieu}"
@@ -374,7 +374,7 @@ img {
 						</h5> -->
 
 						<h5 class="titreAlaffiche1"
-							th:text="${'__${listeProchainEvenementEnEuropeEE[1].artiste.nomcompletartiste}__' + ' en concert | '}">
+							th:text="${'__${listeProchainEvenementEnEuropeEE[1].artiste.nomcompletartiste}__' + ' en ' + '__${listeProchainEvenementEnEuropeEE[1].nomevenement}__'}">
 							MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
 						<h5
 							th:text="${listeProchainEvenementEnEuropeEE[1].salle.lieu.payslieu}"
@@ -404,7 +404,7 @@ img {
 							</h5>
 							 -->
 							<h5 class="titreAlaffiche1"
-								th:text="${'__${listeProchainEvenementEnAmeriqueAM[0].artiste.nomcompletartiste}__' + ' en concert | '}">
+								th:text="${'__${listeProchainEvenementEnAmeriqueAM[0].artiste.nomcompletartiste}__' + ' en ' + '__${listeProchainEvenementEnAmeriqueAM[0].nomevenement}__'}">
 								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN |</h5>
 							<h5
 								th:text="${listeProchainEvenementEnAmeriqueAM[0].salle.lieu.payslieu}"
@@ -457,8 +457,7 @@ img {
 					th:if="${iter.index &gt; 3 and iter.index &lt; 10}">
 					<div class="col-md-12 col-sm-6 col-xs-6">
 						<a th:href="@{evenements(id=${lpb.idevenement})}">
-							<div class="col-md-12 TitreAgenda"
-								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
+							<div class="col-md-12 TitreAgenda" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">AYA
 								NAKAMURA en concert</div>
 						</a>
 						<div class="col-md-6 col-sm-6 dateEtLieuAgenda">
@@ -497,7 +496,7 @@ img {
 				th:each="lpb:${listeEvenementSurleContinentAfricain[0]}">
 				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
 				</a>
 			</div>
@@ -514,7 +513,8 @@ img {
 								src="imagesIndex/Kerozen-DJ.jpg">
 						</div>
 						<h6 class="upper"
-							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+							
 							DJ en concert - Cote d'Ivoire</h6>
 					</a>
 				</div>
@@ -524,7 +524,7 @@ img {
 		<!-- --------------- CADRE SIDE BAR DROITE ---------------- -->
 		<div class="col-md-3 col-sm-12 col-xs-12 pticadre">
 			<div class="col-md-12 prochainEvenement">
-				<span class="glyphicon glyphicon-time"></span> PROCHAINEMENT
+				<span class="glyphicon glyphicon-time"></span> PROCHAIN
 				EVENEMENT
 				<hr>
 			</div>
@@ -536,7 +536,7 @@ img {
 						<div class="col-md-8 TitreProchainEvenement">
 							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
-									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en ' + '__${lxx.nomevenement}__'}">
 									SALIF KEITA EN CONCERT</div>
 							</a>
 							<div class="col-md-12 timePEAL"
@@ -585,7 +585,7 @@ img {
 					<div class="col-md-12 col-sm-6 col-xs-6">
 						<a th:href="@{evenements(id=${lpb.idevenement})}">
 							<div class="col-md-12 TitreAgenda"
-								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
+								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">AYA
 								NAKAMURA en concert</div>
 						</a>
 						<div class="col-md-12 dateEtLieuAgenda">
@@ -624,7 +624,7 @@ img {
 				th:each="lpb:${listeEvenementSurleContinentEuropeen[0]}">
 				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
 				</a>
 			</div>
@@ -642,7 +642,7 @@ img {
 								src="imagesIndex/Kerozen-DJ.jpg">
 						</div>
 						<h6 class="upper"
-							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 							DJ en concert - Cote d'Ivoire</h6>
 					</a>
 				</div>
@@ -656,7 +656,7 @@ img {
 		<div class="col-md-3 col-sm-12 col-xs-12 pticadre">
 
 			<div class="col-md-12 prochainEvenement">
-				<span class="glyphicon glyphicon-time"></span> PROCHAINEMENT
+				<span class="glyphicon glyphicon-time"></span> PROCHAIN
 				EVENEMENT
 				<hr>
 			</div>
@@ -669,7 +669,7 @@ img {
 
 							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
-									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en ' + '__${lxx.nomevenement}__'}">
 									SALIF KEITA EN CONCERT</div>
 							</a>
 
@@ -720,7 +720,7 @@ img {
 					<div class="col-md-12 col-sm-6 col-xs-6">
 						<a th:href="@{evenements(id=${lpb.idevenement})}">
 							<div class="col-md-12 TitreAgenda"
-								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert'}">AYA
+								th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">AYA
 								NAKAMURA en concert</div>
 						</a>
 						<div class="col-md-12 dateEtLieuAgenda">
@@ -759,7 +759,7 @@ img {
 
 				<a th:href="@{evenements(id=${lpb.idevenement})}">
 					<h3
-						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+						th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 						DJ en concert - Cote d'Ivoire</h3>
 				</a>
 
@@ -778,7 +778,7 @@ img {
 					</div>
 					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<h6 class="upper"
-							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
+							th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__' + ' - ' + '__${lpb.salle.lieu.payslieu}__'}">KEROZEN
 							DJ en concert - Cote d'Ivoire</h6>
 					</a>
 				</div>
@@ -792,7 +792,7 @@ img {
 		<div class="col-md-3 col-sm-12 col-xs-12 pticadre">
 
 			<div class="col-md-12 prochainEvenement">
-				<span class="glyphicon glyphicon-time"></span> PROCHAINEMENT
+				<span class="glyphicon glyphicon-time"></span> PROCHAIN
 				EVENEMENT
 				<hr>
 			</div>
@@ -805,7 +805,7 @@ img {
 
 							<a th:href="@{evenements(id=${lxx.idevenement})}">
 								<div class="col-md-12 TitreProchainEvenement"
-									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en concert'}">
+									th:text="${'__${lxx.artiste.nomcompletartiste}__' + ' en ' + '__${lxx.nomevenement}__'}">
 									SALIF KEITA EN CONCERT</div>
 							</a>
 

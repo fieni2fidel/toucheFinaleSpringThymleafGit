@@ -493,7 +493,7 @@ margin-top: 10px;
 							</a>
 							<div class="textRecommandation">
 									<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
-									<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert  '}" style="text-transform:uppercase;">
+									<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}" style="text-transform:uppercase;">
 									MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
 									<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2" style="text-transform:uppercase;"><span>COTE D'IVOIRE</span></h5>
 									

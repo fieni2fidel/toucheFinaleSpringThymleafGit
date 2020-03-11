@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/","/menuprincipal",
 				"/artiste/getphotoimage","/getphotoimage",
 				"/artiste","/artistes","recherche_alphabetique",
-				"/evenements","/afrique","/europe","/amerique",
+				"/evenements","/afrique","/europe","/amerique","/recherche",
 				"/tofs_artistes/banniere_tooche_finale.jpg","/tofs_artistes/xfacebook.png")
 					.permitAll()
 						.anyRequest()

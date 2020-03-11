@@ -165,22 +165,35 @@ public class MenuPrincipalController {
 
 	@RequestMapping(value = "/recherche")
 	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
-
-		List<Artiste> listDesArtistes = artisteRepository.rechercherArtistes("%" + motcle + "%");
+		
+		 List<Artiste>listDesArtistes=new ArrayList<>();
+		List<Artiste> listDesArtistesXX = artisteRepository.rechercherArtistes("%" + motcle + "%");
 		
 		//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
-				/*
-				 * for (Artiste laa : listeArtistes) { if
-				 * ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.
-				 * getVideos().isEmpty())) { tabloArtisteNonVide.add(laa); } }
-				 */
+				
+				  for (Artiste laa : listDesArtistesXX) { if
+				  ((!laa.getPhotos().isEmpty())&&(!laa.getBiographies().isEmpty())&&(!laa.
+				  getVideos().isEmpty())) { listDesArtistes.add(laa); } }
+				 
 		
 		model.addAttribute("listDesArtistes", listDesArtistes);
-
-		List<Evenement>listEvenementParVilleAVenir=evenementRepository.evenementSurLaVilleAVenir(motcle, new Date());
+		
+		List<Evenement>listEvenementParVilleAVenir=new ArrayList<>();
+		List<Evenement>listEvenementParVilleAVenirXX=evenementRepository.evenementSurLaVilleAVenir(motcle, new Date());
+		
+		 for (Evenement laa : listEvenementParVilleAVenirXX) { if
+			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+			  getVideos().isEmpty())) { listEvenementParVilleAVenir.add(laa); } }
+		 
 		model.addAttribute("listEvenementParVilleAVenir", listEvenementParVilleAVenir);
 		
-		List<Evenement>listEvenementParVilleTermine=evenementRepository.evenementSurLaVilleTermine(motcle, new Date());
+		List<Evenement>listEvenementParVilleTermine=new ArrayList<>();
+		List<Evenement>listEvenementParVilleTermineXX=evenementRepository.evenementSurLaVilleTermine(motcle, new Date());
+		
+		for (Evenement laa : listEvenementParVilleTermineXX) { if
+			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+			  getVideos().isEmpty())) { listEvenementParVilleTermine.add(laa); } }
+		 
 		model.addAttribute("listEvenementParVilleTermine", listEvenementParVilleTermine);
 		
 		model.addAttribute("motcle", motcle);

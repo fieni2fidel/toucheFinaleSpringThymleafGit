@@ -242,7 +242,7 @@ img {
 						</a>
 						<div class="textRecommandation">
 								<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
-								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert | '}">
+								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">
 								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
 								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span>COTE D'IVOIRE</span></h5>
 								
@@ -276,7 +276,7 @@ img {
 							</div>
 						<!-- </a> -->
 						<div class="textRecommandation">
-								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en concert | '}">
+								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">
 								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
 								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
 								
