@@ -12,13 +12,21 @@
 
 <!-- part III video youtube -->
 
-	<div th:fragment="afe_part3_videoyoutube" class="playlistArtiste">		
-		<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.videos}">
-			<iframe class="embed-responsive-item" width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
-				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-				picture-in-picture" allowfullscreen>
-			</iframe>
-		</div>		
+	<div th:fragment="afe_part3_videoyoutube">		
+		<div class="container" style="margin-top: 35px;">
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+						<div th:fragment="afe_part3_videoyoutube">		
+							<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.videos}">
+								<iframe class="embed-responsive-item" width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
+									frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
+									picture-in-picture" allowfullscreen>
+								</iframe>
+							</div>		
+						</div>
+			</div>
+			<div class="col-sm-2"></div>
+	</div>		
 	</div>
 
 </body>
