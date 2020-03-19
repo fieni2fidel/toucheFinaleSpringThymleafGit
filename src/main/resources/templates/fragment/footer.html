@@ -22,10 +22,30 @@
 
 	</head>
 	<body>
-		<div th:fragment="footerFrontAndBack">
-			<br><br>
-			<div class="footer">
-			  <p>&copy; 2020 Touche Finale</p>
+		<div th:fragment="footerFrontAndBack"  class="col-sm-12" style="background-color:white; text-align:initial; margin-top:100px;">
+			<div class="col-sm-3">
+				<div class="col-sm-12">
+					<h2> TOOCHE FINALE </h2>
+				</div>
+			</div>
+			<div class="footer col-sm-6">
+				
+				<div class="col-sm-12">
+					<h5> RETROUVEZ TOUTES LES DATES DE SPECTACLES DE VOS ARTISTES AFRICAINS </h5>
+				</div>
+				<div class="col-sm-12">
+					<h5>  Mentions Légales | Contactez nous : +216 55 539 377 - toochefinale@gmail.com </h5>
+				</div>
+				<div class="col-sm-12">
+					<h5> &copy; 2020 touchefinale.com - Tous droits réservés </h5>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div style="float:right; margin-top:14px;">
+  					<a href="https://www.facebook.com/toochefinale4/" target="_blank"> 
+						<img th:src="@{/tofs_artistes/xfacebook.png}"/>
+					</a>
+				</div>
 			</div>
 		</div>
 	</body>

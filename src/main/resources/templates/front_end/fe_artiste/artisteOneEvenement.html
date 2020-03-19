@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title th:object="${evenementfrontend}" th:text="${evenementfrontend.artiste.nomcompletartiste}">artiste presentation</title>
+	<!-- <title th:object="${evenementfrontend}" th:text="${evenementfrontend.artiste.nomcompletartiste}">artiste presentation</title> -->
+	
+	<title th:object="${evenementfrontend}" th:text="${'__${evenementfrontend.salle.lieu.payslieu}__' + ' - ' + '__${evenementfrontend.artiste.nomcompletartiste}__' + ' en ' + '__${evenementfrontend.nomevenement}__'
+	+ ' le ' + '__${#calendars.dayOfWeekName(evenementfrontend.datedebutevenement)}__' + ' ' + '__${#dates.format(evenementfrontend.datedebutevenement, 'dd')}__' + '...'
+	+ ' - ' + '__${evenementfrontend.salle.lieu.continentlieu}__' + ' - Tooche Finale, retrouvez toutes les dates de spectacles de vos artistes africains favoris'}">
+</title>
+	
+	<meta name="description" th:content="${'__${evenementfrontend.salle.lieu.payslieu}__' + ' - ' + '__${evenementfrontend.artiste.nomcompletartiste}__' + ' en ' + '__${evenementfrontend.nomevenement}__'
+	+ ' le ' + '__${#calendars.dayOfWeekName(evenementfrontend.datedebutevenement)}__' + ' ' + '__${#dates.format(evenementfrontend.datedebutevenement, 'dd')}__' + '...' 
+	+ ' - ' + '__${evenementfrontend.salle.lieu.continentlieu}__' + ' - Tooche Finale, retrouvez toutes les dates de spectacles de vos artistes africains favoris'}">
+	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -450,6 +460,9 @@ margin-top: 10px;
 	</div>
 	<div class="col-sm-3 playlistArtiste">
 		<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoochefinale4%2F&tabs&width=340&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+		
+		<!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftoochefinale4%2F&tabs&width=340&height=214&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+		width="340" height="214" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
 	</div>
 <!-- -------------------------- -->
 
@@ -477,7 +490,7 @@ margin-top: 10px;
 		</div>		
 	</div>
 <!-- -------------------------- -->
-	<div class="col-sm-12" style="margin-top:75px;">
+	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:75px;">
 		<h4 style="color:white;float: left; margin:5px;">A voir également</h4>
 	</div>
 	<div class="col-sm-12">
@@ -495,7 +508,7 @@ margin-top: 10px;
 									<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
 									<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}" style="text-transform:uppercase;">
 									MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
-									<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2" style="text-transform:uppercase;"><span>COTE D'IVOIRE</span></h5>
+									<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2" style="text-transform:uppercase; margin-top:-10px;"><span>COTE D'IVOIRE</span></h5>
 									
 							</div>
 						</div>
@@ -507,6 +520,15 @@ margin-top: 10px;
 </div>	
 
 </div>
+<div class="container">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8" style="margin-top: 80px;">
+				<div class="thumbnail">
+					<img th:src="@{/tofs_artistes/banniere_tooche_finale.jpg}" />
+				</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
 <div th:replace="fragment/footer :: footerFrontAndBack">
 
 </div>

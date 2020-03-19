@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>artiste presentation</title>
+	<title th:object="${tabloEvenementAVenir}" th:text="${'__${tabloEvenementAVenir[0].salle.lieu.continentlieu}__' + ' : ' + '__${tabloEvenementAVenir[0].artiste.nomcompletartiste}__'
+	+ ' en ' + '__${tabloEvenementAVenir[0].nomevenement}__' + ' - ' + '__${tabloEvenementAVenir[0].salle.lieu.payslieu}__'}"></title>
+	
+	<meta name="description" th:content="${'Tooche Finale - ' + '__${tabloEvenementAVenir[0].salle.lieu.continentlieu}__' + ' : ' + '__${tabloEvenementAVenir[0].artiste.nomcompletartiste}__'
+	+ ' en ' + '__${tabloEvenementAVenir[0].nomevenement}__' + ' - ' + '__${tabloEvenementAVenir[0].salle.lieu.payslieu}__'}">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
