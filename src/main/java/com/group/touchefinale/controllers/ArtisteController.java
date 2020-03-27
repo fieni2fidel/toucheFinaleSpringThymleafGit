@@ -175,6 +175,7 @@ public class ArtisteController {
 
 		/*----------------------dates de concerts a venir --------------------------------------------------------------*/
 		 Artiste artistefrontend = artisteRepository.getOne(id); 
+		 
 		
 		List<Evenement> listeDateArtistesAVenir= evenementRepository.dateArtistesAVenir(id, new Date());
 		Collections.sort(listeDateArtistesAVenir);

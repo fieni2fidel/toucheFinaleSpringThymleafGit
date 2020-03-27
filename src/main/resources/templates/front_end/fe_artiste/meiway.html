@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T648C3B');</script>
+<!-- End Google Tag Manager -->
+
 	<title th:text="${'__${artistefrontend.nomcompletartiste}__' + ' - Retrouvez toutes ses dates de spectacles ici  - Tooche Finale'}">artiste presentation</title>
 	
 	<meta name="description" th:content="${'__${artistefrontend.nomcompletartiste}__' + ' - Retrouvez toutes ses dates de spectacles ici  - Tooche Finale'}">
@@ -205,7 +214,7 @@ h5{
 }
 .idh2{
 	
-	-webkit-filter: sepia(100%);  Safari 6.0 - 9.0 
+	-webkit-filter: sepia(100%);
   	filter: sepia(100%);
   	
 }
@@ -216,7 +225,7 @@ h1{
 }
 
 .spectacletermine{
-  -webkit-filter: sepia(100%);  Safari 6.0 - 9.0 
+  -webkit-filter: sepia(100%); 
   filter: sepia(100%);
 }
 
@@ -359,6 +368,15 @@ margin-top: 10px;
 	
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T648C3B"
+height="0" width="0" style="display:none;visibility:hidden">
+	</iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 	<div class="menuFixe col-md-12 col-sm-6" th:replace="fragment/navbarFrontEnd :: navbarFrontEnd">
 	</div>
