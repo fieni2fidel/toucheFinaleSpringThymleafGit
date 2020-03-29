@@ -29,10 +29,13 @@ public class Photo implements Serializable{
 	@JoinColumn
 	private Artiste artiste;
 
-	@ManyToOne()
-	@NotFound(action = NotFoundAction.IGNORE)
-	@JoinColumn
-	private Salle salle;
+	/*
+	 * @ManyToOne()
+	 * 
+	 * @NotFound(action = NotFoundAction.IGNORE)
+	 * 
+	 * @JoinColumn private Salle salle;
+	 */
 	
 	
 	public Photo() {
@@ -40,31 +43,8 @@ public class Photo implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Photo(Long idphoto, String nomphoto, String urlphoto) {
-		super();
-		this.idphoto = idphoto;
-		this.nomphoto = nomphoto;
-		this.urlphoto = urlphoto;
-	}
 	
 	
-
-	public Photo(Long idphoto, String nomphoto, String urlphoto, Artiste artiste, Salle salle) {
-		super();
-		this.idphoto = idphoto;
-		this.nomphoto = nomphoto;
-		this.urlphoto = urlphoto;
-		this.artiste = artiste;
-		this.salle = salle;
-	}
-
-	public Photo(Long idphoto, String nomphoto, String urlphoto, Salle salle) {
-		super();
-		this.idphoto = idphoto;
-		this.nomphoto = nomphoto;
-		this.urlphoto = urlphoto;
-		this.salle = salle;
-	}
 
 	public Photo(Long idphoto, String nomphoto, String urlphoto, Artiste artiste) {
 		super();
@@ -74,11 +54,8 @@ public class Photo implements Serializable{
 		this.artiste = artiste;
 	}
 
-	public Photo(String nomphoto, String urlphoto) {
-		super();
-		this.nomphoto = nomphoto;
-		this.urlphoto = urlphoto;
-	}
+
+
 
 	public Long getIdphoto() {
 		return idphoto;
@@ -112,14 +89,11 @@ public class Photo implements Serializable{
 		this.artiste = artiste;
 	}
 
-	public Salle getSalle() {
-		return salle;
-	}
-
-	public void setSalle(Salle salle) {
-		this.salle = salle;
-	}
-	
+	/*
+	 * public Salle getSalle() { return salle; }
+	 * 
+	 * public void setSalle(Salle salle) { this.salle = salle; }
+	 */
 	
 	
 	

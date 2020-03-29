@@ -90,10 +90,13 @@
 					<td><a onclick="return confirm('etes-vous sure?')"
 						th:href="@{supprimerevenement(id=${ldb.idevenement})}">Supprimer</a>
 					</td>
+					
 					<td><a th:href="@{editerevenement(id=${ldb.idevenement})}">Editer</a>
 					</td>
-					<td><a th:href="@{voirevenement(id=${ldb.idevenement})}">Voir</a>
-					</td>
+					
+					<!-- <td><a th:href="@{voirevenement(id=${ldb.idevenement})}">Voir</a>
+					</td> -->
+					
 					<td th:text="${ldb.idevenement}"></td>
 					<td th:text="${ldb.nomevenement}"></td>
 					
@@ -112,7 +115,6 @@
 					
 					<td th:text="${ldb.salle.lieu.villelieu}"></td>
 					<td th:text="${ldb.salle.lieu.payslieu}"></td>
-
 
 				</tr>
 			</tbody>

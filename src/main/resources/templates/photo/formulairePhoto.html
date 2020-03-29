@@ -61,13 +61,20 @@
 									  </div>
 									  
 									  <div class="form-group">
+     									<label for="nombio">Artiste :</label>
+										<select name="idartiste" th:field="*{artiste.idartiste}">
+										  <option th:each="art:${listeArtistes}" th:text="${art.nomcompletartiste}" th:value="${art.idartiste}"></option>
+										</select>
+									  </div>
+									  
+									 <!--  <div class="form-group">
      									<label for="nomartiste">Associer à : </label>
 										 
 										 <select name="nom">
 										  <option type="text" value="artiste">artiste</option>
 										  <option type="text" value="salle">salle</option>
 										</select>
-									 </div>
+									 </div> -->
 								<div class="row">
 									<div class="col-sm-6">
 										<input type="submit" id="idboutonValider" value="valider" class="btn btn-primary" />

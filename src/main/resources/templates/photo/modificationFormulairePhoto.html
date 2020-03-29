@@ -52,17 +52,18 @@
 									
 									<div class="form-group">
      									 <label for="id">Id de l'Artiste :</label>
-      									 <input class="form-control" type="number" th:field="*{artiste.idartiste}"/>
+      									 <input class="form-control" type="number" th:field="*{artiste.idartiste}" disabled="disabled"/>
+      									 
    									 </div>
    									 
-   									 <div class="form-group">
+   									<!--  <div class="form-group">
      									 <label for="id">Id de la salle :</label>
-      									 <input class="form-control" type="number" th:field="*{salle.idsalle}"/>
-   									 </div>
+      									 <input class="form-control" type="number" value="1" th:field="*{salle.idsalle}"/>
+   									 </div> -->
 									
    									 <div class="form-group">
      									 <label for="id">Id :</label>
-      									 <input class="form-control" type="number" th:field="*{idphoto}"/>
+      									 <input class="form-control" type="number" th:field="*{idphoto}" disabled="disabled"/>
    									 </div>
    									 
    									 <div class="form-group">
@@ -72,9 +73,21 @@
 
    									  <div class="form-group">
 									      <label for="comment">Charger votre image :</label>
-									      <input type="file" accept=".png, .jpg, .jpeg" name ="photoimagemodif"/>
+									      <input th:field="*{urlphoto}" disabled="disabled"/>
 									      <img th:src="@{getphotoimage(id=${photo.idphoto})}"  width="200" height="100"/>
 									  </div>
+									  
+									 <!--  <div class="form-group">
+									      <label for="comment">Charger votre image :</label>
+									      <input type="file" accept=".png, .jpg, .jpeg" th:field="*{urlphoto}"/>
+									      
+									  </div>
+									  
+									  <div class="form-group">
+									      <label for="comment">Charger votre image :</label>
+									      <input type="text" th:field="*{urlphoto}"/>
+									      
+									  </div> -->
   
 								<div class="row">
 									<div class="col-sm-6">

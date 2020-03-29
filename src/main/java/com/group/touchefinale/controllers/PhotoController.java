@@ -52,6 +52,11 @@ public class PhotoController {
 	@RequestMapping(value="/formulaire_photo", method=RequestMethod.GET)
 	public String formulaire_photo(Model model) {
 		model.addAttribute("photo", new Photo());
+		
+		List<Artiste>listeArtistes=artisteRepository.
+		findAllByOrderByNomcompletartiste(); model.addAttribute("listeArtistes",
+		listeArtistes); model.addAttribute("artiste", new Artiste());
+		
 		return "photo/formulairePhoto";
 		}
 	
@@ -65,8 +70,10 @@ public class PhotoController {
 			  									HttpServletRequest httpServletRequest, Model model) 
 			  									throws Exception, IOException{
 		  
-		  String name=httpServletRequest.getParameter("nom");	
-		  System.out.println("**************** ******** "+name);
+		/*
+		 * String name=httpServletRequest.getParameter("nom");
+		 * System.out.println("**************** ******** "+name);
+		 */
 		  
 		if (!(photoimage.isEmpty())) {
 			//Thumbnails
@@ -84,63 +91,72 @@ public class PhotoController {
 		photo.setUrlphoto(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());
 		photoimage.transferTo(new File(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim()));
 		
+		
+		
 		photoRepository.save(photo);
 		
-		model.addAttribute("photo", photo);
+		//model.addAttribute("photo", photo);
 		
-		if ((name.equals("artiste"))) {
-			
-			List<Artiste>listeArtistes=artisteRepository.findAllByOrderByNomcompletartiste();	 
-			model.addAttribute("listeArtistes", listeArtistes);
-			model.addAttribute("artiste", new Artiste());
-			
-			photoRepository.save(photo);
-			
-			return "photo/formulairePhotoSuiteArtiste";
-		}else {
-			
-			List<Salle>listeSalles=salleRepository.findAllByOrderByNomsalle();
-			model.addAttribute("listeSalles", listeSalles);
-			model.addAttribute("salle", new Salle());
-			
-			photoRepository.save(photo);
+		/*
+		 * if ((name.equals("artiste"))) {
+		 * 
+		 * List<Artiste>listeArtistes=artisteRepository.
+		 * findAllByOrderByNomcompletartiste(); model.addAttribute("listeArtistes",
+		 * listeArtistes); model.addAttribute("artiste", new Artiste());
+		 * 
+		 * photoRepository.save(photo);
+		 * 
+		 * return "photo/formulairePhotoSuiteArtiste"; }else {
+		 * 
+		 * List<Salle>listeSalles=salleRepository.findAllByOrderByNomsalle();
+		 * model.addAttribute("listeSalles", listeSalles); model.addAttribute("salle",
+		 * new Salle());
+		 * 
+		 * photoRepository.save(photo);
+		 
 			
 			return "photo/formulairePhotoSuiteSalle";
 
 	   }
+	   */
+	  return "photo/pageMessageConfirmationphoto";
 	}
 	  
 
 	  /*verifier et valider le formulaire  avec le nom de l'artiste*/
-		@RequestMapping(value="/artiste_suite_validation_formulaire_photo", method=RequestMethod.POST)
-		public String artiste_suite_validation_formulaire_photo(Photo photo) {
-		
-	
-		photoRepository.save(photo);
-		
-
-			return "photo/pageMessageConfirmationphoto";
-		}
+	/*
+	 * @RequestMapping(value="/artiste_suite_validation_formulaire_photo",
+	 * method=RequestMethod.POST) public String
+	 * artiste_suite_validation_formulaire_photo(Photo photo) {
+	 * 
+	 * 
+	 * photoRepository.save(photo);
+	 * 
+	 * 
+	 * return "photo/pageMessageConfirmationphoto"; }
+	 */
 		
 		
 		  
 		  /*verifier et valider le formulaire  avec le nom de la salle*/
-			@RequestMapping(value="/salle_suite_validation_formulaire_photo", method=RequestMethod.POST)
-			public String salle_suite_validation_formulaire_photo(Photo photo) {
-			
-		
-			photoRepository.save(photo);
-			
-
-				return "photo/pageMessageConfirmationphoto";
-			}
+	/*
+	 * @RequestMapping(value="/salle_suite_validation_formulaire_photo",
+	 * method=RequestMethod.POST) public String
+	 * salle_suite_validation_formulaire_photo(Photo photo) {
+	 * 
+	 * 
+	 * photoRepository.save(photo);
+	 * 
+	 * 
+	 * return "photo/pageMessageConfirmationphoto"; }
+	 */
 			
 
 	  @RequestMapping(value = {"/artiste/getphotoimage","/getphotoimage"}, produces = MediaType.IMAGE_JPEG_VALUE)
-		@ResponseBody
-		public byte[] getphotoimage(@RequestParam("id") Long idphoto) throws Exception{
-			Photo photo= photoRepository.getOne(idphoto);
-			File f=new File(photo.getUrlphoto());
+	  @ResponseBody
+	  public byte[] getphotoimage(@RequestParam("id") Long idphoto) throws Exception{
+		Photo photo= photoRepository.getOne(idphoto);
+		File f=new File(photo.getUrlphoto());
 			return IOUtils.toByteArray(new FileInputStream(f));
 		}
 	  
@@ -189,17 +205,19 @@ public class PhotoController {
 		  @RequestMapping(value="/update_photo", method=RequestMethod.POST) 
 		  public String update_photo(Photo photo, MultipartFile photoimagemodif) throws IllegalStateException, IOException{
 			  
-			  List<Photo>ldp=photoRepository.findAll();
+			 /* List<Photo>ldp=photoRepository.findAll();
 		
 			  if (photoimagemodif.isEmpty()) {
 				  
 				  System.out.println("le file est vide, ici alpha 1 repondez, je repete le file est vide!!! ");
 				  photo.setUrlphoto(photoimagemodif.getOriginalFilename());
+				 
 				  System.out.println("o*o*o*o*o*o* "+photo.getUrlphoto());
 		
 				  
-				 System.out.println("image de mise a jour : ********** "+imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());  
-				 System.out.println("image de mise a jour : ********** "+imageDir+photo.getUrlphoto());  
+				 System.out.println("image de mise a jour one : ********** "+imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());  
+				
+				 System.out.println("image de mise a jour two : ********** "+imageDir+photo.getUrlphoto());  
 				 
 				 for (Photo x : ldp) {
 					if (photo.getIdphoto().equals(x.getIdphoto())) {
@@ -209,35 +227,36 @@ public class PhotoController {
 						//photoimagemodif.transferTo(new File(x.getUrlphoto()));
 						
 					}
-				}
+				}*/
 				 	photoRepository.save(photo);
 					
-			  }else {
+			 /* }else {
 				
 				  System.out.println("le file n'est pas vide, ici alpha 1 repondez, je repete le file n'est pas vide!!! ");
 				  photo.setUrlphoto(photoimagemodif.getOriginalFilename());
+				  
 				  System.out.println(photo.getUrlphoto());
+				  
 				  System.out.println("image de mise a jour : ********** "+imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());  
 				
-				  photoRepository.save(photo);
+				  photoRepository.save(photo);*/
 
-				  photo.setUrlphoto(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());
-				  String filephotoimagex=imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim();
+				 // photo.setUrlphoto(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim());
+				  //String filephotoimagex=imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.getUrlphoto().lastIndexOf('.')+1).trim();
 				  
-				  File fpn=new File(filephotoimagex); 
-				  if (fpn.exists()) { 
-					fpn.delete(); 
-					  
-					  System.out.println(" photo supprimée " + photoimagemodif);
-					  }
-			
-			  photoimagemodif.transferTo(new
-			  File(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.
-			  getUrlphoto().lastIndexOf('.')+1).trim()));
-			  
-			  photoRepository.save(photo);
+			/*
+			 * File fpn=new File(filephotoimagex); if (fpn.exists()) { fpn.delete();
+			 * 
+			 * System.out.println(" photo supprimée " + photoimagemodif); }
+			 * 
+			 * photoimagemodif.transferTo(new
+			 * File(imageDir+photo.getIdphoto()+"."+photo.getUrlphoto().substring(photo.
+			 * getUrlphoto().lastIndexOf('.')+1).trim()));
+			 * 
+			 * photoRepository.save(photo);
 			 
-			}
+			 
+			} */
 			  
 			
 		  return "redirect:liste_photo";

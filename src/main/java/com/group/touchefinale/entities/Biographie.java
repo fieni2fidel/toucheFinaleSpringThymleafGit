@@ -33,15 +33,6 @@ public class Biographie implements Serializable{
 	@JoinColumn
 	private Artiste artiste;
 	
-	/*
-	 * @ManyToOne
-	 * 
-	 * @NotFound(action = NotFoundAction.IGNORE)
-	 * 
-	 * @JoinColumn private Salle salle;
-	 */
-	
-	
 
 	public Artiste getArtiste() {
 		return artiste;
@@ -51,25 +42,12 @@ public class Biographie implements Serializable{
 		this.artiste = artiste;
 	}
 	
-	
-	/*
-	 * public Salle getSalle() { return salle; }
-	 * 
-	 * public void setSalle(Salle salle) { this.salle = salle; }
-	 */
 
 	public Biographie() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	/*
-	 * public Biographie(Long idbiographie, String nombiographie, String
-	 * descriptionbiographie) { super(); this.idbiographie = idbiographie;
-	 * this.nombiographie = nombiographie; this.descriptionbiographie =
-	 * descriptionbiographie; }
-	 */
 	
 
 	public Biographie(String nombiographie, String descriptionbiographie, Artiste artiste) {
@@ -79,35 +57,6 @@ public class Biographie implements Serializable{
 		this.artiste = artiste;
 	}
 	
-
-	/*
-	 * public Biographie(Long idbiographie, String nombiographie, String
-	 * descriptionbiographie, Salle salle) { super(); this.idbiographie =
-	 * idbiographie; this.nombiographie = nombiographie; this.descriptionbiographie
-	 * = descriptionbiographie; this.salle = salle; }
-	 */
-	
-
-	/*
-	 * public Biographie(Long idbiographie, String nombiographie, String
-	 * descriptionbiographie, Artiste artiste, Salle salle) { super();
-	 * this.idbiographie = idbiographie; this.nombiographie = nombiographie;
-	 * this.descriptionbiographie = descriptionbiographie; this.artiste = artiste;
-	 * this.salle = salle; }
-	 */
-
-	/*
-	 * public Biographie(Long idbiographie, String nombiographie, String
-	 * descriptionbiographie, Artiste artiste) { super(); this.idbiographie =
-	 * idbiographie; this.nombiographie = nombiographie; this.descriptionbiographie
-	 * = descriptionbiographie; this.artiste = artiste; }
-	 */
-
-	/*
-	 * public Biographie(String nombiographie, String descriptionbiographie) {
-	 * super(); this.nombiographie = nombiographie; this.descriptionbiographie =
-	 * descriptionbiographie; }
-	 */
 
 	public Long getIdbiographie() {
 		return idbiographie;

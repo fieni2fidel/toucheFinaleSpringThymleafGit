@@ -32,9 +32,7 @@ public class MenuPrincipalController {
 	
 	@Autowired
 	private ArtisteRepository artisteRepository;
-	
-	@Autowired
-	private BiographieRepository biographieRepository;
+
 	
 	@Autowired
 	private EvenementRepository evenementRepository;
@@ -51,7 +49,7 @@ public class MenuPrincipalController {
 	  List<Evenement> listeEvenementSurleContinentAfricainXX = evenementRepository.evenementsurlecontinent("afrique");
 	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
 	 for (Evenement laa : listeEvenementSurleContinentAfricainXX) { if
-	 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+	 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 	 getVideos().isEmpty())) { listeEvenementSurleContinentAfricain.add(laa); } }
 			  
 	  Collections.sort(listeEvenementSurleContinentAfricain);
@@ -62,7 +60,7 @@ public class MenuPrincipalController {
 	  List<Evenement> listeEvenementSurleContinentEuropeenXX = evenementRepository.evenementsurlecontinent("europe");
 	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
 		 for (Evenement laa : listeEvenementSurleContinentEuropeenXX) { if
-		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 		 getVideos().isEmpty())) { listeEvenementSurleContinentEuropeen.add(laa); } }
 		 
 	  Collections.sort(listeEvenementSurleContinentEuropeen);
@@ -73,7 +71,7 @@ public class MenuPrincipalController {
 	  List<Evenement> listeEvenementSurleContinentAmericainXX = evenementRepository.evenementsurlecontinent("amerique");
 	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
 		 for (Evenement laa : listeEvenementSurleContinentAmericainXX) { if
-		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 		 getVideos().isEmpty())) { listeEvenementSurleContinentAmericain.add(laa); } }
 	  
 	  Collections.sort(listeEvenementSurleContinentAmericain);
@@ -88,7 +86,7 @@ public class MenuPrincipalController {
 	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
 		
 		  for (Evenement laa : listeProchainEvenementEnAfriqueXX) { if
-		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 		  getVideos().isEmpty())) { listeProchainEvenementEnAfriqueAA.add(laa); } }
 		 
 	  
@@ -100,7 +98,7 @@ public class MenuPrincipalController {
 	  List<Evenement>listeProchainEvenementEnEuropeEE=new ArrayList<>();
 	  List<Evenement>listeProchainEvenementEnEuropeXX=evenementRepository.prochainevenement("europe",new Date());
 	  for (Evenement laa : listeProchainEvenementEnEuropeXX) { if
-		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 		  getVideos().isEmpty())) { listeProchainEvenementEnEuropeEE.add(laa); } }
 	  
 	  Collections.sort(listeProchainEvenementEnEuropeEE);
@@ -112,7 +110,7 @@ public class MenuPrincipalController {
 	  List<Evenement>listeProchainEvenementEnAmeriqueAM=new ArrayList<>();
 	  List<Evenement>listeProchainEvenementEnAmeriqueXX=evenementRepository.prochainevenement("amerique",new Date());
 	  for (Evenement laa : listeProchainEvenementEnAmeriqueXX) { if
-		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+		  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 		  getVideos().isEmpty())) { listeProchainEvenementEnAmeriqueAM.add(laa); } }
 	  
 	  Collections.sort(listeProchainEvenementEnAmeriqueAM);
@@ -135,7 +133,7 @@ public class MenuPrincipalController {
 	  List<Evenement> listeEvenementAVenir = evenementRepository.prochainevenement(continent, new Date());
 	  List<Evenement>tabloEvenementAVenir=new ArrayList<>();
 	  for (Evenement EE : listeEvenementAVenir) {
-		if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getBiographies().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
+		if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
 			tabloEvenementAVenir.add(EE);
 		}
 	}
@@ -148,7 +146,7 @@ public class MenuPrincipalController {
 	  List<Evenement>tabloEvenementATerminer=new ArrayList<>();
 	  List<Evenement> listeEvenementTermine = evenementRepository.evenementpasse(continent, new Date());
 	  for (Evenement EE : listeEvenementTermine) {
-		  if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getBiographies().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
+		  if ((!(EE.getArtiste().getPhotos().isEmpty()))&&(!(EE.getArtiste().getVideos().isEmpty()))) {
 			  tabloEvenementATerminer.add(EE);
 			}
 	}
@@ -182,7 +180,7 @@ public class MenuPrincipalController {
 		List<Evenement>listEvenementParVilleAVenirXX=evenementRepository.evenementSurLaVilleAVenir(motcle, new Date());
 		
 		 for (Evenement laa : listEvenementParVilleAVenirXX) { if
-			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 			  getVideos().isEmpty())) { listEvenementParVilleAVenir.add(laa); } }
 		 
 		model.addAttribute("listEvenementParVilleAVenir", listEvenementParVilleAVenir);
@@ -191,7 +189,7 @@ public class MenuPrincipalController {
 		List<Evenement>listEvenementParVilleTermineXX=evenementRepository.evenementSurLaVilleTermine(motcle, new Date());
 		
 		for (Evenement laa : listEvenementParVilleTermineXX) { if
-			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().getBiographies().isEmpty())&&(!laa.getArtiste().
+			  ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
 			  getVideos().isEmpty())) { listEvenementParVilleTermine.add(laa); } }
 		 
 		model.addAttribute("listEvenementParVilleTermine", listEvenementParVilleTermine);
