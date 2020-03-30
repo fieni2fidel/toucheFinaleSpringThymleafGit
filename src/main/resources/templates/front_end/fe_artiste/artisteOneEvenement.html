@@ -394,13 +394,28 @@ height="0" width="0" style="display:none;visibility:hidden">
 				<div class="col-sm-5">
 					<div class="box">
 						<div class="col-sm-12">
-							<div th:object="${evenementfrontend}"
-								th:each="bb : ${evenementfrontend.artiste.photos}">
+						<!-- <h5 th:text= "${evenementfrontend.artiste.photos.size()}"> </h5>
+								<h5 th:text= "${#lists.size(evenementfrontend.artiste.photos)}"> </h5> -->
+							<div th:each="lpb:${evenementfrontend.artiste.photos[evenementfrontend.artiste.photos.size()-1]}">		
+								<!-- th:each="bb, iter: ${evenementfrontend.artiste.photos}"
+								th:if="${iter.index == iter.size()}"> -->			
 								<div class="thumbnail">
-									<img th:src="@{getphotoimage(id=${bb.idphoto})}"
+									<img th:src="@{getphotoimage(id=${lpb.idphoto})}"
 										th:onerror="'this.src=\'' + @{/tofs_artistes/logoTF.jpg} + '\';'" />
 								</div>
 							</div>
+							
+							<!-- <div th:each="lpb, iter:${listeProchainEvenementEnAfriqueAA}"
+					th:if="${iter.index &gt; 3 and iter.index &lt; 10}">
+					<div class="col-md-12 col-sm-6 col-xs-12">
+						<a th:href="@{evenements(id=${lpb.idevenement})}">
+							<div class="col-md-12 TitreAgenda" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">AYA
+								NAKAMURA en concert</div>
+						</a>
+						
+					</div>
+				</div> -->
+							
 							<!-- <div class="thumbnail">
 								<img th:unless="${#lists.size(evenementfrontend.artiste.photos) > 0}"
 									th:src="@{/tofs_artistes/logoTF.jpg}" />
@@ -436,7 +451,8 @@ height="0" width="0" style="display:none;visibility:hidden">
 								</a>
 								</div>
 							
-							<div class="textRecommandation" th:object="${evenementfrontend}" th:each="lpb:${evenementfrontend.artiste.biographies}">
+							<div class="textRecommandation" th:object="${evenementfrontend}" 
+								th:each="lpb:${evenementfrontend.artiste.biographies[evenementfrontend.artiste.biographies.size()-1]}">
 									<h4 th:text="${lpb.descriptionbiographie}">
 										
 									</h4>		
@@ -500,7 +516,8 @@ height="0" width="0" style="display:none;visibility:hidden">
 	<!-- part video youtube -->
 
 		<div th:fragment="afe_part3_videoyoutube" class="col-sm-6 playlistArtiste">		
-		<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:object="${evenementfrontend}" th:each="lpb:${evenementfrontend.artiste.videos}">
+		<div class="col-sm-12 embed-responsive embed-responsive-16by9" th:object="${evenementfrontend}" 
+			th:each="lpb:${evenementfrontend.artiste.videos[evenementfrontend.artiste.videos.size()-1]}">
 			<iframe class="embed-responsive-item" width="720" height="405" th:src="@{https://www.youtube.com/embed/{url} (url=${lpb.urlvideo})}" 
 				frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; 
 				picture-in-picture" allowfullscreen>

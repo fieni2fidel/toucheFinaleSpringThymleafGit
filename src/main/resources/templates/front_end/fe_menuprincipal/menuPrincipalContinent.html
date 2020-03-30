@@ -260,7 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					<div class="box">
 						<a th:href="@{evenements(id=${lpb.idevenement})}"> 
 							<div class="thumbnail imgBox">
-								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[lpb.artiste.photos.size()-1].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
 							</div>
 						</a>
 						<div class="textRecommandation">
@@ -295,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					<div class="box">
 						<!-- <a th:href="@{artistes(id=${lpb.artiste.idartiste})}">  -->
 							<div class="thumbnail imgBox">
-								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
+								<img th:src="@{getphotoimage(id=${lpb.artiste.photos[lpb.artiste.photos.size()-1].idphoto})}" src="imagesIndex/fuego-tour-gims.jpg" class="imgAlaffiche">
 							</div>
 						<!-- </a> -->
 						<div class="textRecommandation">

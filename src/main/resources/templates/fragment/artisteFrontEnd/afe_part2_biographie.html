@@ -8,7 +8,7 @@
 									<h2><span class="titreAlaffiche" th:object="${artistefrontend}" th:text="${artistefrontend.nomcompletartiste}"> | MAITRE GIMS |</span></h2>
 								</div>
 							
-							<div class="textRecommandation" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.biographies}">
+							<div class="textRecommandation" th:object="${artistefrontend}" th:each="lpb:${artistefrontend.biographies[artistefrontend.biographies.size()-1]}">
 									<h4 th:text="${lpb.descriptionbiographie}">
 										
 									</h4>		

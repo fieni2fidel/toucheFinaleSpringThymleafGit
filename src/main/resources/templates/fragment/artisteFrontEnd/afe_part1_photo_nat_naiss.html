@@ -7,7 +7,7 @@
 		<div class="box">
 			<div class="col-sm-12">
 				<div th:object="${artistefrontend}"
-					th:each="bb : ${artistefrontend.photos}">
+					th:each="bb : ${artistefrontend.photos[artistefrontend.photos.size()-1]}" >
 					<div class="thumbnail">
 						<img th:src="@{getphotoimage(id=${bb.idphoto})}" />
 					</div>

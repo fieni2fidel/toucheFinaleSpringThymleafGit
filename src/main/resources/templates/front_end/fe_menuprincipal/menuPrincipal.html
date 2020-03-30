@@ -327,7 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					
 						<div class="thumbnail imgBox">
 							<img
-								th:src="@{getphotoimage(id=${listeProchainEvenementEnAfriqueAA[0].artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${listeProchainEvenementEnAfriqueAA[0].artiste.photos[listeProchainEvenementEnAfriqueAA[0].artiste.photos.size()-1].idphoto})}"
 								th:onerror="'this.src=\'' + @{/tofs_artistes/logoTF.jpg} + '\';'"
 								class="imgAlaffiche">
 						</div>
@@ -354,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					
 						<div class="thumbnail imgBox">
 							<img
-								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[0].artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[0].artiste.photos[listeProchainEvenementEnEuropeEE[0].artiste.photos.size()-1].idphoto})}"
 								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 						</div>
 					
@@ -383,7 +383,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					
 						<div class="thumbnail imgBox">
 							<img
-								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[1].artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${listeProchainEvenementEnEuropeEE[1].artiste.photos[listeProchainEvenementEnEuropeEE[1].artiste.photos.size()-1].idphoto})}"
 								src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 						</div>
 				
@@ -413,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 						
 							<div class="thumbnail imgBox">
 								<img
-									th:src="@{getphotoimage(id=${listeProchainEvenementEnAmeriqueAM[0].artiste.photos[0].idphoto})}"
+									th:src="@{getphotoimage(id=${listeProchainEvenementEnAmeriqueAM[0].artiste.photos[listeProchainEvenementEnAmeriqueAM[0].artiste.photos.size()-1].idphoto})}"
 									src="tofs_artistes/logoTF.jpg" class="imgAlaffiche">
 							</div>
 					
@@ -497,7 +497,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 		<div class="col-md-6 col-sm-12 col-xs-12 cadre">
 			<div class="col-md-12">
 				<div class="thumbnail"
-					th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos[0]}">
+					th:each="lpb:${listeEvenementSurleContinentAfricain[0].artiste.photos[listeEvenementSurleContinentAfricain[0].artiste.photos.size()-1]}">
 					<a th:href="@{evenements(id=${listeEvenementSurleContinentAfricain[0].idevenement})}"> 
 					<img th:src="@{getphotoimage(id=${lpb.idphoto})}" src="imagesIndex/Kerozen-DJ.jpg">
 					</a>
@@ -530,7 +530,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<div class="thumbnail">
 							<img
-								th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${lpb.artiste.photos[lpb.artiste.photos.size()-1].idphoto})}"
 								src="imagesIndex/Kerozen-DJ.jpg">
 						</div>
 						<h6 class="upper"
@@ -565,7 +565,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 							</div>
 						</div>
 						<div class="col-md-4 imgProchainEvenement">
-							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[lxx.artiste.photos.size()-1]}">
 
 								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
@@ -625,7 +625,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 		<div class="col-md-6 col-sm-12 col-xs-12 cadre">
 			<div class="col-md-12">
 				<div class="thumbnail"
-					th:each="lpb:${listeEvenementSurleContinentEuropeen[0].artiste.photos}">
+					th:each="lpb:${listeEvenementSurleContinentEuropeen[0].artiste.photos[listeEvenementSurleContinentEuropeen[0].artiste.photos.size()-1]}">
 					<a th:href="@{evenements(id=${listeEvenementSurleContinentEuropeen[0].idevenement})}"> <img
 						th:src="@{getphotoimage(id=${lpb.idphoto})}"
 						src="imagesIndex/Kerozen-DJ.jpg">
@@ -659,7 +659,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					<a th:href="@{evenements(id=${lpb.idevenement})}">
 						<div class="thumbnail">
 							<img
-								th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+								th:src="@{getphotoimage(id=${lpb.artiste.photos[lpb.artiste.photos.size()-1].idphoto})}"
 								src="imagesIndex/Kerozen-DJ.jpg">
 						</div>
 						<h6 class="upper"
@@ -699,7 +699,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 							</div>
 						</div>
 						<div class="col-md-4 imgProchainEvenement">
-							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[lxx.artiste.photos.size()-1]}">
 
 								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
@@ -761,7 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 		<div class="col-md-6 col-sm-12 col-xs-12 cadre">
 			<div class="col-md-12">
 				<div class="thumbnail"
-					th:each="lpb:${listeEvenementSurleContinentAmericain[0].artiste.photos}">
+					th:each="lpb:${listeEvenementSurleContinentAmericain[0].artiste.photos[listeEvenementSurleContinentAmericain[0].artiste.photos.size()-1]}">
 					<a th:href="@{evenements(id=${listeEvenementSurleContinentAmericain[0].idevenement})}"> <img
 						th:src="@{getphotoimage(id=${lpb.idphoto})}"
 						src="imagesIndex/Kerozen-DJ.jpg">
@@ -793,7 +793,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 					th:if="${iter.index &gt; 0 and iter.index &lt; 4 }">
 					<div class="thumbnail">
 						<a th:href="@{evenements(id=${lpb.idevenement})}"> <img
-							th:src="@{getphotoimage(id=${lpb.artiste.photos[0].idphoto})}"
+							th:src="@{getphotoimage(id=${lpb.artiste.photos[lpb.artiste.photos.size()-1].idphoto})}"
 							src="imagesIndex/Kerozen-DJ.jpg">
 						</a>
 					</div>
@@ -835,7 +835,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 							</div>
 						</div>
 						<div class="col-md-4 imgProchainEvenement">
-							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[0]}">
+							<div class="thumbnail" th:each="lpx:${lxx.artiste.photos[lxx.artiste.photos.size()-1]}">
 								<a th:href="@{evenements(id=${lxx.idevenement})}"> <img
 									th:src="@{getphotoimage(id=${lpx.idphoto})}"
 									src="imagesIndex/SalifKeita.jpg">
