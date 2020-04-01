@@ -1,5 +1,6 @@
 package com.group.touchefinale.controllers;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -197,6 +198,45 @@ public class MenuPrincipalController {
 		model.addAttribute("motcle", motcle);
 		
 		return "front_end/fe_menuprincipal/ResultatRecherche";
+	}
+	
+	
+	@RequestMapping(value="/videos")
+	public String videos(Model model) {
+		
+		/*
+		 * List<Video>listePageVideo=videoRepository.findAll();
+		 * Collections.reverse(listePageVideo); model.addAttribute("listePageVideo",
+		 * listePageVideo);
+		 */
+		
+		ArrayList<String> tabloArt = new ArrayList<String>(Arrays.asList( "A", "B", "C","D","E","F","G","H","I","J","K","L","M"
+				,"N","O","P","Q","R","S","T","U","V","W","X","Y","Z") );
+		 List<Artiste>listeArtisteAZ=new ArrayList<>();
+		for(int i = 0; i < tabloArt.size(); i++)
+		{
+		    System.out.println(tabloArt.get(i));
+		    List<Artiste> listeAZ = artisteRepository.findByNomcompletartisteStartingWith(tabloArt.get(i));
+		    
+		    
+		    for (Artiste z : listeAZ) {
+				if ((!z.getPhotos().isEmpty())&&(!z.getBiographies().isEmpty())&&(!z.getVideos().isEmpty())&&(!z.getEvenements().isEmpty())){
+					listeArtisteAZ.add(z);
+				}
+				
+				//model.addAttribute("listeArtisteAZ", listeArtisteAZ);
+		    }
+		}
+
+		model.addAttribute("listeArtisteAZ", listeArtisteAZ);
+		model.addAttribute("tabloArt", tabloArt);
+		
+		List<Artiste> artistefrontend = artisteRepository.findAll();
+
+			Collections.reverse(artistefrontend);
+			model.addAttribute("artistefrontend", artistefrontend);
+		
+		return "front_end/fe_videos/videos";
 	}
 	
 }

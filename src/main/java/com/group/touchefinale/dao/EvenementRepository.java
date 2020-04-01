@@ -45,24 +45,23 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	  public List<Evenement>prochainevenement(@Param("a")String a, @Param("x")Date x);
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a AND e.datedebutevenement < :x") 
-	  public List<Evenement>evenementpasse(@Param("a")String a, @Param("x")Date x);
-	  
+	  public List<Evenement>evenementpasse(@Param("a")String a, @Param("x")Date x);	  
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.artiste.idartiste= :a AND e.datedebutevenement >= :x") 
-	  public List<Evenement>dateArtistesAVenir(@Param("a")Long a, @Param("x")Date x);
-	  
+	  public List<Evenement>dateArtistesAVenir(@Param("a")Long a, @Param("x")Date x);	  
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.artiste.idartiste= :a AND e.datedebutevenement < :x") 
-	  public List<Evenement>dateArtistesTermine(@Param("a")Long a, @Param("x")Date x);
-	  
+	  public List<Evenement>dateArtistesTermine(@Param("a")Long a, @Param("x")Date x);	  
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.villelieu= :a AND e.datedebutevenement > :x") 
 	  public List<Evenement>evenementSurLaVilleAVenir(@Param("a")String a, @Param("x")Date x);
 	  
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.villelieu= :a AND e.datedebutevenement < :x") 
-	  public List<Evenement>evenementSurLaVilleTermine(@Param("a")String a, @Param("x")Date x);
+	  public List<Evenement>evenementSurLaVilleTermine(@Param("a")String a, @Param("x")Date x);	  
+	  
+	  @Query(value = "Select e FROM Evenement e WHERE e.datedebutevenement >= :x") 
+	  public List<Evenement>evenementAvecVideo(@Param("x")Date x);
 	
-	 
 	
 	/*
 	 * SELECT CLI_NOM, TEL_NUMERO FROM T_CLIENT C, T_TELEPHONE T WHERE C.CLI_ID =

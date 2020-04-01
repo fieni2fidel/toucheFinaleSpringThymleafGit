@@ -71,6 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				"/artiste/getphotoimage","/getphotoimage",
 				"/artiste","/artistes","recherche_alphabetique",
 				"/evenements","/afrique","/europe","/amerique","/recherche",
+				"/videos",
 				"/tofs_artistes/banniere_tooche_finale.jpg","/tofs_artistes/xfacebook.png")
 					.permitAll()
 						.anyRequest()
