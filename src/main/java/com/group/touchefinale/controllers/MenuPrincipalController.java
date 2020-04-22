@@ -6,10 +6,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,17 +22,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.group.touchefinale.MethodesUtiles;
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.BiographieRepository;
 import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.VideoRepository;
+import com.group.touchefinale.dao.VisiteurRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
 import com.group.touchefinale.entities.Video;
+import com.group.touchefinale.entities.Visiteur;
 
 @Controller
 public class MenuPrincipalController {
+	
+	
 	
 	@Autowired
 	private ArtisteRepository artisteRepository;
@@ -40,14 +48,42 @@ public class MenuPrincipalController {
 	
 	@Autowired
 	private VideoRepository videoRepository;
+	
+	@Autowired
+	private VisiteurRepository visiteurRepository;
 
 	/*------------------------------------------------------------------------------------*/
+	public Visiteur voirVisiteur(HttpServletRequest request ) {
+		Visiteur visiteur = null;
+		
+		if (request!=null) {
+			
+			 visiteur=new Visiteur(request.getHeader("referer"), request.getHeader("cf-ipcountry"),
+					request.getHeader("accept-language"), request.getHeader("cookie"),
+					request.getHeader("x-forwarded-for"), request.getHeader("x-real-ip"),
+					request.getHeader("x-forwarded-server"), request.getHeader("x-forwarded-host"),
+					request.getHeader("cf-visitor"), request.getHeader("connection"), 
+					request.getHeader("cf-connecting-ip"), request.getHeader("user-agent"),
+					new Date());
+	
+		}
+		return visiteur;
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value= {"/","/menuprincipal"})
-	public String menu_principal_frontend(Model model) {
+	public String menu_principal_frontend(Model model, HttpServletRequest request ) {
 		
+		// Donnees visiteurs ////////////////////////////////
+		Visiteur vvi=voirVisiteur(request);
+		visiteurRepository.save(vvi);	
+		// //////////////////////////////////
 		
-		List<Evenement>listeEvenementSurleContinentAfricain=new ArrayList<>();
-	  List<Evenement> listeEvenementSurleContinentAfricainXX = evenementRepository.evenementsurlecontinent("afrique");
+	List<Evenement>listeEvenementSurleContinentAfricain=new ArrayList<>();
+	List<Evenement> listeEvenementSurleContinentAfricainXX = evenementRepository.evenementsurlecontinent("afrique");
 	//liste des artiste qui remplissent les 3 conditions (photo, biographie, video)
 	 for (Evenement laa : listeEvenementSurleContinentAfricainXX) { if
 	 ((!laa.getArtiste().getPhotos().isEmpty())&&(!laa.getArtiste().
@@ -129,7 +165,12 @@ public class MenuPrincipalController {
 	
 	
 	@RequestMapping(value="/{continent}")
-	public String menu_principal_afrique(Model model, @PathVariable("continent") String continent) {
+	public String menu_principal_afrique(Model model, @PathVariable("continent") String continent, HttpServletRequest request) {
+		
+			// Donnees visiteurs ////////////////////////////////
+				Visiteur vvi=voirVisiteur(request);
+				visiteurRepository.save(vvi);	
+			// //////////////////////////////////
 
 	  List<Evenement> listeEvenementAVenir = evenementRepository.prochainevenement(continent, new Date());
 	  List<Evenement>tabloEvenementAVenir=new ArrayList<>();
@@ -163,7 +204,12 @@ public class MenuPrincipalController {
 	/*-----------------------------------lister les artistes -------------------------------------------------*/
 
 	@RequestMapping(value = "/recherche")
-	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle) {
+	public String liste_artistes(Model model, @RequestParam(name = "motcleRP", defaultValue = "") String motcle, HttpServletRequest request) {
+		
+		// Donnees visiteurs ////////////////////////////////
+		Visiteur vvi=voirVisiteur(request);
+		visiteurRepository.save(vvi);	
+	// //////////////////////////////////
 		
 		 List<Artiste>listDesArtistes=new ArrayList<>();
 		List<Artiste> listDesArtistesXX = artisteRepository.rechercherArtistes("%" + motcle + "%");

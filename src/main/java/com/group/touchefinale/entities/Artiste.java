@@ -41,6 +41,10 @@ public class Artiste implements Serializable{
 	
 	private String origineartiste;
 	
+	private String sexeartiste;
+	
+	private String nbredepersonneartiste;
+	
 	//@OneToMany(fetch = FetchType.LAZY)
 	@OneToMany(mappedBy="artiste", cascade = CascadeType.REMOVE)
 	private Collection<Video>videos;
@@ -69,39 +73,24 @@ public class Artiste implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Artiste(Long idartiste, String nomcompletartiste, Date datenaissanceartiste, String origineartiste,
-			Collection<Video> videos, Collection<Photo> photos, Collection<Biographie> biographies) {
-		super();
-		this.idartiste = idartiste;
-		this.nomcompletartiste = nomcompletartiste;
-		this.datenaissanceartiste = datenaissanceartiste;
-		this.origineartiste = origineartiste;
-		this.videos = videos;
-		this.photos = photos;
-		this.biographies=biographies;
-	}
+	
 
-	public Artiste(Long idartiste) {
-		super();
-		this.idartiste = idartiste;
-	}
+	public Artiste(String nomcompletartiste, Date datenaissanceartiste, String origineartiste, String sexeartiste,
+		String nbredepersonneartiste, Collection<Video> videos, Collection<Photo> photos,
+		Collection<Biographie> biographies, Collection<Evenement> evenements) {
+	super();
+	this.nomcompletartiste = nomcompletartiste;
+	this.datenaissanceartiste = datenaissanceartiste;
+	this.origineartiste = origineartiste;
+	this.sexeartiste = sexeartiste;
+	this.nbredepersonneartiste = nbredepersonneartiste;
+	this.videos = videos;
+	this.photos = photos;
+	this.biographies = biographies;
+	this.evenements = evenements;
+}
 
-	public Artiste(String nomcompletartiste, Date datenaissanceartiste, String origineartiste, Collection<Video> videos,
-			Collection<Photo> photos) {
-		super();
-		this.nomcompletartiste = nomcompletartiste;
-		this.datenaissanceartiste = datenaissanceartiste;
-		this.origineartiste = origineartiste;
-		this.videos = videos;
-		this.photos = photos;
-	}
 
-	public Artiste(String nomcompletartiste, Date datenaissanceartiste, String origineartiste) {
-		super();
-		this.nomcompletartiste = nomcompletartiste;
-		this.datenaissanceartiste = datenaissanceartiste;
-		this.origineartiste = origineartiste;
-	}
 
 	public Long getIdartiste() {
 		return idartiste;
@@ -110,6 +99,32 @@ public class Artiste implements Serializable{
 	public void setIdartiste(Long idartiste) {
 		this.idartiste = idartiste;
 	}
+	
+	
+
+	public String getSexeartiste() {
+		return sexeartiste;
+	}
+
+
+
+	public void setSexeartiste(String sexeartiste) {
+		this.sexeartiste = sexeartiste;
+	}
+
+
+
+	public String getNbredepersonneartiste() {
+		return nbredepersonneartiste;
+	}
+
+
+
+	public void setNbredepersonneartiste(String nbredepersonneartiste) {
+		this.nbredepersonneartiste = nbredepersonneartiste;
+	}
+
+
 
 	public String getNomcompletartiste() {
 		return nomcompletartiste;

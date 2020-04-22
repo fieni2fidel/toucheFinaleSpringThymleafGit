@@ -91,6 +91,24 @@ input:focus {
      									 <label for="nom">Date de naissance :</label>
       									 <input type="date" class="form-control" th:field="*{datenaissanceartiste}">
    									 </div>
+   									 
+   									 <div class="form-group">
+     									<label for="nomartpers">Nombre de personnes :</label>
+										<select name="nbredepersonneartiste" th:field="*{nbredepersonneartiste}">
+										  <option	value="single">Single</option>
+										   <option	value="groupe">Groupe</option>									    
+										</select>
+									  </div>
+   									 
+   									 <div class="form-group">
+     									<label for="nombio">Sexe :</label>
+										<select name="sexeartiste" th:field="*{sexeartiste}">
+										  <option	value="feminin">Feminin</option>
+										   <option	value="masculin">Masculin</option>
+										    <option	value="feminin et masculin">Feminin & Masculin</option>
+										</select>
+									  </div>
+
 
 								<div class="row">
 									<div class="col-sm-6">

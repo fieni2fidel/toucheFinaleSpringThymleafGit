@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.group.touchefinale.dao.ArtisteRepository;
 import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.SalleRepository;
+import com.group.touchefinale.dao.VisiteurRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Evenement;
 import com.group.touchefinale.entities.Salle;
+import com.group.touchefinale.entities.Visiteur;
 
 @Controller
 public class EvenementController {
@@ -38,6 +42,29 @@ public class EvenementController {
 
 	@Autowired
 	private ArtisteRepository artisteRepository;
+	
+	@Autowired
+	private VisiteurRepository visiteurRepository;
+
+	/*------------------------------------------------------------------------------------*/
+	public Visiteur voirVisiteur(HttpServletRequest request ) {
+		Visiteur visiteur = null;
+		
+		if (request!=null) {
+			
+			 visiteur=new Visiteur(request.getHeader("referer"), request.getHeader("cf-ipcountry"),
+					request.getHeader("accept-language"), request.getHeader("cookie"),
+					request.getHeader("x-forwarded-for"), request.getHeader("x-real-ip"),
+					request.getHeader("x-forwarded-server"), request.getHeader("x-forwarded-host"),
+					request.getHeader("cf-visitor"), request.getHeader("connection"), 
+					request.getHeader("cf-connecting-ip"), request.getHeader("user-agent"),
+					new Date());
+	
+		}
+		return visiteur;
+	}
+	
+	/*------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/formulaire_evenement", method = RequestMethod.GET)
 	public String formulaire_evenement(Model model) {
@@ -138,7 +165,12 @@ public class EvenementController {
 	/*-------------------------------------diriger sur un evenement precis-----------------------------------------------*/
 
 	@RequestMapping(value = "/evenements")
-	public String debutmajusculeartiste(Long id, Model model) {
+	public String debutmajusculeartiste(Long id, Model model, HttpServletRequest request) {
+		
+		// Donnees visiteurs ////////////////////////////////
+				Visiteur vvi=voirVisiteur(request);
+				visiteurRepository.save(vvi);
+			// //////////////////////////////////
 
 		Evenement evenementfrontend=evenementRepository.getOne(id);	
 		Evenement evenementfrontendComparaison=evenementRepository.getOne(id);

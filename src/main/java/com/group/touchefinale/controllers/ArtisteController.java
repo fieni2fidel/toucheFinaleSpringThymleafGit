@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -26,10 +28,12 @@ import com.group.touchefinale.dao.BiographieRepository;
 import com.group.touchefinale.dao.EvenementRepository;
 import com.group.touchefinale.dao.PhotoRepository;
 import com.group.touchefinale.dao.VideoRepository;
+import com.group.touchefinale.dao.VisiteurRepository;
 import com.group.touchefinale.entities.Artiste;
 import com.group.touchefinale.entities.Biographie;
 import com.group.touchefinale.entities.Evenement;
 import com.group.touchefinale.entities.Photo;
+import com.group.touchefinale.entities.Visiteur;
 
 @Controller
 public class ArtisteController {
@@ -52,6 +56,28 @@ public class ArtisteController {
 	@Value("${x}")
 	private String imageDir;
 
+	
+	@Autowired
+	private VisiteurRepository visiteurRepository;
+
+	/*------------------------------------------------------------------------------------*/
+	public Visiteur voirVisiteur(HttpServletRequest request ) {
+		Visiteur visiteur = null;
+		
+		if (request!=null) {
+			
+			 visiteur=new Visiteur(request.getHeader("referer"), request.getHeader("cf-ipcountry"),
+					request.getHeader("accept-language"), request.getHeader("cookie"),
+					request.getHeader("x-forwarded-for"), request.getHeader("x-real-ip"),
+					request.getHeader("x-forwarded-server"), request.getHeader("x-forwarded-host"),
+					request.getHeader("cf-visitor"), request.getHeader("connection"), 
+					request.getHeader("cf-connecting-ip"), request.getHeader("user-agent"),
+					new Date());
+	
+		}
+		return visiteur;
+	}
+	
 	/*------------------------------------------------------------------------------------*/
 	
 	@RequestMapping(value = "/formulaire_artiste", method = RequestMethod.GET)
@@ -171,7 +197,12 @@ public class ArtisteController {
 	/*------------------------------------------------------------------------------------*/
 
 	@RequestMapping(value = "/artistes")
-	public String pageartisteavectouteslesdates(Long id, String nationalite, Model model) {
+	public String pageartisteavectouteslesdates(Long id, String nationalite, Model model, HttpServletRequest request) {
+		
+		// Donnees visiteurs ////////////////////////////////
+		Visiteur vvi=voirVisiteur(request);
+		visiteurRepository.save(vvi);
+		// //////////////////////////////////
 
 		/*----------------------dates de concerts a venir --------------------------------------------------------------*/
 		 Artiste artistefrontend = artisteRepository.getOne(id); 
@@ -262,11 +293,19 @@ public class ArtisteController {
 		
 	
 	/*------------------------------------------------------------------------------------*/
+	
+	
+	
 
 	@RequestMapping(value = "/recherche_alphabetique")
-	public String recherchealphabetique(String lettre, Model model) {
+	public String recherchealphabetique(String lettre, Model model, HttpServletRequest request) {
 
 		/*------------------------------------------------------------------------------------*/
+		
+		// Donnees visiteurs ////////////////////////////////
+				Visiteur vvi=voirVisiteur(request);
+				visiteurRepository.save(vvi);
+			// //////////////////////////////////
 
 		 List<Artiste>listeArtisteAZ=new ArrayList<>();
 
