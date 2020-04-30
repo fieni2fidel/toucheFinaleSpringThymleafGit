@@ -119,7 +119,8 @@ public class PhotoController {
 
 	   }
 	   */
-	  return "photo/pageMessageConfirmationphoto";
+	  return "photo/pageMessageConfirmationPhoto";
+	          //photo/pageMessageConfirmationphoto
 	}
 	  
 
