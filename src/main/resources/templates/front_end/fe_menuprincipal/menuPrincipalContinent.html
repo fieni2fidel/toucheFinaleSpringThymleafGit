@@ -121,6 +121,14 @@ h5{
 	/* font-variant: small-caps; */
 }
 
+.titreAlaffiche3{
+	color:  #7C6A19;
+	margin:1px;
+	padding:2px;
+	text-transform:uppercase;
+	/* font-variant: small-caps; */
+}
+
 .prochainEvenement{
 	padding: 0px;
 	color:  #7C6A19;
@@ -265,9 +273,11 @@ height="0" width="0" style="display:none;visibility:hidden">
 						</a>
 						<div class="textRecommandation">
 								<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
-								<h6 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}" maxlength="20">
+								
+								<h6 class="titreAlaffiche1" th:text="${lpb.artiste.nomcompletartiste}">
 								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h6>
-								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span>COTE D'IVOIRE</span></h5>
+								<h6 class="titreAlaffiche3" th:text="${lpb.nomevenement}"></h6>
+								<h6 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span>COTE D'IVOIRE</span></h6>
 								
 						</div>
 					</div>
@@ -299,9 +309,10 @@ height="0" width="0" style="display:none;visibility:hidden">
 							</div>
 						<!-- </a> -->
 						<div class="textRecommandation">
-								<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}">
-								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
-								<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span class="titreAlaffiche">COTE D'IVOIRE</span></h5>
+								<h6 class="titreAlaffiche1" th:text="${lpb.artiste.nomcompletartiste}">
+								MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h6>
+									<h6 class="titreAlaffiche3" th:text="${lpb.nomevenement}"></h6>
+								<h6 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2"><span class="titreAlaffiche">COTE D'IVOIRE</span></h6>
 								
 						</div>
 					</div>
