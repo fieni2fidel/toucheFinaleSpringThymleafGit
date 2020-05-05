@@ -152,10 +152,10 @@ height="0" width="0" style="display:none;visibility:hidden">
 	
 	<!-- --------------------------- A ------------------------ -->
     <div class="row">
-      <h5 class="textRecommandation">A</h5>
+      <h5 class="textRecommandation"></h5>
       <hr>
       <div class="row">
-	        <div class="col-md-2"  th:each="lpb:${listeArtisteAZ}">
+	        <div class="col-xs-6 col-sm-4 col-md-2"  th:each="lpb:${listeArtisteAZ}">
 	         <a th:href="@{artistes(id=${lpb.idartiste})}">
 				   <p class="textRecommandation" th:text="${lpb.nomcompletartiste}"></p>
 	          </a>
@@ -165,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden">
     </div>
     
     
-    <div class="row">
+<!--     <div class="row">
       <h5 class="textRecommandation">A</h5>
       <hr>
       <div class="row">
@@ -176,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 	        </div>  
       </div>
       <hr>
-    </div>
+    </div> -->
        
 </div>
 
