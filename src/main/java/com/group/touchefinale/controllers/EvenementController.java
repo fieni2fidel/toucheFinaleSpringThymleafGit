@@ -175,7 +175,7 @@ public class EvenementController {
 		Evenement evenementfrontend=evenementRepository.getOne(id);	
 		Evenement evenementfrontendComparaison=evenementRepository.getOne(id);
 		
-		List<Evenement> evenementDBA=evenementRepository.findAll();
+		List<Evenement> evenementDBA=evenementRepository.findAll(new Date());
 		List<Evenement> evenementDBAAEvenementsXX=new ArrayList<Evenement>();
 		
 		

@@ -34,6 +34,9 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	  List<Evenement> findAllByArtiste(Artiste artiste);
 	
 	  List<Evenement> findAllBySalle(Salle salle);
+	  
+	  @Query("select e from Evenement e where e.datedebutevenement >= :x")
+	  List<Evenement> findAll(Date x);
 	
 	
 	  @Query(value = "Select e FROM Evenement e WHERE e.salle.lieu.continentlieu= :a") 

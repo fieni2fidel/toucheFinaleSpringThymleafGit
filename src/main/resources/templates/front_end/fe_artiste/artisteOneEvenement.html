@@ -566,7 +566,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 	</div> -->
 	
 	
-<!-- -------------------------- -->
+<!-- ------------- Code A VOIR EGALEMENT ------------- -->
 	<div class="col-xs-12 col-sm-12 col-md-12" style="margin-top:75px;">
 		<h4 style="color:white;float: left; margin:5px;">A voir également</h4>
 	</div>
@@ -583,8 +583,12 @@ height="0" width="0" style="display:none;visibility:hidden">
 							</a>
 							<div class="textRecommandation">
 									<!-- <div class="col-xs-12 col-sm-12 col-md-12"></div> -->
-									<h5 class="titreAlaffiche1" th:text="${'__${lpb.artiste.nomcompletartiste}__' + ' en ' + '__${lpb.nomevenement}__'}" style="text-transform:uppercase;">
-									MAITRE GIMS EN CONCERT FUEGO TOUR A ABIDJAN | </h5>
+									<h6 class="titreAlaffiche1" th:text="${lpb.artiste.nomcompletartiste}" style="text-transform:uppercase;">
+									MAITRE GIMS </h6>
+									
+									<h5 class="titreAlaffiche1" th:text="${lpb.nomevenement}" style="text-transform:uppercase;">
+									 ABIDJAN </h5>
+									
 									<h5 th:text="${lpb.salle.lieu.payslieu}" class="titreAlaffiche2" style="text-transform:uppercase; margin-top:-10px;"><span>COTE D'IVOIRE</span></h5>
 									
 							</div>
