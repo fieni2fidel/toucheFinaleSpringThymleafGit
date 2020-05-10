@@ -68,6 +68,11 @@
 						<div class="col-sm-9"><input type="date" name="motcleRP2" th:value="${motcle2}"/>
 								<button type="submit" class="btn btn-default btchercher">Chercher</button>
 						</div>
+						
+						<div class="col-sm-3 string">Artiste:</div>
+						<div class="col-sm-9"><input type="text" name="motcleRP" th:value="${motcle}"/>
+								
+						</div>
 					</div>
 				</form>
 		</div>
@@ -124,7 +129,7 @@
 		<ul class="nav nav-pills">
 			<li th:each="p:${pages}" th:class="${p==pageCourante}?active:''">
 				<a th:text="${p}" 
-				th:href="@{liste_evenement(pageRP=${p}, motcleRP1=${motcle1}, motcleRP2=${motcle2})}"></a>
+				th:href="@{liste_evenement(pageRP=${p}, motcleRP1=${motcle1}, motcleRP2=${motcle2}, motcleRP=${motcle})}"></a>
 			</li>
 		</ul>
 	</div>

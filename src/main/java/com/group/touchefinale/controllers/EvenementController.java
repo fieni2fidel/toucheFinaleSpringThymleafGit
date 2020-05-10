@@ -98,19 +98,16 @@ public class EvenementController {
 	@RequestMapping(value = "/liste_evenement")
 	public String liste_evenement(Model model,
 			@RequestParam(name="pageRP", defaultValue = "0")int page,
-			@RequestParam(name="motcleRP1", defaultValue = "2017-01-01")
-			@DateTimeFormat(pattern="yyyy-MM-dd")
-			Date motcle1,
-			@RequestParam(name="motcleRP2", defaultValue = "2025-01-01")
-			@DateTimeFormat(pattern="yyyy-MM-dd")
-			Date motcle2) {
+			@RequestParam(name="motcleRP1", defaultValue = "2017-01-01") @DateTimeFormat(pattern="yyyy-MM-dd")Date motcle1,
+			@RequestParam(name="motcleRP2", defaultValue = "2025-01-01") @DateTimeFormat(pattern="yyyy-MM-dd")Date motcle2,
+			@RequestParam(name="motcleRP", defaultValue = "") String motcle) {
 		
 		Calendar c = Calendar.getInstance(); 
 		c.setTime(motcle2); 
 		c.add(Calendar.DATE, 1);
 		motcle2 = c.getTime();
 		
-		Page<Evenement>listeDesEvenements=evenementRepository.chercherDateEvenement(motcle1, motcle2,new PageRequest(page, 10,Sort.by(Sort.Direction.DESC, "datedebutevenement")));
+		Page<Evenement>listeDesEvenements=evenementRepository.chercherDateEvenement(motcle1, motcle2, "%" + motcle + "%", new PageRequest(page, 10,Sort.by(Sort.Direction.DESC, "datedebutevenement")));
 		int pagesCount=listeDesEvenements.getTotalPages();
 		int[]pages=new int[pagesCount];
 		
@@ -120,6 +117,9 @@ public class EvenementController {
 		model.addAttribute("pageCourante", page);
 		model.addAttribute("motcle1", df.format(motcle1));
 		model.addAttribute("motcle2", df.format(motcle2));
+		model.addAttribute("motcle", motcle);
+		
+		
 		model.addAttribute("listeDesEvenements", listeDesEvenements);
 		return "evenement/listeEvenement";
 	}

@@ -22,14 +22,16 @@ public interface EvenementRepository extends JpaRepository<Evenement, Long>{
 	List<Evenement>findAllByOrderByIdevenementDesc();
 	List<Evenement>findAllByOrderByDatedebutevenementDesc();
 	List<Evenement> findByArtisteOrderByDatedebutevenementDesc(Artiste artiste);
-	@Query("select e from Evenement e where e.datedebutevenement >= :x and e.datedebutevenement <= :y")
+	@Query("select e from Evenement e where e.datedebutevenement >= :x and e.datedebutevenement <= :y and e.artiste.nomcompletartiste like :z")
 	Page<Evenement>chercherDateEvenement(@Param("x")
 										 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 										 Date d1, 
 										 
 										 @Param("y")
 										 @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-										 Date d2, Pageable pageable);
+										 Date d2, 
+										 @Param("z")String mc,
+										 Pageable pageable);	
 	
 	  List<Evenement> findAllByArtiste(Artiste artiste);
 	
